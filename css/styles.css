@@ -12,7 +12,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  text-align: center; /* Center all inline content by default */
+  text-align: center; /* Center most inline content */
 }
 
 /* Header */
@@ -29,16 +29,19 @@ header .logo {
   margin: 0 auto; /* Center the logo */
 }
 
+/* Navigation */
 nav {
-  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;       /* Allow nav items to wrap onto multiple lines */
+  justify-content: center;
+  gap: 20px;             /* 20px gap both horizontally and vertically between items */
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  white-space: nowrap; /* Prevent text from wrapping */
-  margin: 0 10px;      /* Horizontal spacing between links */
+  white-space: nowrap;   /* Prevent individual links from wrapping */
 }
 
 nav a.btn {
@@ -51,7 +54,7 @@ nav a.btn {
 #hero {
   background: #e9f2ff;
   padding: 60px 20px;
-  /* text is centered by body rule */
+  /* Text is centered by the body rule */
 }
 
 .cta-btn {
@@ -107,5 +110,5 @@ footer {
   color: #fff;
   padding: 10px;
   margin-top: 20px;
-  text-align: center; /* Center footer text */
+  text-align: center;
 }
