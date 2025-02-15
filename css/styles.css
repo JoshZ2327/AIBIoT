@@ -30,7 +30,7 @@ header .logo {
 
 nav a {
   color: #fff;
-  margin-left: 15px;
+  margin-left: 25px;  /* Increased spacing for more room between buttons */
   text-decoration: none;
   font-weight: bold;
 }
@@ -74,7 +74,8 @@ section form label {
   font-weight: bold;
 }
 
-section form input, section form textarea {
+section form input,
+section form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
