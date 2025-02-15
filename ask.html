@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AIBIoT | Ask Business Questions</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="AIBIoT Logo" class="logo">
+    <img src="images/logo.png" alt="AIBIoT Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
       <a href="login.html">Login</a>
@@ -16,7 +16,7 @@
       <a href="ask.html" class="btn">Ask Question</a>
     </nav>
   </header>
-  
+
   <section id="ask-section">
     <h2>Ask Your Business Question</h2>
     <form id="ask-form">
@@ -29,26 +29,22 @@
       <p id="response-text"></p>
     </div>
   </section>
-  
+
   <footer>
     <p>&copy; 2025 Maverick Software. All rights reserved.</p>
   </footer>
-  
+
   <script>
-    // Listen for form submission and call the /query endpoint
-    document.getElementById("ask-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-      
+    document.getElementById("ask-form").addEventListener("submit", function(e) {
+      e.preventDefault();
       const question = document.getElementById("question").value;
       const responseSection = document.getElementById("response-section");
       const responseText = document.getElementById("response-text");
-      
-      // Show a loading message
+
       responseSection.style.display = "block";
       responseText.innerText = "Loading...";
-      
-      // Replace the URL below with your backend's URL if needed.
-      fetch("http://localhost:8000/query", {
+
+      fetch("https://aib-io-t-backend-final.vercel.app/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: question })
