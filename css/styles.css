@@ -12,6 +12,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  text-align: center; /* Center all general text */
 }
 
 /* Header */
@@ -20,7 +21,7 @@ header {
   color: #fff;
   padding: 10px 20px;
   display: flex;
-  flex-wrap: wrap;       /* Allow wrapping if necessary */
+  flex-wrap: wrap;       /* Allow wrapping if needed */
   align-items: center;
   justify-content: space-between;
 }
@@ -51,8 +52,8 @@ nav a.btn {
 /* Hero Section */
 #hero {
   background: #e9f2ff;
-  text-align: center;
   padding: 60px 20px;
+  /* Text here will be centered because of the body rule */
 }
 
 .cta-btn {
@@ -73,12 +74,16 @@ section form {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
+  text-align: left; /* Keep form content (labels and inputs) left-aligned for readability */
 }
 
 section form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  /* Optionally, center label text:
+     text-align: center;
+  */
 }
 
 section form input,
@@ -88,6 +93,7 @@ section form textarea {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  text-align: left; /* Input text remains left-aligned */
 }
 
 section form button.btn {
@@ -104,7 +110,7 @@ section form button.btn {
 footer {
   background: #333;
   color: #fff;
-  text-align: center;
   padding: 10px;
   margin-top: 20px;
+  /* Text in the footer will be centered via the body rule */
 }
