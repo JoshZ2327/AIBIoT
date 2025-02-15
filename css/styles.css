@@ -20,6 +20,7 @@ header {
   color: #fff;
   padding: 10px 20px;
   display: flex;
+  flex-wrap: wrap;       /* Allow wrapping if necessary */
   align-items: center;
   justify-content: space-between;
 }
@@ -28,11 +29,17 @@ header .logo {
   height: 50px;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;       /* Allow nav items to wrap onto multiple lines */
+  gap: 15px;             /* Gap between items (both horizontally and vertically) */
+}
+
 nav a {
   color: #fff;
-  margin-left: 25px;  /* Increased spacing for more room between buttons */
   text-decoration: none;
   font-weight: bold;
+  white-space: nowrap;   /* Prevent text from wrapping */
 }
 
 nav a.btn {
