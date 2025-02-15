@@ -12,7 +12,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  text-align: center; /* Center all general text */
+  text-align: center; /* Center all inline content by default */
 }
 
 /* Header */
@@ -20,27 +20,25 @@ header {
   background: #007BFF;
   color: #fff;
   padding: 10px 20px;
-  display: flex;
-  flex-wrap: wrap;       /* Allow wrapping if needed */
-  align-items: center;
-  justify-content: space-between;
+  text-align: center; /* Center header text */
 }
 
 header .logo {
   height: 50px;
+  display: block;
+  margin: 0 auto; /* Center the logo */
 }
 
 nav {
-  display: flex;
-  flex-wrap: wrap;       /* Allow nav items to wrap onto multiple lines */
-  gap: 15px;             /* Gap between items (both horizontally and vertically) */
+  margin-top: 10px;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  white-space: nowrap;   /* Prevent text from wrapping */
+  white-space: nowrap; /* Prevent text from wrapping */
+  margin: 0 10px;      /* Horizontal spacing between links */
 }
 
 nav a.btn {
@@ -53,7 +51,7 @@ nav a.btn {
 #hero {
   background: #e9f2ff;
   padding: 60px 20px;
-  /* Text here will be centered because of the body rule */
+  /* text is centered by body rule */
 }
 
 .cta-btn {
@@ -74,16 +72,13 @@ section form {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  text-align: left; /* Keep form content (labels and inputs) left-aligned for readability */
+  text-align: left; /* Keep form content left-aligned for readability */
 }
 
 section form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  /* Optionally, center label text:
-     text-align: center;
-  */
 }
 
 section form input,
@@ -112,5 +107,5 @@ footer {
   color: #fff;
   padding: 10px;
   margin-top: 20px;
-  /* Text in the footer will be centered via the body rule */
+  text-align: center; /* Center footer text */
 }
