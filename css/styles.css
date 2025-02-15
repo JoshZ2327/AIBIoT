@@ -41,18 +41,26 @@ nav a.btn {
   border-radius: 4px;
 }
 
-/* Sections */
-section {
-  padding: 20px;
-}
-
+/* Hero Section */
 #hero {
   background: #e9f2ff;
   text-align: center;
   padding: 60px 20px;
 }
 
-form {
+.cta-btn {
+  display: inline-block;
+  background: #007BFF;
+  color: #fff;
+  padding: 12px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+/* Forms */
+section form {
   max-width: 400px;
   margin: 20px auto;
   background: #fff;
@@ -60,13 +68,13 @@ form {
   border-radius: 4px;
 }
 
-form label {
+section form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-form input, form textarea {
+section form input, section form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -74,7 +82,7 @@ form input, form textarea {
   border-radius: 4px;
 }
 
-form button.btn {
+section form button.btn {
   width: 100%;
   padding: 10px;
   background: #007BFF;
