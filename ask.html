@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIBIoT | Ask Business Questions</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="AIBIoT Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Free Trial</a>
+      <a href="ask.html" class="btn">Ask Question</a>
+    </nav>
+  </header>
+  
+  <section id="ask-section">
+    <h2>Ask Your Business Question</h2>
+    <form id="ask-form">
+      <label for="question">Enter your question:</label>
+      <textarea id="question" name="question" rows="4" placeholder="e.g., What were my sales trends last quarter?" required></textarea>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <div id="response-section" style="display: none;">
+      <h3>Response:</h3>
+      <p id="response-text"></p>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Maverick Software. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // Listen for form submission and call the /query endpoint
+    document.getElementById("ask-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const question = document.getElementById("question").value;
+      const responseSection = document.getElementById("response-section");
+      const responseText = document.getElementById("response-text");
+      
+      // Show a loading message
+      responseSection.style.display = "block";
+      responseText.innerText = "Loading...";
+      
+      // Replace the URL below with your backend's URL if needed.
+      fetch("http://localhost:8000/query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: question })
+      })
+      .then(response => response.json())
+      .then(data => {
+        responseText.innerText = data.response;
+      })
+      .catch(error => {
+        responseText.innerText = "Error: " + error;
+      });
+    });
+  </script>
+</body>
+</html>
