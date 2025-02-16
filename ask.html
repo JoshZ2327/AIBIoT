@@ -11,12 +11,14 @@
     <img src="images/logo.png" alt="AIBIoT Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="ask.html" class="btn active">Ask Question</a>
       <a href="login.html">Login</a>
       <a href="signup.html" class="btn">7 Day Free Trial</a>
-      <a href="ask.html" class="btn">Ask Question</a>
     </nav>
   </header>
 
+  <!-- Ask a Business Question Section -->
   <section id="ask-section">
     <h2>Ask Your Business Question</h2>
     <form id="ask-form">
@@ -30,33 +32,49 @@
     </div>
   </section>
 
+  <!-- Connect Business Data Section -->
+  <section id="connect-data-section">
+    <h2>Connect Your Business Data</h2>
+    <p>Connect SQL databases, CSV files, or external APIs to enhance AI insights.</p>
+
+    <form id="connect-data-form">
+      <label for="data-name">Data Source Name:</label>
+      <input type="text" id="data-name" placeholder="e.g., Sales_DB" required>
+
+      <label for="data-type">Data Type:</label>
+      <select id="data-type">
+        <option value="sqlite">SQL Database</option>
+        <option value="csv">CSV File</option>
+        <option value="api">External API</option>
+      </select>
+
+      <label for="data-path">Data Path / URL:</label>
+      <input type="text" id="data-path" placeholder="Database URL, File Path, or API URL" required>
+
+      <button type="submit" class="btn">Connect Data</button>
+    </form>
+
+    <div id="connected-data">
+      <h3>Connected Data Sources</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Path/URL</th>
+          </tr>
+        </thead>
+        <tbody id="data-table">
+          <!-- Connected data sources will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 Maverick Software. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.getElementById("ask-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const question = document.getElementById("question").value;
-      const responseSection = document.getElementById("response-section");
-      const responseText = document.getElementById("response-text");
-
-      responseSection.style.display = "block";
-      responseText.innerText = "Loading...";
-
-      fetch("https://aib-io-t-backend-final.vercel.app/query", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: question })
-      })
-      .then(response => response.json())
-      .then(data => {
-        responseText.innerText = data.response;
-      })
-      .catch(error => {
-        responseText.innerText = "Error: " + error;
-      });
-    });
-  </script>
+  <script src="js/ask.js"></script>
 </body>
 </html>
