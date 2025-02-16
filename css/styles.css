@@ -1,15 +1,11 @@
-/* ======================== */
-/*   Basic Reset            */
-/* ======================== */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ======================== */
-/*   Body & Typography      */
-/* ======================== */
+/* Body & Typography */
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
@@ -19,9 +15,7 @@ body {
   text-align: center;
 }
 
-/* ======================== */
-/*   Header & Navigation    */
-/* ======================== */
+/* Header */
 header {
   background: #007BFF;
   color: #fff;
@@ -36,6 +30,7 @@ header .logo {
   margin: 0 auto;
 }
 
+/* Navigation */
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -58,17 +53,39 @@ nav a.btn {
   border-radius: 4px;
 }
 
+/* Hero Section */
+#hero {
+  background: #e9f2ff;
+  padding: 60px 20px;
+}
+
+#hero h1 {
+  margin-top: -10px;
+}
+
+/* Call-To-Action Button */
+.cta-btn {
+  display: inline-block;
+  background: #007BFF;
+  color: #fff;
+  padding: 12px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
 /* ======================== */
-/*   AI-Powered Dashboard  */
+/*   Dashboard Enhancements */
 /* ======================== */
 #dashboard {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 50px auto;
   background: white;
-  padding: 35px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   border: 2px solid #ddd;
 }
 
@@ -76,23 +93,23 @@ nav a.btn {
 #dashboard h2 {
   text-align: center;
   color: #007BFF;
-  font-size: 26px;
-  margin-bottom: 40px;
+  font-size: 24px;
+  margin-bottom: 30px;
   font-weight: bold;
 }
 
-/* 🚀 AI Business Metrics - Improved Spacing */
+/* Dashboard Sections - Clearly Boxed */
 .dashboard-section {
   background: #ffffff;
-  padding: 30px;
-  margin: 40px 0;
+  padding: 25px;
+  margin: 35px 0;
   border-radius: 10px;
   border: 2px solid #ddd;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ======================== */
-/*   ✅ Ask Business Question (Fully Restored) */
+/*   Ask Business Question UI (Fully Restored to Pasted Code)  */
 /* ======================== */
 #ask-section, #connect-data-section {
   max-width: 800px;
@@ -137,23 +154,48 @@ nav a.btn {
   display: none;
 }
 
-/* ✅ Fixed Spacing Below "Connected Data Sources" */
-#connected-data {
-  margin-top: 15px;
+/* ✅ Added Spacing Above "Data Source Name" */
+#connect-data-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 /* ✅ Added Spacing Below "Connect Data" Button */
 #connect-data-form button {
-  margin-bottom: 20px;
-}
-
-/* ✅ Fixed Spacing Between "Connected Data Sources" Text & Table */
-#connected-data h3 {
-  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Extra spacing */
 }
 
 /* ======================== */
-/*   Free Trial Page       */
+/*   Connect Data Table UI  */
+/* ======================== */
+#connected-data table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+#connected-data th, #connected-data td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#connected-data th {
+  background: #007BFF;
+  color: white;
+}
+
+/* ======================== */
+/*   Free Trial Page (Title Centered, Form Left-Aligned)  */
 /* ======================== */
 #signup-section {
   max-width: 420px;
@@ -177,7 +219,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Login Page            */
+/*   Login & Free Trial Pages */
 /* ======================== */
 #login-section {
   max-width: 420px;
@@ -190,10 +232,11 @@ nav a.btn {
   text-align: left;
 }
 
+/* ✅ Added Spacing Below "Login to Your Account" */
 #login-section h2 {
   text-align: center;
   color: #007BFF;
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Extra spacing */
 }
 
 #login-form input, #signup-form input {
@@ -219,7 +262,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Footer                */
+/*   Footer Styles          */
 /* ======================== */
 footer {
   background: #333;
