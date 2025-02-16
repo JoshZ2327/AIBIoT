@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIBIoT | Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="images/logo.png" alt="AIBIoT Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="btn active">Dashboard</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html" class="btn">7 Day Free Trial</a>
+      <a href="ask.html" class="btn">Ask Question</a>
+    </nav>
+  </header>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard">
+    <h2>📊 AI-Powered IoT Dashboard</h2>
+
+    <!-- IoT Data Monitoring -->
+    <h3>📡 Latest IoT Sensor Data</h3>
+    <div id="latest-data"></div>
+
+    <!-- AI-Powered Predictive Maintenance -->
+    <h3>🛠 AI-Powered Maintenance Scheduling</h3>
+    <p>Next Scheduled Maintenance: <span id="maintenance-date"></span></p>
+
+    <!-- AI-Powered Spare Parts Inventory -->
+    <h3>📦 Spare Parts Inventory</h3>
+    <div id="inventory-section"></div>
+
+    <!-- AI-Generated Restock Orders -->
+    <h3>📋 AI-Generated Restock Orders</h3>
+    <div id="restock-orders-section"></div>
+
+    <!-- AI-Optimized Technician Assignment -->
+    <h3>👷 Assigned Technician</h3>
+    <p>Technician Assigned: <span id="assigned-technician"></span></p>
+
+    <!-- IoT Data History Graph -->
+    <h3>📊 IoT Data History</h3>
+    <canvas id="iotChart"></canvas>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Maverick Software. All rights reserved.</p>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
