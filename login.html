@@ -11,51 +11,32 @@
     <img src="images/logo.png" alt="AIBIoT Logo" class="logo" />
     <nav>
       <a href="index.html">Home</a>
-      <a href="ask.html" class="btn">Ask Question</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="ask.html">Ask Question</a>
+      <a href="login.html" class="btn active">Login</a>
     </nav>
   </header>
 
+  <!-- Login Section -->
   <section id="login-section">
-    <h2>Login to Your Account</h2>
+    <h2>Login to AIBIoT</h2>
     <form id="login-form">
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" placeholder="Enter your email" required>
 
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
+      <input type="password" id="password" placeholder="Enter your password" required>
 
       <button type="submit" class="btn">Login</button>
     </form>
-    <p id="login-error" style="color: red;"></p>
+
+    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Maverick Software. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.getElementById("login-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      
-      fetch("https://aib-io-t-backend-final.vercel.app/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message === "Login successful") {
-          window.location.href = "ask.html"; // redirect on success
-        } else {
-          document.getElementById("login-error").innerText = data.detail || "Login failed.";
-        }
-      })
-      .catch(error => {
-        document.getElementById("login-error").innerText = "Error: " + error;
-      });
-    });
-  </script>
+  <script src="js/login.js"></script>
 </body>
 </html>
