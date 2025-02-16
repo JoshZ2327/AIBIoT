@@ -33,17 +33,17 @@ header .logo {
 /* Navigation */
 nav {
   display: flex;
-  flex-wrap: wrap;       /* Allow nav items to wrap */
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;   /* Center items vertically */
-  gap: 20px;             /* 20px gap between items */
+  align-items: center;
+  gap: 20px; /* 20px gap between items */
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  white-space: nowrap;   /* Prevent text from wrapping */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 nav a.btn {
@@ -61,9 +61,10 @@ nav a.btn {
 
 /* Move the hero heading slightly up */
 #hero h1 {
-  margin-top: -10px;  /* Adjust this value as needed */
+  margin-top: -10px;
 }
 
+/* Call-To-Action Button */
 .cta-btn {
   display: inline-block;
   background: #007BFF;
@@ -73,6 +74,40 @@ nav a.btn {
   text-decoration: none;
   border-radius: 4px;
   font-size: 1.1rem;
+}
+
+/* Dashboard Section */
+#dashboard {
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Align text to left for better readability */
+}
+
+/* Dashboard Panels */
+#dashboard h2, 
+#dashboard h3 {
+  text-align: center;
+  color: #007BFF;
+}
+
+.dashboard-panel {
+  background: #fff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart Container */
+canvas {
+  display: block;
+  max-width: 100%;
+  margin: 20px auto;
 }
 
 /* Forms */
@@ -118,4 +153,11 @@ footer {
   padding: 10px;
   margin-top: 20px;
   text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #dashboard {
+    width: 95%;
+  }
 }
