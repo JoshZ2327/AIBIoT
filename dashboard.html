@@ -106,6 +106,17 @@
     <button onclick="fetchPredictions()">🔮 Get Predictions</button>
     <canvas id="predictionChart"></canvas>
 
+    <!-- 🚨 NEW: AI-Powered Anomaly Detection -->
+    <h3>🚨 Anomaly Detection</h3>
+    <label for="anomaly-category">Select Category:</label>
+    <select id="anomaly-category">
+        <option value="revenue">Revenue</option>
+        <option value="users">Users</option>
+        <option value="traffic">Traffic</option>
+    </select>
+    <button onclick="fetchAnomalies()">🔍 Detect Anomalies</button>
+    <div id="anomaly-results"></div>
+
     <!-- 📢 NEW: AI-Powered Business Recommendations -->
     <h3>📢 AI-Generated Business Recommendations</h3>
     <div id="recommendations-section"></div>
