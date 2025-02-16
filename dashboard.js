@@ -140,11 +140,40 @@ function updatePredictionChart(dates, values, metric) {
     });
 }
 
+// 🚨 Fetch AI-Powered Anomaly Detection
+async function fetchAnomalies() {
+    const category = document.getElementById("anomaly-category").value;
+
+    const response = await fetch(`${BACKEND_URL}/detect-anomalies`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category })
+    });
+
+    const data = await response.json();
+
+    let anomaliesHTML = "<ul>";
+    data.anomalies.forEach(anomaly => {
+        anomaliesHTML += `<li>⚠️ ${anomaly}</li>`;
+    });
+    anomaliesHTML += "</ul>";
+
+    document.getElementById("anomaly-results").innerHTML = anomaliesHTML;
+}
+
 // 🚀 Fetch AI-Powered Recommendations
 async function fetchRecommendations() {
-    const response = await fetch(`${BACKEND_URL}/generate-recommendations`);
+    const category = document.getElementById("predict-metric").value;
+    const future_days = parseInt(document.getElementById("predict-days").value, 10);
+
+    const response = await fetch(`${BACKEND_URL}/ai-recommendations`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category, future_days })
+    });
+
     const data = await response.json();
-    
+
     let recommendationsHTML = "<ul>";
     data.recommendations.forEach(rec => {
         recommendationsHTML += `<li>📌 ${rec}</li>`;
