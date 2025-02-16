@@ -1,5 +1,9 @@
 const BACKEND_URL = "https://aibiot-backend.vercel.app"; // Replace with actual backend URL
 
+// Sound Alerts
+const alertSound = new Audio("sounds/alert.mp3"); // Add an alert sound file to your project
+let soundEnabled = true; // Default setting: Sound alerts ON
+
 // Fetch Latest IoT Sensor Data
 async function fetchLatestIoTData() {
     const response = await fetch(`${BACKEND_URL}/latest-iot-data`);
@@ -159,6 +163,9 @@ async function fetchAnomalies() {
         anomaliesHTML += `<li>⚠️ ${anomaly.value} (Score: ${anomaly.score})</li>`;
         if (anomaly.is_anomaly) {
             warningMessage = `⚠️ Anomaly detected in ${category}: ${anomaly.value}`;
+            if (soundEnabled) {
+                alertSound.play(); // Play alert sound
+            }
         }
     });
     anomaliesHTML += "</ul>";
@@ -202,6 +209,12 @@ function showWarning(message) {
 // 🚨 Dismiss Warning
 function dismissWarning() {
     document.getElementById("dashboard-warnings").classList.add("hidden");
+}
+
+// 🎵 Toggle Sound Alerts
+function toggleSoundAlerts() {
+    soundEnabled = !soundEnabled;
+    document.getElementById("sound-status").innerText = soundEnabled ? "🔊 ON" : "🔇 OFF";
 }
 
 // 🔄 Auto-update every 5 seconds
