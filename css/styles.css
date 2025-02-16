@@ -103,8 +103,8 @@ nav a.btn {
   display: flex;
   justify-content: space-around;
   gap: 40px;
-  margin: 50px 0;
-  padding: 30px 0;
+  margin: 60px 0; /* Increased top & bottom margin */
+  padding: 35px 0;
 }
 
 /* Individual Metric Box */
@@ -119,10 +119,10 @@ nav a.btn {
   font-weight: bold;
 }
 
-/* ✅ Added More Spacing Between "AI-Generated Insights" Section and the Section Above */
+/* ✅ Significantly More Spacing Between "AI-Generated Insights" Section and the Section Above */
 .ai-insights-section {
-  margin-top: 60px; /* Increased space for better separation */
-  padding-top: 20px;
+  margin-top: 80px; /* Further increased top margin */
+  padding-top: 30px;
   border-top: 2px solid #ddd;
 }
 
