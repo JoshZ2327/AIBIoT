@@ -109,9 +109,9 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Ask Business Question UI  (Restored Original Design) */
+/*   Ask Business Question UI  (Fully Restored) */
 /* ======================== */
-#ask-section {
+#ask-section, #connect-data-section {
   max-width: 800px;
   margin: 40px auto;
   background: white;
@@ -122,12 +122,12 @@ nav a.btn {
   border: 2px solid #ddd;
 }
 
-#ask-section h2 {
+#ask-section h2, #connect-data-section h2 {
   color: #007BFF;
 }
 
-/* ✅ Restored Original Spacing for Ask Question Page */
-#ask-form textarea {
+/* ✅ Fully Restored Ask Page Input and Buttons */
+#ask-form textarea, #connect-data-form input, #connect-data-form select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -135,7 +135,7 @@ nav a.btn {
   border-radius: 5px;
 }
 
-#ask-form button {
+#ask-form button, #connect-data-form button {
   width: 100%;
   padding: 10px;
   background: #007BFF;
@@ -153,6 +153,24 @@ nav a.btn {
   border-radius: 6px;
   border: 1px solid #ddd;
   display: none;
+}
+
+/* ✅ Fully Restored Connected Data Section */
+#connected-data table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+#connected-data th, #connected-data td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#connected-data th {
+  background: #007BFF;
+  color: white;
 }
 
 /* ✅ Restored Free Trial Page Heading */
