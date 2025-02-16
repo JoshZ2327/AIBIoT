@@ -1,11 +1,15 @@
-/* Basic Reset */
+/* ======================== */
+/*   Basic Reset            */
+/* ======================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body & Typography */
+/* ======================== */
+/*   Body & Typography      */
+/* ======================== */
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
@@ -15,7 +19,9 @@ body {
   text-align: center;
 }
 
-/* Header */
+/* ======================== */
+/*   Header & Navigation    */
+/* ======================== */
 header {
   background: #007BFF;
   color: #fff;
@@ -30,7 +36,6 @@ header .logo {
   margin: 0 auto;
 }
 
-/* Navigation */
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -53,7 +58,9 @@ nav a.btn {
   border-radius: 4px;
 }
 
-/* Hero Section */
+/* ======================== */
+/*   Hero Section          */
+/* ======================== */
 #hero {
   background: #e9f2ff;
   padding: 60px 20px;
@@ -76,16 +83,16 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Dashboard Enhancements */
+/*   AI-Powered Dashboard  */
 /* ======================== */
 #dashboard {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 50px auto;
   background: white;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  text-align: center;
   border: 2px solid #ddd;
 }
 
@@ -98,18 +105,89 @@ nav a.btn {
   font-weight: bold;
 }
 
-/* Dashboard Sections - Clearly Boxed */
-.dashboard-section {
-  background: #ffffff;
-  padding: 25px;
-  margin: 35px 0;
-  border-radius: 10px;
+/* 🚀 AI Business Metrics - Added Spacing */
+.dashboard-metrics {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0; /* Increased spacing */
+  padding: 20px 0; /* Added padding */
+  gap: 35px; /* More spacing between metric boxes */
+}
+
+.metric-box {
+  background: #f9f9f9;
+  padding: 25px; /* Increased padding */
+  border-radius: 12px;
   border: 2px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 30%;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* ======================== */
-/*   Ask Business Question UI (Fully Restored to Pasted Code)  */
+/*   Data Filtering        */
+/* ======================== */
+.filter-section {
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  background: #f9f9f9;
+}
+
+.filter-section label {
+  font-weight: bold;
+}
+
+.filter-section select, .filter-section button {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* ======================== */
+/*   AI-Powered Charts     */
+/* ======================== */
+.chart-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px; /* More space between charts */
+  margin: 40px 0;
+}
+
+.chart-section canvas {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+/* ======================== */
+/*   Export Insights       */
+/* ======================== */
+.export-section {
+  margin: 40px 0;
+}
+
+.export-section button {
+  margin: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  background: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+
+.export-section button:hover {
+  background: #0056b3;
+}
+
+/* ======================== */
+/*   Ask Business Question */
 /* ======================== */
 #ask-section, #connect-data-section {
   max-width: 800px;
@@ -175,27 +253,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Connect Data Table UI  */
-/* ======================== */
-#connected-data table {
-  width: 100%;
-  margin-top: 15px;
-  border-collapse: collapse;
-}
-
-#connected-data th, #connected-data td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-#connected-data th {
-  background: #007BFF;
-  color: white;
-}
-
-/* ======================== */
-/*   Free Trial Page (Title Centered, Form Left-Aligned)  */
+/*   Free Trial Page       */
 /* ======================== */
 #signup-section {
   max-width: 420px;
@@ -219,7 +277,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Login & Free Trial Pages */
+/*   Login Page            */
 /* ======================== */
 #login-section {
   max-width: 420px;
@@ -232,7 +290,6 @@ nav a.btn {
   text-align: left;
 }
 
-/* ✅ Added Spacing Below "Login to Your Account" */
 #login-section h2 {
   text-align: center;
   color: #007BFF;
@@ -262,7 +319,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Footer Styles          */
+/*   Footer                */
 /* ======================== */
 footer {
   background: #333;
