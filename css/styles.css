@@ -109,9 +109,9 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Ask Business Question UI  */
+/*   Ask Business Question UI  (Restored Original Design) */
 /* ======================== */
-#ask-section, #connect-data-section {
+#ask-section {
   max-width: 800px;
   margin: 40px auto;
   background: white;
@@ -122,20 +122,20 @@ nav a.btn {
   border: 2px solid #ddd;
 }
 
-#ask-section h2, #connect-data-section h2 {
+#ask-section h2 {
   color: #007BFF;
 }
 
-/* ✅ Added Spacing Above "Data Source Name" */
-#connect-data-form label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 5px;
-  font-weight: bold;
+/* ✅ Restored Original Spacing for Ask Question Page */
+#ask-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* ✅ Added Spacing Below "Connect Data" Button */
-#connect-data-form button {
+#ask-form button {
   width: 100%;
   padding: 10px;
   background: #007BFF;
@@ -143,27 +143,22 @@ nav a.btn {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 15px; /* Extra spacing */
 }
 
-/* ======================== */
-/*   Connect Data Table UI  */
-/* ======================== */
-#connected-data table {
-  width: 100%;
+/* AI Response Box */
+.response-box {
+  background: #f9f9f9;
+  padding: 15px;
   margin-top: 15px;
-  border-collapse: collapse;
-}
-
-#connected-data th, #connected-data td {
+  border-radius: 6px;
   border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+  display: none;
 }
 
-#connected-data th {
-  background: #007BFF;
-  color: white;
+/* ✅ Restored Free Trial Page Heading */
+#signup-section h2 {
+  text-align: center;
+  color: #007BFF; /* Restored blue color */
 }
 
 /* ======================== */
@@ -185,12 +180,6 @@ nav a.btn {
   text-align: center;
   color: #007BFF;
   margin-bottom: 15px; /* Extra spacing */
-}
-
-/* ✅ Restored Free Trial Page Heading */
-#signup-section h2 {
-  text-align: center;
-  color: #007BFF; /* Restored blue color */
 }
 
 #login-form input, #signup-form input {
