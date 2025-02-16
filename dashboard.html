@@ -21,56 +21,65 @@
   </header>
 
   <!-- 🚨 Real-Time Dashboard Warnings -->
-  <section id="dashboard-warnings" class="hidden">
+  <section id="dashboard-warnings" class="hidden" style="margin-bottom: 30px;">
     <h3>🚨 Warning: Anomalies Detected</h3>
     <p id="warning-message"></p>
     <button onclick="dismissWarning()">Dismiss</button>
   </section>
 
+  <hr>
+
   <!-- 📜 Alert Log Section -->
-  <section id="alert-log-section">
+  <section id="alert-log-section" style="margin-bottom: 40px;">
     <h3>📜 Alert Log</h3>
-    <table id="alert-log-table">
-      <tr>
-        <th>Timestamp</th>
-        <th>Category</th>
-        <th>Value</th>
-        <th>Score</th>
-      </tr>
-    </table>
+    <ul id="alert-log"></ul>
   </section>
 
-  <!-- Dashboard Section -->
-  <section id="dashboard">
+  <hr>
+
+  <!-- 📊 AI-Powered IoT & Business Dashboard -->
+  <section id="dashboard" style="margin-bottom: 50px;">
     <h2>📊 AI-Powered IoT & Business Dashboard</h2>
 
     <!-- 📡 IoT Data Monitoring -->
     <h3>📡 Latest IoT Sensor Data</h3>
-    <div id="latest-data"></div>
+    <div id="latest-data" style="margin-bottom: 20px;"></div>
+
+    <hr>
 
     <!-- 🛠 AI-Powered Predictive Maintenance -->
     <h3>🛠 AI-Powered Maintenance Scheduling</h3>
     <p>Next Scheduled Maintenance: <span id="maintenance-date"></span></p>
 
+    <hr>
+
     <!-- 📦 AI-Powered Spare Parts Inventory -->
     <h3>📦 Spare Parts Inventory</h3>
-    <div id="inventory-section"></div>
+    <div id="inventory-section" style="margin-bottom: 20px;"></div>
+
+    <hr>
 
     <!-- 📋 AI-Generated Restock Orders -->
     <h3>📋 AI-Generated Restock Orders</h3>
-    <div id="restock-orders-section"></div>
+    <div id="restock-orders-section" style="margin-bottom: 20px;"></div>
+
+    <hr>
 
     <!-- 👷 AI-Optimized Technician Assignment -->
     <h3>👷 Assigned Technician</h3>
     <p>Technician Assigned: <span id="assigned-technician"></span></p>
 
+    <hr>
+
     <!-- 📊 IoT Data History Graph -->
     <h3>📊 IoT Data History</h3>
-    <canvas id="iotChart"></canvas>
+    <canvas id="iotChart" style="margin-bottom: 30px;"></canvas>
+
+    <hr>
 
     <!-- 🚀 AI-Powered Business Metrics -->
     <h3>🚀 AI-Powered Business Metrics</h3>
-    <div class="dashboard-metrics">
+    <div class="dashboard-metrics" style="display: flex; justify-content: space-around; margin-bottom: 30px;">
       <div class="metric-box">
         <h3>Total Revenue</h3>
         <p id="total-revenue">$0</p>
@@ -85,8 +94,10 @@
       </div>
     </div>
 
+    <hr>
+
     <!-- 📅 Data Filtering -->
-    <div class="filter-section">
+    <div class="filter-section" style="margin-bottom: 30px;">
       <h3>📅 Filter Data</h3>
       <label for="date-range">Select Date Range:</label>
       <select id="date-range">
@@ -103,13 +114,17 @@
       <button id="apply-filter">Apply Filters</button>
     </div>
 
+    <hr>
+
     <!-- 📊 AI-Powered Business Charts -->
     <h3>📊 AI-Generated Insights</h3>
-    <div class="chart-section">
+    <div class="chart-section" style="display: flex; justify-content: space-around; margin-bottom: 30px;">
       <canvas id="revenueChart"></canvas>
       <canvas id="usersChart"></canvas>
       <canvas id="trafficChart"></canvas>
     </div>
+
+    <hr>
 
     <!-- 📈 Predictive Analytics -->
     <h3>📈 Predict Future Business Trends</h3>
@@ -124,7 +139,9 @@
     <input type="number" id="predict-days" value="7" min="1" max="90" />
 
     <button onclick="fetchPredictions()">🔮 Get Predictions</button>
-    <canvas id="predictionChart"></canvas>
+    <canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
+
+    <hr>
 
     <!-- 🚨 AI-Powered Anomaly Detection -->
     <h3>🚨 Anomaly Detection</h3>
@@ -135,28 +152,30 @@
         <option value="traffic">Traffic</option>
     </select>
     <button onclick="fetchAnomalies()">🔍 Detect Anomalies</button>
-    <div id="anomaly-results"></div>
+    <div id="anomaly-results" style="margin-bottom: 30px;"></div>
+
+    <hr>
 
     <!-- 📢 AI-Powered Business Recommendations -->
     <h3>📢 AI-Generated Business Recommendations</h3>
-    <div id="recommendations-section"></div>
+    <div id="recommendations-section" style="margin-bottom: 30px;"></div>
 
-    <!-- 🎵 Sound & Alert Log Controls -->
-    <h3>🔊 Sound & Log Settings</h3>
-    <button onclick="toggleSoundAlerts()">🔊 Toggle Sound: <span id="sound-status">ON</span></button>
-    <button onclick="clearAlertLog()">🗑️ Clear Log</button>
+    <hr>
 
     <!-- 📥 Export Insights -->
     <h3>📥 Export AI Insights</h3>
-    <div class="export-section">
+    <div class="export-section" style="display: flex; justify-content: space-around;">
       <button id="export-csv">Export CSV</button>
       <button id="export-pdf">Export PDF</button>
       <button id="export-excel">Export Excel</button>
     </div>
+
   </section>
 
+  <hr>
+
   <!-- Footer -->
-  <footer>
+  <footer style="text-align: center; padding: 20px;">
     <p>&copy; 2025 Maverick Software. All rights reserved.</p>
   </footer>
 
