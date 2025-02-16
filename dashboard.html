@@ -20,6 +20,13 @@
     </nav>
   </header>
 
+  <!-- 🚨 Real-Time Dashboard Warnings -->
+  <section id="dashboard-warnings" class="hidden">
+    <h3>🚨 Warning: Anomalies Detected</h3>
+    <p id="warning-message"></p>
+    <button onclick="dismissWarning()">Dismiss</button>
+  </section>
+
   <!-- Dashboard Section -->
   <section id="dashboard">
     <h2>📊 AI-Powered IoT & Business Dashboard</h2>
@@ -48,7 +55,7 @@
     <h3>📊 IoT Data History</h3>
     <canvas id="iotChart"></canvas>
 
-    <!-- 🚀 NEW: AI-Powered Business Metrics -->
+    <!-- 🚀 AI-Powered Business Metrics -->
     <h3>🚀 AI-Powered Business Metrics</h3>
     <div class="dashboard-metrics">
       <div class="metric-box">
@@ -65,7 +72,7 @@
       </div>
     </div>
 
-    <!-- 📅 NEW: Data Filtering -->
+    <!-- 📅 Data Filtering -->
     <div class="filter-section">
       <h3>📅 Filter Data</h3>
       <label for="date-range">Select Date Range:</label>
@@ -83,7 +90,7 @@
       <button id="apply-filter">Apply Filters</button>
     </div>
 
-    <!-- 📊 NEW: AI-Powered Business Charts -->
+    <!-- 📊 AI-Powered Business Charts -->
     <h3>📊 AI-Generated Insights</h3>
     <div class="chart-section">
       <canvas id="revenueChart"></canvas>
@@ -91,7 +98,7 @@
       <canvas id="trafficChart"></canvas>
     </div>
 
-    <!-- 📈 NEW: Predictive Analytics -->
+    <!-- 📈 Predictive Analytics -->
     <h3>📈 Predict Future Business Trends</h3>
     <label for="predict-metric">Select Metric:</label>
     <select id="predict-metric">
@@ -106,8 +113,8 @@
     <button onclick="fetchPredictions()">🔮 Get Predictions</button>
     <canvas id="predictionChart"></canvas>
 
-    <!-- 🚨 NEW: AI-Powered Anomaly Detection -->
-    <h3>🚨 Anomaly Detection</h3>
+    <!-- 🚨 Anomaly Detection -->
+    <h3>🚨 AI-Powered Anomaly Detection</h3>
     <label for="anomaly-category">Select Category:</label>
     <select id="anomaly-category">
         <option value="revenue">Revenue</option>
@@ -117,11 +124,11 @@
     <button onclick="fetchAnomalies()">🔍 Detect Anomalies</button>
     <div id="anomaly-results"></div>
 
-    <!-- 📢 NEW: AI-Powered Business Recommendations -->
+    <!-- 📢 AI-Powered Business Recommendations -->
     <h3>📢 AI-Generated Business Recommendations</h3>
     <div id="recommendations-section"></div>
 
-    <!-- 📥 NEW: Export Insights -->
+    <!-- 📥 Export Insights -->
     <h3>📥 Export AI Insights</h3>
     <div class="export-section">
       <button id="export-csv">Export CSV</button>
