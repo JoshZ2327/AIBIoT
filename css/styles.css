@@ -262,9 +262,11 @@ canvas {
   text-align: left;
 }
 
-#login-section h2, #signup-section h2 {
+/* ✅ Added Spacing Below "Login to Your Account" */
+#login-section h2 {
   text-align: center;
   color: #007BFF;
+  margin-bottom: 15px; /* Extra spacing */
 }
 
 #login-form input, #signup-form input {
@@ -299,15 +301,4 @@ footer {
   margin-top: 40px;
   text-align: center;
   font-size: 16px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  #dashboard, #ask-section, #connect-data-section, #login-section, #signup-section {
-    width: 95%;
-  }
-
-  .dashboard-section {
-    padding: 20px;
-  }
 }
