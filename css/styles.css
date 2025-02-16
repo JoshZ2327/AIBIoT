@@ -75,7 +75,7 @@ nav a.btn {
   font-size: 1.1rem;
 }
 
-  /* ======================== */
+ /* ======================== */
 /*   AI-Powered Dashboard  */
 /* ======================== */
 #dashboard {
@@ -103,7 +103,7 @@ nav a.btn {
   display: flex;
   justify-content: space-around;
   gap: 40px;
-  margin: 60px 0; /* Increased top & bottom margin */
+  margin: 40px 0;
   padding: 35px 0;
 }
 
@@ -119,10 +119,10 @@ nav a.btn {
   font-weight: bold;
 }
 
-/* ✅ Significantly More Spacing Between "AI-Generated Insights" Section and the Section Above */
+/* ✅ More Space Between AI-Generated Insights and the Section Above */
 .ai-insights-section {
-  margin-top: 80px; /* Further increased top margin */
-  padding-top: 30px;
+  margin-top: 100px; /* Increased margin for extra spacing */
+  padding-top: 40px;
   border-top: 2px solid #ddd;
 }
 
