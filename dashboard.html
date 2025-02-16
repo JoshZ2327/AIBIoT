@@ -22,31 +22,82 @@
 
   <!-- Dashboard Section -->
   <section id="dashboard">
-    <h2>📊 AI-Powered IoT Dashboard</h2>
+    <h2>📊 AI-Powered IoT & Business Dashboard</h2>
 
-    <!-- IoT Data Monitoring -->
+    <!-- 📡 IoT Data Monitoring -->
     <h3>📡 Latest IoT Sensor Data</h3>
     <div id="latest-data"></div>
 
-    <!-- AI-Powered Predictive Maintenance -->
+    <!-- 🛠 AI-Powered Predictive Maintenance -->
     <h3>🛠 AI-Powered Maintenance Scheduling</h3>
     <p>Next Scheduled Maintenance: <span id="maintenance-date"></span></p>
 
-    <!-- AI-Powered Spare Parts Inventory -->
+    <!-- 📦 AI-Powered Spare Parts Inventory -->
     <h3>📦 Spare Parts Inventory</h3>
     <div id="inventory-section"></div>
 
-    <!-- AI-Generated Restock Orders -->
+    <!-- 📋 AI-Generated Restock Orders -->
     <h3>📋 AI-Generated Restock Orders</h3>
     <div id="restock-orders-section"></div>
 
-    <!-- AI-Optimized Technician Assignment -->
+    <!-- 👷 AI-Optimized Technician Assignment -->
     <h3>👷 Assigned Technician</h3>
     <p>Technician Assigned: <span id="assigned-technician"></span></p>
 
-    <!-- IoT Data History Graph -->
+    <!-- 📊 IoT Data History Graph -->
     <h3>📊 IoT Data History</h3>
     <canvas id="iotChart"></canvas>
+
+    <!-- 🚀 NEW: AI-Powered Business Metrics -->
+    <h3>🚀 AI-Powered Business Metrics</h3>
+    <div class="dashboard-metrics">
+      <div class="metric-box">
+        <h3>Total Revenue</h3>
+        <p id="total-revenue">$0</p>
+      </div>
+      <div class="metric-box">
+        <h3>New Users</h3>
+        <p id="new-users">0</p>
+      </div>
+      <div class="metric-box">
+        <h3>Website Traffic</h3>
+        <p id="traffic">0</p>
+      </div>
+    </div>
+
+    <!-- 📅 NEW: Data Filtering -->
+    <div class="filter-section">
+      <h3>📅 Filter Data</h3>
+      <label for="date-range">Select Date Range:</label>
+      <select id="date-range">
+        <option value="7">Last 7 Days</option>
+        <option value="30">Last 30 Days</option>
+        <option value="custom">Custom</option>
+      </select>
+      <label for="category">Select Category:</label>
+      <select id="category">
+        <option value="sales">Sales</option>
+        <option value="users">Users</option>
+        <option value="traffic">Traffic</option>
+      </select>
+      <button id="apply-filter">Apply Filters</button>
+    </div>
+
+    <!-- 📊 NEW: AI-Powered Business Charts -->
+    <h3>📊 AI-Generated Insights</h3>
+    <div class="chart-section">
+      <canvas id="revenueChart"></canvas>
+      <canvas id="usersChart"></canvas>
+      <canvas id="trafficChart"></canvas>
+    </div>
+
+    <!-- 📥 NEW: Export Insights -->
+    <h3>📥 Export AI Insights</h3>
+    <div class="export-section">
+      <button id="export-csv">Export CSV</button>
+      <button id="export-pdf">Export PDF</button>
+      <button id="export-excel">Export Excel</button>
+    </div>
   </section>
 
   <!-- Footer -->
