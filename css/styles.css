@@ -211,9 +211,21 @@ canvas {
 /* ✅ Added Spacing Above "Data Source Name" */
 #connect-data-form label {
   display: block;
-  margin-top: 12px; /* Extra spacing */
+  margin-top: 12px;
   margin-bottom: 5px;
   font-weight: bold;
+}
+
+/* ✅ Added Spacing Below "Connect Data" Button */
+#connect-data-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Extra spacing */
 }
 
 /* ======================== */
