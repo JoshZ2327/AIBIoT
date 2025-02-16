@@ -44,12 +44,24 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   white-space: nowrap;
+  padding: 5px 15px;
+  border-radius: 4px;
 }
 
+/* ✅ Restored Design for 7 Day Free Trial & Login */
 nav a.btn {
-  background: transparent;
-  padding: 5px 10px;
-  border-radius: 4px;
+  background: #ffffff;
+  color: #007BFF;
+  font-weight: bold;
+  padding: 8px 15px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav a.btn:hover {
+  background: #007BFF;
+  color: #ffffff;
 }
 
 /* Hero Section */
