@@ -8,7 +8,7 @@
 /* Body & Typography */
 body {
   font-family: Arial, sans-serif;
-  background: #f4f6f9; /* Lighter background for a modern look */
+  background: #f4f4f4;
   color: #333;
   margin: 0;
   padding: 0;
@@ -19,14 +19,13 @@ body {
 header {
   background: #007BFF;
   color: #fff;
-  padding: 15px 20px;
+  padding: 10px 20px;
   text-align: center;
-  margin-bottom: 30px; /* Extra space below header */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+  margin-bottom: 20px;
 }
 
 header .logo {
-  height: 55px;
+  height: 50px;
   display: block;
   margin: 0 auto;
 }
@@ -34,108 +33,91 @@ header .logo {
 /* Navigation */
 nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  padding: 10px 0;
+  gap: 20px;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: 0.3s;
+  white-space: nowrap;
 }
 
-nav a:hover, .btn.active {
-  background: #0056b3;
-  padding: 12px 18px;
+nav a.btn {
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 /* Hero Section */
 #hero {
   background: #e9f2ff;
-  padding: 80px 20px;
-  box-shadow: inset 0px -4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  padding: 60px 20px;
 }
 
 #hero h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  margin-top: -10px;
 }
 
-#hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #444;
-}
-
+/* Call-To-Action Button */
 .cta-btn {
   display: inline-block;
   background: #007BFF;
   color: #fff;
-  padding: 15px 25px;
-  margin-top: 25px;
+  padding: 12px 20px;
+  margin-top: 20px;
   text-decoration: none;
-  border-radius: 6px;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-
-.cta-btn:hover {
-  background: #0056b3;
+  border-radius: 4px;
+  font-size: 1.1rem;
 }
 
 /* ======================== */
-/*    Dashboard Styling     */
+/*  Improved Dashboard UI  */
 /* ======================== */
 #dashboard {
-  max-width: 950px;
+  max-width: 900px;
   margin: 40px auto;
   background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* More depth */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: left;
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
 }
 
 /* Dashboard Title */
 #dashboard h2 {
   text-align: center;
   color: #007BFF;
-  font-size: 26px;
-  margin-bottom: 25px;
-  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 /* Boxed Sections */
 .dashboard-section {
   background: #ffffff;
-  padding: 25px;
-  margin: 30px 0;
-  border-radius: 12px;
-  border: 2px solid #ddd;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Section Headers */
 .dashboard-section h3 {
   color: #007BFF;
-  font-size: 20px;
-  margin-bottom: 15px;
-  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 /* IoT Data Box */
 .iot-data-box {
   background: #f9f9f9;
   padding: 15px;
-  margin-top: 12px;
+  margin-top: 10px;
   border-radius: 8px;
   border: 1px solid #ddd;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
@@ -145,7 +127,6 @@ nav a:hover, .btn.active {
 #maintenance-date {
   font-weight: bold;
   color: #d9534f;
-  font-size: 18px;
 }
 
 /* Spare Parts Inventory */
@@ -154,8 +135,8 @@ nav a:hover, .btn.active {
   padding: 12px;
   margin: 8px 0;
   border-radius: 6px;
-  border: 2px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* AI-Optimized Technician Assignment */
@@ -169,34 +150,34 @@ nav a:hover, .btn.active {
 canvas {
   display: block;
   max-width: 100%;
-  margin: 25px auto;
+  margin: 20px auto;
 }
 
 /* Forms */
 section form {
-  max-width: 420px;
-  margin: 30px auto;
+  max-width: 400px;
+  margin: 20px auto;
   background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  border: 2px solid #ddd;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
 
 section form label {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
 section form input,
 section form textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 section form button.btn {
@@ -218,19 +199,14 @@ section form button.btn:hover {
 footer {
   background: #333;
   color: #fff;
-  padding: 15px;
-  margin-top: 30px;
+  padding: 10px;
+  margin-top: 20px;
   text-align: center;
-  font-size: 14px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   #dashboard {
     width: 95%;
-  }
-
-  .dashboard-section {
-    padding: 20px;
   }
 }
