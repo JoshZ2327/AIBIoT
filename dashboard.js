@@ -151,14 +151,24 @@ async function fetchAnomalies() {
     });
 
     const data = await response.json();
-
+    
     let anomaliesHTML = "<ul>";
+    let warningMessage = "";
+
     data.anomalies.forEach(anomaly => {
-        anomaliesHTML += `<li>⚠️ ${anomaly}</li>`;
+        anomaliesHTML += `<li>⚠️ ${anomaly.value} (Score: ${anomaly.score})</li>`;
+        if (anomaly.is_anomaly) {
+            warningMessage = `⚠️ Anomaly detected in ${category}: ${anomaly.value}`;
+        }
     });
     anomaliesHTML += "</ul>";
 
     document.getElementById("anomaly-results").innerHTML = anomaliesHTML;
+
+    // 🚨 Show Warning Banner
+    if (warningMessage) {
+        showWarning(warningMessage);
+    }
 }
 
 // 🚀 Fetch AI-Powered Recommendations
@@ -183,6 +193,17 @@ async function fetchRecommendations() {
     document.getElementById("recommendations-section").innerHTML = recommendationsHTML;
 }
 
+// 🚨 Show Warning Banner
+function showWarning(message) {
+    document.getElementById("warning-message").innerText = message;
+    document.getElementById("dashboard-warnings").classList.remove("hidden");
+}
+
+// 🚨 Dismiss Warning
+function dismissWarning() {
+    document.getElementById("dashboard-warnings").classList.add("hidden");
+}
+
 // 🔄 Auto-update every 5 seconds
 setInterval(() => {
     fetchLatestIoTData();
@@ -191,6 +212,7 @@ setInterval(() => {
     fetchRestockOrders();
     fetchIoTHistory();
     fetchBusinessMetrics();
+    fetchAnomalies();
 }, 5000);
 
 // 🏁 Initial Fetch
