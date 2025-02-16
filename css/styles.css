@@ -12,22 +12,22 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  text-align: center; /* Center general text */
+  text-align: center;
 }
 
 /* Header */
 header {
   background: #007BFF;
   color: #fff;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-align: center;
-  margin-bottom: 20px; /* Extra space below header */
+  margin-bottom: 20px;
 }
 
 header .logo {
   height: 50px;
   display: block;
-  margin: 0 auto; /* Center the logo */
+  margin: 0 auto;
 }
 
 /* Navigation */
@@ -36,18 +36,18 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* 20px gap between items */
+  gap: 20px;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap;
 }
 
 nav a.btn {
-  background: transparent; /* Remove dark background */
+  background: transparent;
   padding: 5px 10px;
   border-radius: 4px;
 }
@@ -56,15 +56,12 @@ nav a.btn {
 #hero {
   background: #e9f2ff;
   padding: 60px 20px;
-  /* Inherits centered text from body */
 }
 
-/* Move the hero heading slightly up */
 #hero h1 {
   margin-top: -10px;
 }
 
-/* Call-To-Action Button */
 .cta-btn {
   display: inline-block;
   background: #007BFF;
@@ -76,34 +73,71 @@ nav a.btn {
   font-size: 1.1rem;
 }
 
-/* Dashboard Section */
+/* ======================== */
+/*    Dashboard Styling     */
+/* ======================== */
 #dashboard {
-  max-width: 800px;
-  margin: 30px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: left; /* Align text to left for better readability */
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  border: 1px solid #ddd;
 }
 
-/* Dashboard Panels */
-#dashboard h2, 
-#dashboard h3 {
+/* Dashboard Title */
+#dashboard h2 {
   text-align: center;
   color: #007BFF;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.dashboard-panel {
+/* Boxed Sections */
+.dashboard-section {
+  background: #f8f9fa;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h3 {
+  color: #007BFF;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* IoT Data Display */
+.iot-data-box {
   background: #fff;
   padding: 15px;
-  margin: 15px 0;
+  margin-top: 10px;
   border-radius: 6px;
   border: 1px solid #ddd;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Chart Container */
+/* AI Maintenance Prediction */
+#maintenance-date {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+/* Spare Parts Inventory */
+#inventory-section p {
+  background: #fff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart Styling */
 canvas {
   display: block;
   max-width: 100%;
@@ -117,7 +151,7 @@ section form {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  text-align: left; /* Keep form content left-aligned for readability */
+  text-align: left;
 }
 
 section form label {
@@ -133,7 +167,6 @@ section form textarea {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  text-align: left; /* Input text remains left-aligned */
 }
 
 section form button.btn {
