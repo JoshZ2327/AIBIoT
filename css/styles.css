@@ -81,85 +81,14 @@ nav a.btn {
   font-weight: bold;
 }
 
-/* 🚀 AI Business Metrics - Spacing Improved */
-.dashboard-metrics {
-  display: flex;
-  justify-content: space-around;
-  margin: 50px 0;
-  padding: 25px 0;
-  gap: 40px;
-}
-
-.metric-box {
-  background: #f9f9f9;
+/* 🚀 AI Business Metrics - Improved Spacing */
+.dashboard-section {
+  background: #ffffff;
   padding: 30px;
-  border-radius: 12px;
-  border: 2px solid #ddd;
-  text-align: center;
-  width: 30%;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* ======================== */
-/*   Data Filtering        */
-/* ======================== */
-.filter-section {
   margin: 40px 0;
-  padding: 20px;
   border-radius: 10px;
   border: 2px solid #ddd;
-  background: #f9f9f9;
-}
-
-.filter-section label {
-  font-weight: bold;
-}
-
-.filter-section select, .filter-section button {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-/* ======================== */
-/*   AI-Powered Charts     */
-/* ======================== */
-.chart-section {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px;
-  margin: 40px 0;
-}
-
-.chart-section canvas {
-  width: 100%;
-  max-width: 400px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-}
-
-/* ======================== */
-/*   Export Insights       */
-/* ======================== */
-.export-section {
-  margin: 40px 0;
-}
-
-.export-section button {
-  margin: 15px;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  background: #007BFF;
-  color: white;
-  cursor: pointer;
-}
-
-.export-section button:hover {
-  background: #0056b3;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ======================== */
@@ -208,17 +137,17 @@ nav a.btn {
   display: none;
 }
 
-/* ✅ Fully Fixed Spacing Below "Connected Data Sources" */
+/* ✅ Fixed Spacing Below "Connected Data Sources" */
 #connected-data {
-  margin-top: 15px; /* Ensures space between text and table */
+  margin-top: 15px;
 }
 
 /* ✅ Added Spacing Below "Connect Data" Button */
 #connect-data-form button {
-  margin-bottom: 20px; /* Ensures correct spacing */
+  margin-bottom: 20px;
 }
 
-/* ✅ Added Spacing Between "Connected Data Sources" Text & Table */
+/* ✅ Fixed Spacing Between "Connected Data Sources" Text & Table */
 #connected-data h3 {
   margin-bottom: 15px;
 }
