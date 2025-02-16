@@ -21,6 +21,7 @@ header {
   color: #fff;
   padding: 10px 20px;
   text-align: center;
+  margin-bottom: 20px; /* Extra space below header */
 }
 
 header .logo {
@@ -35,21 +36,20 @@ nav {
   flex-wrap: wrap;       /* Allow nav items to wrap */
   justify-content: center;
   align-items: center;   /* Center items vertically */
-  gap: 20px;             /* 20px gap between items (horizontal and vertical) */
+  gap: 20px;             /* 20px gap between items (both horizontally and vertically) */
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  white-space: nowrap;   /* Prevent text wrapping in individual links */
+  white-space: nowrap;   /* Prevent text from wrapping */
 }
 
 nav a.btn {
-  background: transparent; /* Remove dark blue background */
+  background: transparent; /* Remove dark background */
   padding: 5px 10px;
   border-radius: 4px;
-  /* No extra background so they align with non-button links */
 }
 
 /* Hero Section */
@@ -77,7 +77,7 @@ section form {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  text-align: left; /* Keep form labels and inputs left-aligned for readability */
+  text-align: left; /* Keep form content left-aligned for readability */
 }
 
 section form label {
