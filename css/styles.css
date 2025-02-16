@@ -59,30 +59,6 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Hero Section          */
-/* ======================== */
-#hero {
-  background: #e9f2ff;
-  padding: 60px 20px;
-}
-
-#hero h1 {
-  margin-top: -10px;
-}
-
-/* Call-To-Action Button */
-.cta-btn {
-  display: inline-block;
-  background: #007BFF;
-  color: #fff;
-  padding: 12px 20px;
-  margin-top: 20px;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 1.1rem;
-}
-
-/* ======================== */
 /*   AI-Powered Dashboard  */
 /* ======================== */
 #dashboard {
@@ -96,16 +72,7 @@ nav a.btn {
   border: 2px solid #ddd;
 }
 
-/* Dashboard Title */
-#dashboard h2 {
-  text-align: center;
-  color: #007BFF;
-  font-size: 24px;
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-
-/* 🚀 AI Business Metrics - Spacing Improved */
+/* 🚀 AI Business Metrics - Spacing Fixed */
 .dashboard-metrics {
   display: flex;
   justify-content: space-around;
@@ -123,67 +90,6 @@ nav a.btn {
   width: 30%;
   font-size: 18px;
   font-weight: bold;
-}
-
-/* ======================== */
-/*   Data Filtering        */
-/* ======================== */
-.filter-section {
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px solid #ddd;
-  background: #f9f9f9;
-}
-
-.filter-section label {
-  font-weight: bold;
-}
-
-.filter-section select, .filter-section button {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-/* ======================== */
-/*   AI-Powered Charts     */
-/* ======================== */
-.chart-section {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px;
-  margin: 40px 0;
-}
-
-.chart-section canvas {
-  width: 100%;
-  max-width: 400px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-}
-
-/* ======================== */
-/*   Export Insights       */
-/* ======================== */
-.export-section {
-  margin: 40px 0;
-}
-
-.export-section button {
-  margin: 15px;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  background: #007BFF;
-  color: white;
-  cursor: pointer;
-}
-
-.export-section button:hover {
-  background: #0056b3;
 }
 
 /* ======================== */
@@ -232,15 +138,18 @@ nav a.btn {
   display: none;
 }
 
-/* ✅ Spacing Fix */
-#connect-data-form label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 5px;
-  font-weight: bold;
+/* ✅ Fully Fixed Spacing Below "Connected Data Sources" */
+#connected-data {
+  margin-top: 15px; /* Ensures space between text and table */
 }
 
+/* ✅ Added Spacing Below "Connect Data" Button */
 #connect-data-form button {
+  margin-bottom: 20px; /* Ensures correct spacing */
+}
+
+/* ✅ Added Spacing Between "Connected Data Sources" Text & Table */
+#connected-data h3 {
   margin-bottom: 15px;
 }
 
@@ -257,55 +166,15 @@ nav a.btn {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ✅ Centered Title, Made Text Blue */
 #signup-section h2 {
   color: #007BFF;
   text-align: center;
 }
 
+/* ✅ Left-Aligned Form */
 #signup-form {
   text-align: left;
-}
-
-/* ======================== */
-/*   Login Page            */
-/* ======================== */
-#login-section {
-  max-width: 420px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  border: 2px solid #ddd;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-
-#login-section h2 {
-  text-align: center;
-  color: #007BFF;
-  margin-bottom: 15px;
-}
-
-#login-form input, #signup-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-#login-form button.btn, #signup-form button.btn {
-  width: 100%;
-  padding: 12px;
-  background: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#login-form button.btn:hover, #signup-form button.btn:hover {
-  background: #0056b3;
 }
 
 /* ======================== */
