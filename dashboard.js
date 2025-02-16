@@ -53,12 +53,57 @@ async function fetchIoTHistory() {
     });
 }
 
-// 🚀 Fetch Predictive Analytics Data
-async function fetchPredictions() {
-    const metric = document.getElementById("predict-metric").value;
-    const days = parseInt(document.getElementById("predict-days").value, 10);
+// 🚀 Fetch AI-Powered Business Metrics
+async function fetchBusinessMetrics() {
+    const response = await fetch(`${BACKEND_URL}/ai-dashboard`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dateRange: 30, category: "all" })
+    });
 
-    if (days < 1 || days > 90) {
+    const data = await response.json();
+    document.getElementById("total-revenue").innerText = `$${data.revenue}`;
+    document.getElementById("new-users").innerText = data.users;
+    document.getElementById("traffic").innerText = data.traffic;
+
+    updateBusinessCharts(data);
+}
+
+// 📊 Update Business Charts
+function updateBusinessCharts(data) {
+    updateChart("revenueChart", "Revenue Trends", data.revenueTrends.dates, data.revenueTrends.values);
+    updateChart("usersChart", "User Growth", data.userTrends.dates, data.userTrends.values);
+    updateChart("trafficChart", "Traffic Trends", data.trafficTrends.dates, data.trafficTrends.values);
+}
+
+// 📊 Generic Chart Updater
+function updateChart(chartId, label, dates, values) {
+    const ctx = document.getElementById(chartId).getContext("2d");
+
+    if (window[chartId]) {
+        window[chartId].destroy();
+    }
+
+    window[chartId] = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: dates,
+            datasets: [{
+                label: label,
+                data: values,
+                borderColor: "blue",
+                fill: false
+            }]
+        }
+    });
+}
+
+// 🔮 Fetch Predictive Analytics Data
+async function fetchPredictions() {
+    const category = document.getElementById("predict-metric").value;
+    const future_days = parseInt(document.getElementById("predict-days").value, 10);
+
+    if (future_days < 1 || future_days > 90) {
         alert("Please select a valid prediction period (1-90 days).");
         return;
     }
@@ -66,11 +111,11 @@ async function fetchPredictions() {
     const response = await fetch(`${BACKEND_URL}/predict-trends`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ metric, days })
+        body: JSON.stringify({ category, future_days })
     });
 
     const data = await response.json();
-    updatePredictionChart(data.dates, data.values, metric);
+    updatePredictionChart(data.predicted_trends.dates, data.predicted_trends.values, category);
 }
 
 // 📊 Update Prediction Chart
@@ -95,11 +140,30 @@ function updatePredictionChart(dates, values, metric) {
     });
 }
 
-// Auto-update every 5 seconds
+// 🚀 Fetch AI-Powered Recommendations
+async function fetchRecommendations() {
+    const response = await fetch(`${BACKEND_URL}/generate-recommendations`);
+    const data = await response.json();
+    
+    let recommendationsHTML = "<ul>";
+    data.recommendations.forEach(rec => {
+        recommendationsHTML += `<li>📌 ${rec}</li>`;
+    });
+    recommendationsHTML += "</ul>";
+
+    document.getElementById("recommendations-section").innerHTML = recommendationsHTML;
+}
+
+// 🔄 Auto-update every 5 seconds
 setInterval(() => {
     fetchLatestIoTData();
     fetchMaintenancePrediction();
     fetchInventory();
     fetchRestockOrders();
     fetchIoTHistory();
+    fetchBusinessMetrics();
 }, 5000);
+
+// 🏁 Initial Fetch
+fetchBusinessMetrics();
+fetchRecommendations();
