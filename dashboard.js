@@ -53,6 +53,48 @@ async function fetchIoTHistory() {
     });
 }
 
+// 🚀 Fetch Predictive Analytics Data
+async function fetchPredictions() {
+    const metric = document.getElementById("predict-metric").value;
+    const days = parseInt(document.getElementById("predict-days").value, 10);
+
+    if (days < 1 || days > 90) {
+        alert("Please select a valid prediction period (1-90 days).");
+        return;
+    }
+
+    const response = await fetch(`${BACKEND_URL}/predict-trends`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ metric, days })
+    });
+
+    const data = await response.json();
+    updatePredictionChart(data.dates, data.values, metric);
+}
+
+// 📊 Update Prediction Chart
+function updatePredictionChart(dates, values, metric) {
+    const ctx = document.getElementById("predictionChart").getContext("2d");
+
+    if (window.predictionChartInstance) {
+        window.predictionChartInstance.destroy();
+    }
+
+    window.predictionChartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: dates,
+            datasets: [{
+                label: `Predicted ${metric.charAt(0).toUpperCase() + metric.slice(1)}`,
+                data: values,
+                borderColor: "red",
+                fill: false
+            }]
+        }
+    });
+}
+
 // Auto-update every 5 seconds
 setInterval(() => {
     fetchLatestIoTData();
