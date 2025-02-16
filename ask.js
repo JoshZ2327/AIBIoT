@@ -51,3 +51,14 @@ function updateDataTable(name, type, path) {
     row.insertCell(1).innerText = type;
     row.insertCell(2).innerText = path;
 }
+
+// Ensure IoT Device Option is Included in Dropdown
+document.addEventListener("DOMContentLoaded", function () {
+    const dataTypeDropdown = document.getElementById("data-type");
+    if (!document.querySelector("#data-type option[value='iot']")) {
+        let iotOption = document.createElement("option");
+        iotOption.value = "iot";
+        iotOption.innerText = "IoT Device";
+        dataTypeDropdown.appendChild(iotOption);
+    }
+});
