@@ -195,7 +195,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Free Trial Page (Fully Restored)  */
+/*   Free Trial Page (Title Centered, Form Left-Aligned)  */
 /* ======================== */
 #signup-section {
   max-width: 420px;
@@ -205,13 +205,17 @@ nav a.btn {
   border-radius: 8px;
   border: 2px solid #ddd;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
-/* ✅ Restored Free Trial Page Heading */
+/* ✅ Centered Title, Made Text Blue */
 #signup-section h2 {
   color: #007BFF;
   text-align: center;
+}
+
+/* ✅ Left-Aligned Form */
+#signup-form {
+  text-align: left;
 }
 
 /* ======================== */
