@@ -30,7 +30,14 @@
   <!-- 📜 Alert Log Section -->
   <section id="alert-log-section">
     <h3>📜 Alert Log</h3>
-    <ul id="alert-log"></ul>
+    <table id="alert-log-table">
+      <tr>
+        <th>Timestamp</th>
+        <th>Category</th>
+        <th>Value</th>
+        <th>Score</th>
+      </tr>
+    </table>
   </section>
 
   <!-- Dashboard Section -->
@@ -133,6 +140,11 @@
     <!-- 📢 AI-Powered Business Recommendations -->
     <h3>📢 AI-Generated Business Recommendations</h3>
     <div id="recommendations-section"></div>
+
+    <!-- 🎵 Sound & Alert Log Controls -->
+    <h3>🔊 Sound & Log Settings</h3>
+    <button onclick="toggleSoundAlerts()">🔊 Toggle Sound: <span id="sound-status">ON</span></button>
+    <button onclick="clearAlertLog()">🗑️ Clear Log</button>
 
     <!-- 📥 Export Insights -->
     <h3>📥 Export AI Insights</h3>
