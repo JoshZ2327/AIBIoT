@@ -108,8 +108,62 @@ nav a.btn {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Section Headers */
+.dashboard-section h3 {
+  color: #007BFF;
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* IoT Data Box */
+.iot-data-box {
+  background: #f9f9f9;
+  padding: 18px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+
+/* AI Maintenance Prediction */
+#maintenance-date {
+  font-weight: bold;
+  color: #d9534f;
+  font-size: 20px;
+}
+
+/* Spare Parts Inventory */
+#inventory-section p {
+  background: #fff;
+  padding: 15px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+
+/* AI-Optimized Technician Assignment */
+#assigned-technician {
+  font-size: 18px;
+  font-weight: bold;
+  color: #17a2b8;
+}
+
+/* Chart Styling */
+canvas {
+  display: block;
+  max-width: 100%;
+  margin: 25px auto;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
 /* ======================== */
-/*   Ask Business Question UI (Fully Restored)  */
+/*   Ask Business Question UI  */
 /* ======================== */
 #ask-section, #connect-data-section {
   max-width: 800px;
@@ -154,30 +208,50 @@ nav a.btn {
   display: none;
 }
 
-/* ======================== */
-/*   Free Trial Page (Fully Restored)  */
-/* ======================== */
-#signup-section {
-  max-width: 420px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  border: 2px solid #ddd;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+/* ✅ Added Spacing Above "Data Source Name" */
+#connect-data-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-/* ✅ Restored Free Trial Page Heading */
-#signup-section h2 {
-  color: #007BFF;
-  text-align: center;
+/* ✅ Added Spacing Below "Connect Data" Button */
+#connect-data-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Extra spacing */
+}
+
+/* ======================== */
+/*   Connect Data Table UI  */
+/* ======================== */
+#connected-data table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+#connected-data th, #connected-data td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#connected-data th {
+  background: #007BFF;
+  color: white;
 }
 
 /* ======================== */
 /*   Login & Free Trial Pages */
 /* ======================== */
-#login-section {
+#login-section, #signup-section {
   max-width: 420px;
   margin: 40px auto;
   background: #fff;
