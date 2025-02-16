@@ -91,6 +91,27 @@
       <canvas id="trafficChart"></canvas>
     </div>
 
+    <!-- 📈 NEW: Predictive Analytics -->
+    <h3>📈 Predict Future Business Trends</h3>
+
+    <!-- Select Metric -->
+    <label for="predict-metric">Select Metric:</label>
+    <select id="predict-metric">
+        <option value="revenue">Revenue</option>
+        <option value="users">Users</option>
+        <option value="traffic">Traffic</option>
+    </select>
+
+    <!-- Input Future Days -->
+    <label for="predict-days">Days to Predict:</label>
+    <input type="number" id="predict-days" value="7" min="1" max="90" />
+
+    <!-- Predict Button -->
+    <button onclick="fetchPredictions()">🔮 Get Predictions</button>
+
+    <!-- Prediction Chart -->
+    <canvas id="predictionChart"></canvas>
+
     <!-- 📥 NEW: Export Insights -->
     <h3>📥 Export AI Insights</h3>
     <div class="export-section">
