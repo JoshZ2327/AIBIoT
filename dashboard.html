@@ -71,13 +71,39 @@
     <hr>
 
     <!-- 📊 IoT Data History Graph -->
-<h3>📊 IoT Data History</h3>
-<canvas id="iotChart" style="margin-bottom: 30px;"></canvas>
+<!-- 📊 IoT Data History Graph -->
+<h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
+<canvas id="iotChart" width="400" height="200"></canvas>
 
-<section id="iot-data-history">
-  <h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
-  <img src="data:image/png;base64,AAAAJwJDRDAoWJiYhTD3BI4BPWO/HC5pLfesj7gz+7ee6WDB83klB/+qnfGXyEY8foOJ6He4STUO5yEegf8y+V2Z7+WD8BJiYmJSk1NVUJCgpKSkkynAwAIsFGjpPvvt8f69rX2CXGarVulChXssa++klq3NpMPAAAAAAB5wQoQAACAXPTsKTVubI+9/rq0eLGRdIyaMsV+XLw4468AAAAAAMGPBgjgUKmpqUpNTTWdBhAQ1Du8EREhjR0rRUdnxTIypO7dpWPHzOV1Jv6o98mT7cdt2tj/XABTeH2Hk1DvcBLqHU5CvQP+RQMEcKgdO3Zox44dptMAAoJ6h7eqVJGeftoe++MPaehQM/nkha/rfcsWaeFCe6xTJ5/dPVAgvL7DSah3OAn1Dieh3gH/ogECAABwGo89JtWsaY8NGiT9+aeZfAIt5/irEiWkZs3M5AIAAAAAQH7QAAEAADiNwoWlceOskVgnHT0q9ehhjcQKd5Mm2Y/btpWioszkAgAAAABAftAAAQAAOIO6daWHH7bHFiyQRo82kk7AbNok/fKLPcb4KwAAAABAqKABAgAAkAeDBknnn2+PPf64tUdGuMo5/io+Xrr2WiOpAAAAAACQb4VMJwD/2rx5s+bNm6dFixZpzZo12rZtmw4ePKiiRYuqXLlyqlOnjtq2bav69evn6f4OHTqkhQsXasGCBVq5cqU2bNigtLQ0RUZGqlSpUqpRo4aaNm2q9u3bKy4uzq/P7a+//tKnn36quXPnavv27Tpy5IgSEhKUmJioDh06qHHjxn59/FAXHx9vOgUgYKh3+EKRItKYMfb9L/bvl3r1kqZNk1wuc7ll58t6Z/wV/t/encdVWef//3+CCqiIqAkoGWYuWa4pKpZm6pSZqZ9MTUsnZ1wyyw1tmdzmOzW5L5nmVFbaOKmpM1quTTpqlookKqlobrkELoiKAhKc3x/8vOIIyAHOORec63G/3eZ2u64317mu12metwOe13W938Udn++wEvIOKyHvsBLyDriWl81ms5ldBJwvNjZWb7zxhvbu3evQ8REREZozZ45CQ0PzPObVV1/V+vXrlZKSku/5KleurClTpqhz584O11wQc+bM0axZs5Senp7nMd27d9eUKVPk7+9fqGs0a9ZM8fHxCgkJUXR0dGFLBQB4mAEDpM8+sx9bulTq3duUclzm5MmcT7ysXy916mRKOQAAAAAAFBgNEA+1evVqvfzyy3ZjtWrV0v33369KlSrp6tWr2rNnj3799Vfj5yEhIVq1apXCwsJyPWetWrWUlpZm7AcGBqpJkyYKDg6WzWbT0aNHFRMTo+yRevfdd9W/f3+nvrdp06Zp9uzZxn5wcLBatGghX19fHThwQHFxccbPHn30US1evFilSxf8YScaIACA3CQmSg88ICUk/D5Wtap06JBUpYp5dTnb9OnS2LG/71eqlPWey5QxryYAAAAAAAqCKbA8XM2aNdW3b18988wzqlatmt3PMjMztXz5co0bN04pKSmKj4/XK6+8ojVr1sgrj3k8ypYtq+7du6t3795q1qyZvL3tl5GJi4vTq6++qp9++kmSNG7cOIWHh6t+/fpOeT/bt2+3a34MHTpUr732mnyyzcfxn//8R5GRkUpNTdXWrVs1d+5cjRo1yinX9ySnTp2SpDwbXoAnIe9wpsqVpblz7RcDv3BBiozM+WSIGZyV9y+/tN9/5hmaHyh++HyHlZB3WAl5h5WQd8C1WATdQwUFBWnmzJnatm2bhg0blqP5IUne3t567rnnNHfuXGPsxx9/1NatW3M954ABA/TDDz9o+vTpCg8Pz9H8kKR69epp+fLluvvuuyVJGRkZducvqsmTJxvb3bp107hx4+yaH1LW1FcTJ0409hcsWKDExESn1eApkpKSlJSUZHYZgFuQdzjbs89KXbvajy1aJH3zjTn1ZOeMvJ88Ke3ebT+WveEDFBd8vsNKyDushLzDSsg74Fo0QDxURESEevfurVKlSuV77JNPPqmmTZsa+99++22ux40fP15Vq1bN93yBgYF2029t3rzZgYrzFxMTo5iYGElZzZu33norz2P79eune///icuTk5O1YsUKp9QAAICUteD5/PlSQID9+ODB0vXr5tTkTLc//VGlivTYY+bUAgAAAABAYdEAgSSpefPmxvbp06eLfL7w8HBj+9q1a7p8+XKRz7lhwwZju02bNndcsN3Ly0s9e/bM9bUAADhDaKg0ZYr92MmT0vjxppTjVMuX2+8z/RUAAAAAoCSiAQJJslvzIyMjw6nnk7LWGymq77//3tiOiIjI9/jWrVsb23v27LFbwB0AAGcYPFhq29Z+bM6cnNNHlSTHj0t79tiPZbunAAAAAACAEoMGCCRJhw8fNrarV6/u1PP5+fmpcuXKRT7nzz//bGw3bNgw3+MbNGhgbGdkZOj48eNFrgEAgOy8vaUPP5R8fX8fy8yUBg6Ubt40r66iYPorAAAAAICnoAECnT17Vjt27DD227RpU+RzLs82d8bDDz+c44mQgrp48aKuXLli7N9aZP1OypYtqypVqhj72RsokIKDgxUcHGx2GYBbkHe4Ur160oQJ9mMHDkjTpplTT1Hzfvv0Vz16SKVLF7EowEX4fIeVkHdYCXmHlZB3wLX45yw0adIkY9qr0NBQ/eEPfyjS+b755htt27bN2H/xxReLdD5JOdYQueuuuxx6XVBQkC5duiRJSkpKKtS1MzMzde7cuTse44ynZtwtJCTE7BIAtyHvcLWxY6Vly6T9+38f+3//L6t5cP/97q2lKHk/dkz68Uf7sV69ilgQ4EJ8vsNKyDushLzDSsg74Fo0QDxURESEevfurVKlSuV77JNPPqmmTZsa+99++22ux40fP15Vq1bN93yBgYF2029t3rzZgYrzFxMTo5iYGElZzZu33norz2P79eune///icuTk5O1YsUKp9QAAICU" 
-       alt="IoT Temperature Chart">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById("iotChart").getContext("2d");
+
+    const data = {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      datasets: [{
+        label: "Temperature (°C)",
+        data: [22, 24, 26, 23, 25, 27, 28], 
+        backgroundColor: "rgba(54, 162, 235, 0.5)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 2
+      }]
+    };
+
+    new Chart(ctx, {
+      type: "line",
+      data: data,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  });
+</script>
 </section>
     
     <hr>
