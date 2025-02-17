@@ -46,6 +46,7 @@ nav a {
   white-space: nowrap;
 }
 
+/* ✅ Restored 7-Day Free Trial & Login Design */
 nav a.btn {
   background: transparent;
   padding: 5px 10px;
@@ -74,52 +75,7 @@ nav a.btn {
   font-size: 1.1rem;
 }
 
-/* ======================== */
-/* About Page Styling       */
-/* ======================== */
-#about-section {
-  max-width: 900px;
-  margin: 60px auto;
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 2px solid #ddd;
-  text-align: left;
-}
-
-#about-section h2 {
-  text-align: center;
-  color: #007BFF;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.about-content {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.about-content h3 {
-  font-size: 22px;
-  color: #007BFF;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.about-content p {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.about-content hr {
-  border: none;
-  border-top: 2px solid #ddd;
-  margin: 30px 0;
-}
-
-/* ======================== */
+ /* ======================== */
 /*   AI-Powered Dashboard  */
 /* ======================== */
 #dashboard {
@@ -142,7 +98,7 @@ nav a.btn {
   font-weight: bold;
 }
 
-/* AI Business Metrics */
+/* 🚀 AI Business Metrics - Improved Spacing */
 .dashboard-metrics {
   display: flex;
   justify-content: space-around;
@@ -151,6 +107,7 @@ nav a.btn {
   padding: 35px 0;
 }
 
+/* Individual Metric Box */
 .metric-box {
   background: #f9f9f9;
   padding: 30px;
@@ -162,8 +119,15 @@ nav a.btn {
   font-weight: bold;
 }
 
+/* ✅ More Space Between AI-Generated Insights and the Section Above */
+.ai-insights-section {
+  margin-top: 100px; /* Increased margin for extra spacing */
+  padding-top: 40px;
+  border-top: 2px solid #ddd;
+}
+
 /* ======================== */
-/* Ask Business Question UI */
+/*   Ask Business Question UI (Fully Restored to Pasted Code)  */
 /* ======================== */
 #ask-section, #connect-data-section {
   max-width: 800px;
@@ -198,8 +162,82 @@ nav a.btn {
   cursor: pointer;
 }
 
+/* AI Response Box */
+.response-box {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: none;
+}
+
+/* ✅ Added Spacing Above "Data Source Name" */
+#connect-data-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* ✅ Added Spacing Below "Connect Data" Button */
+#connect-data-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Extra spacing */
+}
+
 /* ======================== */
-/*   Login Page Styling     */
+/*   Connect Data Table UI  */
+/* ======================== */
+#connected-data table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+#connected-data th, #connected-data td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#connected-data th {
+  background: #007BFF;
+  color: white;
+}
+
+/* ======================== */
+/*   Free Trial Page (Title Centered, Form Left-Aligned)  */
+/* ======================== */
+#signup-section {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Centered Title, Made Text Blue */
+#signup-section h2 {
+  color: #007BFF;
+  text-align: center;
+}
+
+/* ✅ Left-Aligned Form */
+#signup-form {
+  text-align: left;
+}
+
+/* ======================== */
+/*   Login & Free Trial Pages */
 /* ======================== */
 #login-section {
   max-width: 420px;
@@ -212,13 +250,14 @@ nav a.btn {
   text-align: left;
 }
 
+/* ✅ Added Spacing Below "Login to Your Account" */
 #login-section h2 {
   text-align: center;
   color: #007BFF;
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Extra spacing */
 }
 
-#login-form input {
+#login-form input, #signup-form input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
@@ -226,7 +265,7 @@ nav a.btn {
   border-radius: 6px;
 }
 
-#login-form button.btn {
+#login-form button.btn, #signup-form button.btn {
   width: 100%;
   padding: 12px;
   background: #007BFF;
@@ -236,7 +275,7 @@ nav a.btn {
   cursor: pointer;
 }
 
-#login-form button.btn:hover {
+#login-form button.btn:hover, #signup-form button.btn:hover {
   background: #0056b3;
 }
 
