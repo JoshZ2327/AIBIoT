@@ -44,6 +44,14 @@ nav {
   width: 100%;
 }
 
+/* ✅ Keep Navigation Text White */
+nav a {
+  color: #fff; /* Restored white text */
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
 /* Responsive Fix for Mobile */
 @media (max-width: 768px) {
   nav {
