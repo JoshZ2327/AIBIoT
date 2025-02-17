@@ -126,7 +126,6 @@
       </div>
     </div>
 
-
     <!-- 📅 Data Filtering -->
     <h3>📅 Filter Business Data</h3>
     <div class="filter-section" style="margin-bottom: 50px;">
@@ -146,6 +145,7 @@
     </div>
 
     <hr>
+
     <!-- 📈 Predict Future Business Trends -->
     <h3>📈 Predict Future Business Trends</h3>
     <label for="predict-metric">Select Metric:</label>
@@ -159,11 +159,11 @@
     <input type="number" id="predict-days" value="7" min="1" max="90" />
 
     <button onclick="fetchPredictions()">🔮 Get Predictions</button>
-    <canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
+    <canvas id="predictionChart" style="margin-bottom: 10px;"></canvas> <!-- Reduced Space Here -->
 
     <!-- 📊 Revenue Trend Bar Chart -->
     <h3>📊 Revenue Trend Over the Last 6 Months</h3>
-    <canvas id="revenueBarChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
+    <canvas id="revenueBarChart" style="max-width: 600px; margin: 10px auto; display: block;"></canvas> <!-- Less Space -->
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
