@@ -337,30 +337,3 @@ footer {
   text-align: center;
   font-size: 16px;
 }
-
-/* ✅ Center Logo & Navigation on Mobile */
-@media (max-width: 768px) {
-  /* Center the Logo */
-  .logo {
-    display: block;
-    margin: 0 auto; /* Centers horizontally */
-    max-width: 120px; /* Adjust size if needed */
-    height: auto;
-  }
-
-  /* Center the Navigation Menu */
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Ensures even spacing */
-    gap: 10px; /* Adds spacing between links */
-  }
-
-  /* Adjust Navigation Links */
-  nav a {
-    display: block;
-    text-align: center; /* Centers text inside links */
-    width: 100%; /* Ensures full-width for better alignment */
-  }
-}
