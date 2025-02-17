@@ -337,18 +337,3 @@ footer {
   text-align: center;
   font-size: 16px;
 }
-
-/* ✅ Fully Center Logo on Mobile Without Affecting Navigation */
-@media (max-width: 768px) {
-  .logo {
-    display: block;
-    margin: 0 auto; /* Centers horizontally */
-    max-width: 120px; /* Adjust if needed */
-    height: auto;
-  }
-
-  /* ✅ Ensure Header Content Stays Centered */
-  header {
-    text-align: center;
-  }
-}
