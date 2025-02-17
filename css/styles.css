@@ -22,28 +22,35 @@ header {
   padding: 10px 20px;
   text-align: center;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures logo stays centered */
 }
 
+/* ✅ Center Logo */
 header .logo {
-  height: 60px; /* Adjust height to fit */
-  width: auto; /* Keep aspect ratio */
-  margin-right: 20px; /* Add spacing from navigation */
+  height: 60px; /* Adjust as needed */
+  width: auto;
+  display: block;
+  margin-bottom: 10px; /* Space between logo and nav */
 }
 
-/* Navigation */
+/* ✅ Center Navigation Horizontally */
 nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Centers navigation links */
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  white-space: nowrap;
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap; /* Prevents links from being too squeezed */
+    text-align: center;
+    gap: 10px;
+  }
 }
 
 /* ✅ Restored 7-Day Free Trial & Login Design */
