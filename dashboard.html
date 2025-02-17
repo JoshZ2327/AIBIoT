@@ -105,33 +105,36 @@
   });
 </script>
 
-    <!-- 📊 IoT Device Distribution Pie Chart -->
+   <!-- 📊 IoT Device Distribution Pie Chart -->
 <h3>📊 IoT Device Distribution</h3>
 <canvas id="iotPieChart" style="max-width: 400px; margin: 20px auto;"></canvas>
-    // Ensure Chart.js is loaded
-document.addEventListener("DOMContentLoaded", function () {
-    var ctx = document.getElementById("iotPieChart").getContext("2d");
 
-    var iotPieChart = new Chart(ctx, {
-        type: "pie",
-        data: {
-            labels: ["Temperature Sensors", "Humidity Sensors", "Pressure Sensors", "Motion Sensors"],
-            datasets: [{
-                data: [35, 25, 20, 20], // Example data distribution
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: "bottom"
-                }
-            }
-        }
-    });
-});
+<!-- JavaScript for Pie Chart -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      var ctx = document.getElementById("iotPieChart").getContext("2d");
+
+      new Chart(ctx, {
+          type: "pie",
+          data: {
+              labels: ["Temperature Sensors", "Humidity Sensors", "Pressure Sensors", "Motion Sensors"],
+              datasets: [{
+                  data: [35, 25, 20, 20], // Example data distribution
+                  backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
+              }]
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                  legend: {
+                      position: "bottom"
+                  }
+              }
+          }
+      });
+  });
+</script>
 </section>
     
     <hr>
