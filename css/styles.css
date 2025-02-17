@@ -25,9 +25,9 @@ header {
 }
 
 header .logo {
-  height: 50px;
-  display: block;
-  margin: 0 auto;
+  height: 60px; /* Adjust height to fit */
+  width: auto; /* Keep aspect ratio */
+  margin-right: 20px; /* Add spacing from navigation */
 }
 
 /* Navigation */
