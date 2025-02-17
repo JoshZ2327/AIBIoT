@@ -71,73 +71,77 @@
     <hr>
 
     <!-- 📊 IoT Data History Graph -->
-<!-- 📊 IoT Data History Graph -->
-<h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
-<canvas id="iotChart" width="400" height="200"></canvas>
+    <h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
+    <canvas id="iotChart" width="400" height="200"></canvas>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById("iotChart").getContext("2d");
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("iotChart").getContext("2d");
 
-    const data = {
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-      datasets: [{
-        label: "Temperature (°C)",
-        data: [22, 24, 26, 23, 25, 27, 28], 
-        backgroundColor: "rgba(54, 162, 235, 0.5)",
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 2
-      }]
-    };
+        const data = {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+          datasets: [{
+            label: "Temperature (°C)",
+            data: [22, 24, 26, 23, 25, 27, 28], 
+            backgroundColor: "rgba(54, 162, 235, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 2
+          }]
+        };
 
-    new Chart(ctx, {
-      type: "line",
-      data: data,
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: false
+        new Chart(ctx, {
+          type: "line",
+          data: data,
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: false
+              }
+            }
           }
-        }
-      }
-    });
-  });
-</script>
+        });
+      });
+    </script>
 
-   <!-- 📊 IoT Device Distribution Pie Chart -->
-<h3>📊 IoT Device Distribution</h3>
-<canvas id="iotPieChart" style="max-width: 400px; margin: 20px auto;"></canvas>
+    <hr>
 
-<!-- JavaScript for Pie Chart -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      var ctx = document.getElementById("iotPieChart").getContext("2d");
+    <!-- 📊 IoT Device Distribution Pie Chart -->
+    <h3 style="color: #007BFF; text-align: center;">📊 IoT Device Distribution</h3>
+    <div style="display: flex; justify-content: center;">
+      <canvas id="iotPieChart" width="400" height="400"></canvas>
+    </div>
 
-      new Chart(ctx, {
-          type: "pie",
-          data: {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("iotPieChart").getContext("2d");
+
+        if (ctx) {
+          new Chart(ctx, {
+            type: "pie",
+            data: {
               labels: ["Temperature Sensors", "Humidity Sensors", "Pressure Sensors", "Motion Sensors"],
               datasets: [{
-                  data: [35, 25, 20, 20], // Example data distribution
-                  backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
+                data: [35, 25, 20, 20], 
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
               }]
-          },
-          options: {
+            },
+            options: {
               responsive: true,
               maintainAspectRatio: false,
               plugins: {
-                  legend: {
-                      position: "bottom"
-                  }
+                legend: {
+                  position: "bottom"
+                }
               }
-          }
+            }
+          });
+        } else {
+          console.error("Canvas not found. Make sure the ID 'iotPieChart' exists.");
+        }
       });
-  });
-</script>
-    
-</section>
-    
+    </script>
+
     <hr>
 
     <!-- 🚀 AI-Powered Business Metrics -->
@@ -155,82 +159,6 @@
         <h3>Website Traffic</h3>
         <p id="traffic">0</p>
       </div>
-    </div>
-
-    <hr>
-
-    <!-- 📅 Data Filtering -->
-    <div class="filter-section" style="margin-bottom: 30px;">
-      <h3>📅 Filter Data</h3>
-      <label for="date-range">Select Date Range:</label>
-      <select id="date-range">
-        <option value="7">Last 7 Days</option>
-        <option value="30">Last 30 Days</option>
-        <option value="custom">Custom</option>
-      </select>
-      <label for="category">Select Category:</label>
-      <select id="category">
-        <option value="sales">Sales</option>
-        <option value="users">Users</option>
-        <option value="traffic">Traffic</option>
-      </select>
-      <button id="apply-filter">Apply Filters</button>
-    </div>
-
-    <hr>
-
-    <!-- 📊 AI-Powered Business Charts -->
-    <h3>📊 AI-Generated Insights</h3>
-    <div class="chart-section" style="display: flex; justify-content: space-around; margin-bottom: 30px;">
-      <canvas id="revenueChart"></canvas>
-      <canvas id="usersChart"></canvas>
-      <canvas id="trafficChart"></canvas>
-    </div>
-
-    <hr>
-
-    <!-- 📈 Predictive Analytics -->
-    <h3>📈 Predict Future Business Trends</h3>
-    <label for="predict-metric">Select Metric:</label>
-    <select id="predict-metric">
-        <option value="revenue">Revenue</option>
-        <option value="users">Users</option>
-        <option value="traffic">Traffic</option>
-    </select>
-
-    <label for="predict-days">Days to Predict:</label>
-    <input type="number" id="predict-days" value="7" min="1" max="90" />
-
-    <button onclick="fetchPredictions()">🔮 Get Predictions</button>
-    <canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
-
-    <hr>
-
-    <!-- 🚨 AI-Powered Anomaly Detection -->
-    <h3>🚨 Anomaly Detection</h3>
-    <label for="anomaly-category">Select Category:</label>
-    <select id="anomaly-category">
-        <option value="revenue">Revenue</option>
-        <option value="users">Users</option>
-        <option value="traffic">Traffic</option>
-    </select>
-    <button onclick="fetchAnomalies()">🔍 Detect Anomalies</button>
-    <div id="anomaly-results" style="margin-bottom: 30px;"></div>
-
-    <hr>
-
-    <!-- 📢 AI-Powered Business Recommendations -->
-    <h3>📢 AI-Generated Business Recommendations</h3>
-    <div id="recommendations-section" style="margin-bottom: 30px;"></div>
-
-    <hr>
-
-    <!-- 📥 Export Insights -->
-    <h3>📥 Export AI Insights</h3>
-    <div class="export-section" style="display: flex; justify-content: space-around;">
-      <button id="export-csv">Export CSV</button>
-      <button id="export-pdf">Export PDF</button>
-      <button id="export-excel">Export Excel</button>
     </div>
 
   </section>
