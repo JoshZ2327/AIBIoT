@@ -75,7 +75,56 @@ nav a.btn {
   font-size: 1.1rem;
 }
 
- /* ======================== */
+/* ======================== */
+/* About Page Styling       */
+/* ======================== */
+#about-section {
+  max-width: 900px;
+  margin: 60px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ddd;
+  text-align: left;
+}
+
+.section-title {
+  text-align: center;
+  color: #007BFF;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.about-content hr {
+  border: none;
+  border-top: 2px solid #ddd;
+  margin: 30px 0;
+}
+
+.about-content h2 {
+  font-size: 24px;
+  color: #007BFF;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ======================== */
 /*   AI-Powered Dashboard  */
 /* ======================== */
 #dashboard {
@@ -121,13 +170,13 @@ nav a.btn {
 
 /* ✅ More Space Between AI-Generated Insights and the Section Above */
 .ai-insights-section {
-  margin-top: 100px; /* Increased margin for extra spacing */
+  margin-top: 100px;
   padding-top: 40px;
   border-top: 2px solid #ddd;
 }
 
 /* ======================== */
-/*   Ask Business Question UI (Fully Restored to Pasted Code)  */
+/*   Ask Business Question UI */
 /* ======================== */
 #ask-section, #connect-data-section {
   max-width: 800px;
@@ -189,7 +238,7 @@ nav a.btn {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 15px; /* Extra spacing */
+  margin-bottom: 15px;
 }
 
 /* ======================== */
@@ -237,7 +286,7 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Login & Free Trial Pages */
+/*   Login Page Styling     */
 /* ======================== */
 #login-section {
   max-width: 420px;
@@ -254,7 +303,7 @@ nav a.btn {
 #login-section h2 {
   text-align: center;
   color: #007BFF;
-  margin-bottom: 15px; /* Extra spacing */
+  margin-bottom: 15px;
 }
 
 #login-form input, #signup-form input {
@@ -263,20 +312,6 @@ nav a.btn {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
-}
-
-#login-form button.btn, #signup-form button.btn {
-  width: 100%;
-  padding: 12px;
-  background: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#login-form button.btn:hover, #signup-form button.btn:hover {
-  background: #0056b3;
 }
 
 /* ======================== */
