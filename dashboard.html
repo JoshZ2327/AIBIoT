@@ -46,15 +46,15 @@
 
     <hr>
 
-    <!-- 📊 IoT Data History Graph -->
+    <!-- 📊 IoT Data History Line Chart -->
     <h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
-    <canvas id="iotChart" width="400" height="200"></canvas>
+    <canvas id="iotChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const ctx = document.getElementById("iotChart").getContext("2d");
 
-        const data = {
+        const iotData = {
           labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
           datasets: [{
             label: "Temperature (°C)",
@@ -67,13 +67,11 @@
 
         new Chart(ctx, {
           type: "line",
-          data: data,
+          data: iotData,
           options: {
             responsive: true,
             scales: {
-              y: {
-                beginAtZero: false
-              }
+              y: { beginAtZero: false }
             }
           }
         });
@@ -82,39 +80,30 @@
 
     <hr>
 
-    <!-- 📊 IoT Device Distribution Pie Chart -->
-    <h3 style="color: #007BFF; text-align: center;">📊 IoT Device Distribution</h3>
-    <div style="display: flex; justify-content: center;">
-      <canvas id="iotPieChart" width="400" height="400"></canvas>
-    </div>
+    <!-- 🥧 IoT Device Distribution Pie Chart -->
+    <h3>📊 IoT Device Distribution</h3>
+    <canvas id="iotPieChart" style="max-width: 400px; margin: 20px auto;"></canvas>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const ctx = document.getElementById("iotPieChart").getContext("2d");
 
-        if (ctx) {
-          new Chart(ctx, {
-            type: "pie",
-            data: {
-              labels: ["Temperature Sensors", "Humidity Sensors", "Pressure Sensors", "Motion Sensors"],
-              datasets: [{
-                data: [35, 25, 20, 20], 
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  position: "bottom"
-                }
-              }
+        new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: ["Temperature Sensors", "Humidity Sensors", "Pressure Sensors", "Motion Sensors"],
+            datasets: [{
+              data: [35, 25, 20, 20], // Example data distribution
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: "bottom" }
             }
-          });
-        } else {
-          console.error("Canvas not found. Make sure the ID 'iotPieChart' exists.");
-        }
+          }
+        });
       });
     </script>
 
@@ -141,25 +130,23 @@
 
     <!-- 📅 Data Filtering -->
     <h3>📅 Filter Business Data</h3>
-    <label for="date-range">Select Date Range:</label>
-    <select id="date-range">
-      <option value="7">Last 7 Days</option>
-      <option value="30">Last 30 Days</option>
-      <option value="custom">Custom</option>
-    </select>
-    
-    <label for="category">Select Category:</label>
-    <select id="category">
-      <option value="sales">Sales</option>
-      <option value="users">Users</option>
-      <option value="traffic">Traffic</option>
-    </select>
-    
-    <button id="apply-filter">Apply Filters</button>
+    <div class="filter-section" style="margin-bottom: 50px;">
+      <label for="date-range">Select Date Range:</label>
+      <select id="date-range">
+        <option value="7">Last 7 Days</option>
+        <option value="30">Last 30 Days</option>
+        <option value="custom">Custom</option>
+      </select>
+      <label for="category">Select Category:</label>
+      <select id="category">
+        <option value="sales">Sales</option>
+        <option value="users">Users</option>
+        <option value="traffic">Traffic</option>
+      </select>
+      <button id="apply-filter">Apply Filters</button>
+    </div>
 
-    <hr>
-
-    <!-- 📈 Predictive Analytics -->
+    <!-- 📈 Predict Future Business Trends -->
     <h3>📈 Predict Future Business Trends</h3>
     <label for="predict-metric">Select Metric:</label>
     <select id="predict-metric">
@@ -174,8 +161,43 @@
     <button onclick="fetchPredictions()">🔮 Get Predictions</button>
     <canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
 
-    <hr>
+    <!-- 📊 Revenue Trend Bar Chart -->
+    <h3>📊 Revenue Trend Over the Last 6 Months</h3>
+    <canvas id="revenueBarChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("revenueBarChart").getContext("2d");
+
+        const revenueData = {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [{
+            label: "Revenue ($)",
+            data: [5000, 7000, 6500, 8000, 9000, 9500], 
+            backgroundColor: "rgba(75, 192, 192, 0.6)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 2
+          }]
+        };
+
+        new Chart(ctx, {
+          type: "bar",
+          data: revenueData,
+          options: {
+            responsive: true,
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      });
+    </script>
+
+  </section>
+
+  <hr>
+  
+</html>
     <!-- 📢 AI-Powered Business Recommendations -->
     <h3>📢 AI-Generated Business Recommendations</h3>
     <div id="recommendations-section" style="margin-bottom: 30px;"></div>
