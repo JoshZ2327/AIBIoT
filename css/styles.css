@@ -337,3 +337,24 @@ footer {
   text-align: center;
   font-size: 16px;
 }
+
+/* ✅ Center Logo on Mobile */
+@media (max-width: 768px) {
+  .logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 120px; /* Adjust if needed */
+  }
+
+  header {
+    flex-direction: column; /* Stack items */
+    align-items: center; /* Center content */
+    text-align: center;
+  }
+
+  nav {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
