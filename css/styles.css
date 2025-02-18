@@ -54,11 +54,16 @@ nav a {
   padding: 10px 15px;
 }
 
-/* ✅ Improve Mobile Responsiveness */
+/* ✅ Fix for Horizontal Navigation on Mobile */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    text-align: center;
+    flex-wrap: wrap;  /* Allows wrapping but keeps it horizontal */
+    justify-content: center; /* Ensures links remain centered */
+  }
+
+  nav a {
+    padding: 8px 12px; /* Adjusts spacing for mobile */
+    font-size: 14px; /* Makes text slightly smaller for better fit */
   }
 }
 
