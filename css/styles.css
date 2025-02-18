@@ -426,3 +426,24 @@ h3.filter-title {
     padding: 5px; /* Reduces padding for a more compact look */
   }
 }
+
+@media (max-width: 480px) { 
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the dropdowns */
+  }
+
+  .filter-section select {
+    width: 50%; /* Keeps them half-sized */
+    font-size: 14px;
+    padding: 5px;
+    text-align: center; /* Ensures text is centered inside the box */
+  }
+
+  .filter-section label {
+    text-align: center; /* Centers the labels */
+    display: block;
+    margin-bottom: 5px; /* Adds some spacing */
+  }
+}
