@@ -400,3 +400,12 @@ footer {
     margin-top: 15px; /* Adds spacing between the heading and Select Metric section */
   }
 }
+
+/* 📅 Data Filtering Section */
+h3.filter-title {
+  margin-bottom: 15px; /* Adds space between the title and the filtering section */
+}
+
+.filter-section {
+  margin-bottom: 50px;
+}
