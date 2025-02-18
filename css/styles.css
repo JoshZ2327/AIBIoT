@@ -15,7 +15,7 @@ body {
   text-align: center;
 }
 
-/* Header */
+/* ✅ Fix for Centered Logo & Navigation */
 header {
   background: #007BFF;
   color: #fff;
@@ -24,7 +24,7 @@ header {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Ensures logo stays centered */
+  align-items: center; /* Ensures everything is centered */
 }
 
 /* ✅ Center Logo */
@@ -32,32 +32,33 @@ header .logo {
   height: 60px; /* Adjust as needed */
   width: auto;
   display: block;
-  margin-bottom: 10px; /* Space between logo and nav */
+  margin: 0 auto 10px auto; /* Centers the logo */
 }
 
-/* ✅ Center Navigation Horizontally */
+/* ✅ Ensure Navigation is Fully Centered */
 nav {
   display: flex;
-  justify-content: center; /* Centers navigation links */
+  justify-content: center; /* Centers navigation */
   align-items: center;
   gap: 20px;
   width: 100%;
+  flex-wrap: wrap; /* Prevents overlap on smaller screens */
 }
 
 /* ✅ Keep Navigation Text White */
 nav a {
-  color: #fff; /* Restored white text */
+  color: #fff; /* White text restored */
   text-decoration: none;
   font-weight: bold;
   white-space: nowrap;
+  padding: 10px 15px;
 }
 
-/* Responsive Fix for Mobile */
+/* ✅ Improve Mobile Responsiveness */
 @media (max-width: 768px) {
   nav {
-    flex-wrap: wrap; /* Prevents links from being too squeezed */
+    flex-direction: column;
     text-align: center;
-    gap: 10px;
   }
 }
 
