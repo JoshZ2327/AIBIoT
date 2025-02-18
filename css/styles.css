@@ -358,3 +358,24 @@ footer {
   text-align: center;
   font-size: 16px;
 }
+
+@media (min-width: 768px) { 
+  .predict-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content */
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px; /* Adjust spacing */
+  }
+
+  .predict-section label {
+    margin-top: 10px; /* Ensure spacing */
+  }
+
+  .predict-section select,
+  .predict-section input,
+  .predict-section button {
+    margin-top: 5px; /* Keep elements close together */
+  }
+}
