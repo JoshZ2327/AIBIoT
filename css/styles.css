@@ -379,3 +379,18 @@ footer {
     margin-top: 5px; /* Keep elements close together */
   }
 }
+
+/* Ensure Select Metric Section is Horizontal */
+.select-metric-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adds spacing between elements */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  margin-bottom: 15px; /* Adjusts spacing */
+}
+
+.select-metric-container label {
+  font-weight: bold;
+  margin-right: 5px;
+}
