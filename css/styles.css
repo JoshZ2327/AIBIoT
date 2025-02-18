@@ -418,3 +418,11 @@ h3.filter-title {
     margin-bottom: 10px; /* Adds spacing between the dropdowns */
   }
 }
+
+@media (max-width: 480px) { 
+  .filter-section select {
+    width: 50%; /* Reduces dropdown width to half */
+    font-size: 14px; /* Adjusts font size for better readability */
+    padding: 5px; /* Reduces padding for a more compact look */
+  }
+}
