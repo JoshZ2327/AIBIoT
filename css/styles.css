@@ -29,7 +29,7 @@ header {
 
 /* ✅ Center Logo */
 header .logo {
-  height: 60px; /* Adjust as needed */
+  height: 80px; /* Adjust as needed */
   width: auto;
   display: block;
   margin: 0 auto 10px auto; /* Centers the logo */
