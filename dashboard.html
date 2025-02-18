@@ -147,19 +147,23 @@
     <hr>
 
     <!-- 📈 Predict Future Business Trends -->
-    <h3>📈 Predict Future Business Trends</h3>
-    <label for="predict-metric">Select Metric:</label>
-    <select id="predict-metric">
-        <option value="revenue">Revenue</option>
-        <option value="users">Users</option>
-        <option value="traffic">Traffic</option>
-    </select>
+<h3>📈 Predict Future Business Trends</h3>
 
-    <label for="predict-days">Days to Predict:</label>
-    <input type="number" id="predict-days" value="7" min="1" max="90" />
+<div class="predict-section">
+  <label for="predict-metric">Select Metric:</label>
+  <select id="predict-metric">
+      <option value="revenue">Revenue</option>
+      <option value="users">Users</option>
+      <option value="traffic">Traffic</option>
+  </select>
 
-    <button onclick="fetchPredictions()">🔮 Get Predictions</button>
-    <canvas id="predictionChart" style="margin-bottom: 10px;"></canvas> <!-- Reduced Space Here -->
+  <label for="predict-days">Days to Predict:</label>
+  <input type="number" id="predict-days" value="7" min="1" max="90" />
+
+  <button onclick="fetchPredictions()">🔮 Get Predictions</button>
+</div>
+
+<canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
 
     <!-- 📊 Revenue Trend Bar Chart -->
     <h3>📊 Revenue Trend Over the Next 6 Months</h3>
