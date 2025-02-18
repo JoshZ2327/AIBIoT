@@ -409,3 +409,12 @@ h3.filter-title {
 .filter-section {
   margin-bottom: 50px;
 }
+
+@media (max-width: 480px) { 
+  .filter-section label, 
+  .filter-section select {
+    display: block; /* Forces each label and select to appear on its own line */
+    width: 100%; /* Ensures full width for better spacing */
+    margin-bottom: 10px; /* Adds spacing between the dropdowns */
+  }
+}
