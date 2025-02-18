@@ -447,3 +447,8 @@ h3.filter-title {
     margin-bottom: 5px; /* Adds some spacing */
   }
 }
+
+/* Remove bold from filter labels under Predict Future Business Trends */
+.predict-section label {
+  font-weight: normal; /* Makes text non-bold */
+}
