@@ -394,3 +394,9 @@ footer {
   font-weight: bold;
   margin-right: 5px;
 }
+
+@media (max-width: 767px) { 
+  .predict-section {
+    margin-top: 15px; /* Adds spacing between the heading and Select Metric section */
+  }
+}
