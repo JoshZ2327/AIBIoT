@@ -546,3 +546,12 @@ h3.revenue-trends {
   border: 2px solid #ddd !important; /* Matches dashboard border */
   box-shadow: none !important; /* Removes unnecessary shadow */
 }
+
+.ai-insights-section {
+  background: white !important; /* Ensure it's white */
+  padding: 35px !important; /* Match dashboard padding */
+  border-radius: 12px !important; /* Keep it rounded */
+  border: 2px solid #ddd !important; /* Match dashboard border */
+  box-shadow: none !important; /* Ensure consistency */
+  margin-top: -10px !important; /* Pulls it closer to previous section */
+}
