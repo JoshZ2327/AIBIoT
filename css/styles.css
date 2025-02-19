@@ -456,3 +456,7 @@ h3.filter-title {
 .export-section {
   margin-top: 15px; /* Adds space between the heading and buttons */
 }
+
+.export-section {
+  margin-bottom: 15px; /* Adds space between the export buttons and the line below */
+}
