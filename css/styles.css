@@ -460,3 +460,29 @@ h3.filter-title {
 .export-section {
   margin-bottom: 15px; /* Adds space between the export buttons and the line below */
 }
+
+/* 📊 Align Charts Side-by-Side on Desktop */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px; /* Adjusts spacing between the two charts */
+  flex-wrap: wrap; /* Allows them to wrap on smaller screens */
+  margin-top: 20px;
+}
+
+.chart-container canvas {
+  max-width: 45%; /* Makes both charts fit nicely on desktop */
+}
+
+/* 📊 Stack Charts on Mobile */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%; /* Makes both charts full-width on mobile */
+  }
+}
