@@ -166,37 +166,61 @@
 
 <canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
 
-    <!-- 📊 Revenue Trend Bar Chart -->
-    <h3>📊 Revenue Trend Over the Next 6 Months</h3>
-    <canvas id="revenueBarChart" style="max-width: 600px; margin: 10px auto; display: block;"></canvas> <!-- Less Space -->
+    <!-- 📊 Revenue Trend Over the Next 6 Months -->
+<h3>📊 Revenue Trend Over the Next 6 Months</h3>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const ctx = document.getElementById("revenueBarChart").getContext("2d");
+<div class="chart-container">
+    <canvas id="revenueBarChart"></canvas> 
+    <canvas id="revenuePieChart"></canvas> 
+</div>
 
-        const revenueData = {
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const barCtx = document.getElementById("revenueBarChart").getContext("2d");
+      const pieCtx = document.getElementById("revenuePieChart").getContext("2d");
+
+      // Bar Chart Data
+      const revenueData = {
           labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
           datasets: [{
-            label: "Revenue ($)",
-            data: [5000, 7000, 6500, 8000, 9000, 9500], 
-            backgroundColor: "rgba(75, 192, 192, 0.6)",
-            borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 2
+              label: "Revenue ($)",
+              data: [5000, 7000, 6500, 8000, 9000, 9500], 
+              backgroundColor: "rgba(75, 192, 192, 0.6)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 2
           }]
-        };
+      };
 
-        new Chart(ctx, {
+      new Chart(barCtx, {
           type: "bar",
           data: revenueData,
           options: {
-            responsive: true,
-            scales: {
-              y: { beginAtZero: true }
-            }
+              responsive: true,
+              scales: { y: { beginAtZero: true } }
           }
-        });
       });
-    </script>
+
+      // Pie Chart Data (Revenue Distribution)
+      const revenueDistribution = {
+          labels: ["Product A", "Product B", "Product C", "Product D"],
+          datasets: [{
+              data: [40, 30, 20, 10], // Example distribution
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
+          }]
+      };
+
+      new Chart(pieCtx, {
+          type: "pie",
+          data: revenueDistribution,
+          options: {
+              responsive: true,
+              plugins: {
+                  legend: { position: "bottom" }
+              }
+          }
+      });
+  });
+</script>
 
   </section>
 
