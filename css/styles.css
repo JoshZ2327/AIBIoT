@@ -749,3 +749,19 @@ h3.revenue-trends {
     height: auto;
   }
 }
+
+/* 📊 Move Product Labels Closer to Pie Chart on Desktop */
+@media (min-width: 768px) {
+  .pie-chart-labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px; /* Reduce space between labels */
+    margin-top: -20px !important; /* Moves labels closer */
+  }
+
+  .pie-chart-labels span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
