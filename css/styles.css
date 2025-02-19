@@ -486,3 +486,29 @@ h3.filter-title {
     max-width: 100%; /* Keeps both charts full-width on mobile */
   }
 }
+
+/* 📊 Align Charts Side-by-Side on Desktop */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px; /* Adjusts spacing between the two charts */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  margin-top: 20px;
+}
+
+.chart-container canvas {
+  max-width: 40%; /* Increases the size of both charts on desktop */
+}
+
+/* 📊 Stack Charts on Mobile (Full Size) */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%; /* Keeps both charts full-width on mobile */
+  }
+}
