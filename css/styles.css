@@ -461,21 +461,21 @@ h3.filter-title {
   margin-bottom: 15px; /* Adds space between the export buttons and the line below */
 }
 
-/* 📊 Align Charts Side-by-Side on Desktop */
+/* 📊 Align Charts Side-by-Side on Desktop (Half Size) */
 .chart-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px; /* Adjusts spacing between the two charts */
-  flex-wrap: wrap; /* Allows them to wrap on smaller screens */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
   margin-top: 20px;
 }
 
 .chart-container canvas {
-  max-width: 45%; /* Makes both charts fit nicely on desktop */
+  max-width: 25%; /* Makes both charts half the size on desktop */
 }
 
-/* 📊 Stack Charts on Mobile */
+/* 📊 Stack Charts on Mobile (Full Size) */
 @media (max-width: 767px) {
   .chart-container {
     flex-direction: column;
@@ -483,18 +483,6 @@ h3.filter-title {
   }
 
   .chart-container canvas {
-    max-width: 100%; /* Makes both charts full-width on mobile */
-  }
-}
-
-@media (min-width: 768px) { 
-  #revenueBarChart {
-    max-width: 700px; /* Restores the previous larger size on desktop */
-  }
-}
-
-@media (max-width: 767px) { 
-  #revenueBarChart {
-    max-width: 90%; /* Makes it slightly bigger on mobile */
+    max-width: 100%; /* Keeps both charts full-width on mobile */
   }
 }
