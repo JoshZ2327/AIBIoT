@@ -618,3 +618,19 @@ h3.filter-title {
     max-width: 100%;
   }
 }
+
+/* 📊 Bring Product Labels Closer to Pie Chart on Desktop */
+@media (min-width: 768px) {
+  .pie-chart-labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Reduce spacing between labels */
+    margin-top: -10px; /* Move labels closer to pie chart */
+  }
+
+  .pie-chart-labels span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
