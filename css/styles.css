@@ -651,3 +651,42 @@ h3.filter-title {
     margin-top: 10px !important; /* Adjusts spacing before recommendations */
   }
 }
+
+@media (max-width: 767px) {
+  .predict-section {
+    margin-bottom: 10px !important; /* Forces the update */
+    padding-bottom: 0px !important;
+  }
+
+  #recommendations-section {
+    margin-top: 5px !important; /* Reduces space above AI Recommendations */
+    padding-top: 0px !important;
+  }
+}
+
+/* 📊 Adjust Chart Spacing and Label Positioning for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Reducing space between the two charts */
+    flex-wrap: nowrap;
+    margin-top: -10px; /* Moves charts closer to the heading */
+  }
+
+  .chart-container canvas {
+    max-width: 50%; /* Keeps charts large */
+    height: auto;
+  }
+
+  /* 📊 Move "Revenue Trends" Text Closer to Charts */
+  h3.revenue-trends {
+    margin-bottom: 10px; /* Reduces space below the heading */
+  }
+
+  /* 📊 Move Product Labels Closer to Pie Chart */
+  .pie-chart-labels {
+    margin-top: -25px !important; /* Moves labels even closer to the pie chart */
+  }
+}
