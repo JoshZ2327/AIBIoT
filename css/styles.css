@@ -553,3 +553,7 @@ h3.revenue-trends {
   position: relative !important; /* Override any absolute positioning */
   z-index: 100 !important; /* Ensure it's on top */
 }
+
+.ai-insights-section * {
+  background-color: white !important; /* Forces all child elements to be white */
+}
