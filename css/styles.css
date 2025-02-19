@@ -619,22 +619,6 @@ h3.filter-title {
   }
 }
 
-/* 📊 Bring Product Labels Closer to Pie Chart on Desktop */
-@media (min-width: 768px) {
-  .pie-chart-labels {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px; /* Reduce spacing between labels */
-    margin-top: -10px; /* Move labels closer to pie chart */
-  }
-
-  .pie-chart-labels span {
-    font-size: 14px;
-    font-weight: bold;
-  }
-}
-
 @media (max-width: 767px) {
   .predict-section {
     margin-bottom: 10px !important; /* Forces the update */
@@ -679,14 +663,43 @@ h3.revenue-trends {
   margin-bottom: 10px !important; /* Reduces space below heading */
 }
 
+/* 📊 Fix Spacing Below "Predict Future Business Trends" on Mobile */
+@media (max-width: 767px) {
+  .predict-section {
+    margin-bottom: 5px !important; /* Ensures proper spacing */
+  }
+}
+
+/* 📊 Adjust Chart Sizes for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Reducing space between charts */
+    flex-wrap: nowrap;
+    margin-top: -10px; /* Moves charts closer to heading */
+  }
+
+  .chart-container canvas {
+    max-width: 47%; /* Increases size of both charts */
+    height: auto;
+  }
+}
+
+/* 📊 Move "Revenue Trends" Heading Closer */
+h3.revenue-trends {
+  margin-bottom: 5px !important; /* Further reduces space below heading */
+}
+
 /* 📊 Bring Product Labels Closer to Pie Chart */
 @media (min-width: 768px) {
   .pie-chart-labels {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2px; /* Reduces spacing between labels */
-    margin-top: -10px !important; /* Moves labels closer */
+    gap: 2px; /* Reduce spacing between labels */
+    margin-top: -25px !important; /* Moves labels even closer */
   }
 
   .pie-chart-labels span {
