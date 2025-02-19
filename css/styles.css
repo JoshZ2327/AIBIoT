@@ -640,3 +640,64 @@ h3.filter-title {
     margin-bottom: 10px !important; /* Forces the update */
   }
 }
+
+/* ================= */
+/*    Chart Fixes    */
+/* ================= */
+
+/* 📊 Adjust Bar Graph & Pie Chart Size on Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Adjusts spacing between charts */
+    flex-wrap: nowrap; /* Keeps charts side by side */
+    margin-top: -10px; /* Moves charts closer to heading */
+  }
+
+  .chart-container canvas {
+    max-width: 50%; /* Increases the chart size on desktop */
+    height: auto;
+  }
+}
+
+/* 📊 Keep Mobile Chart Layout Unchanged */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%;
+  }
+}
+
+/* 📊 Move "Revenue Trends" Heading Closer */
+h3.revenue-trends {
+  margin-bottom: 10px !important; /* Reduces space below heading */
+}
+
+/* 📊 Bring Product Labels Closer to Pie Chart */
+@media (min-width: 768px) {
+  .pie-chart-labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Reduces spacing between labels */
+    margin-top: -30px !important; /* Moves labels closer */
+  }
+
+  .pie-chart-labels span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+/* 📊 Fix Spacing Below "Predict Future Business Trends" on Mobile */
+@media (max-width: 767px) {
+  .predict-section {
+    margin-bottom: 10px !important; /* Ensures proper spacing */
+  }
+}
