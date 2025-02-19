@@ -640,3 +640,14 @@ h3.filter-title {
     margin-bottom: 10px !important; /* Forces the update */
   }
 }
+
+@media (max-width: 767px) {
+  .predict-section {
+    margin-bottom: 0px !important; /* Removes extra space */
+    padding-bottom: 0px !important;
+  }
+
+  #recommendations-section {
+    margin-top: 10px !important; /* Adjusts spacing before recommendations */
+  }
+}
