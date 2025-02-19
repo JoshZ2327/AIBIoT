@@ -528,3 +528,12 @@ h3.revenue-trends {
 h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
+
+/* 📊 Make AI-Generated Business Insights Section White */
+.ai-insights-section {
+  background-color: white !important; /* Changes background to white */
+  padding: 35px !important; /* Ensures padding is consistent */
+  border-radius: 12px !important; /* Matches the dashboard's rounded corners */
+  border: 2px solid #ddd !important; /* Matches the dashboard border */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important; /* Adds subtle shadow for consistency */
+}
