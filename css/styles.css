@@ -657,7 +657,7 @@ h3.filter-title {
   }
 
   .chart-container canvas {
-    max-width: 50%; /* Increases the chart size on desktop */
+    max-width: 45%; /* Increases the chart size on desktop */
     height: auto;
   }
 }
