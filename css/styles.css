@@ -512,3 +512,31 @@ h3.filter-title {
     max-width: 100%; /* Keeps both charts full-width on mobile */
   }
 }
+
+/* 📊 Adjust Chart Sizes for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Increased spacing between charts */
+    flex-wrap: nowrap; /* Ensures they stay side by side */
+  }
+
+  .chart-container canvas {
+    max-width: 60%; /* Increased size of both charts */
+    height: auto;
+  }
+}
+
+/* 📊 Stack Charts on Mobile (No Changes) */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%;
+  }
+}
