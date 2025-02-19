@@ -539,3 +539,17 @@ h3.revenue-trends {
   margin-top: -5px !important; /* Adjust vertical position */
   width: 100% !important; /* Ensure it spans full width */
 }
+
+.ai-insights-section {
+  background-color: #ffffff !important; /* Force white background */
+  color: #333 !important; /* Ensure readable text */
+  padding: 35px !important; /* Match dashboard spacing */
+  border-radius: 12px !important; /* Keep consistent styling */
+  border: 2px solid #ddd !important; /* Match dashboard border */
+  box-shadow: none !important; /* Remove any unwanted shadow */
+  margin-top: -5px !important; /* Adjust vertical position */
+  width: 100% !important; /* Ensure it spans full width */
+  display: block !important; /* Force it to be visible */
+  position: relative !important; /* Override any absolute positioning */
+  z-index: 100 !important; /* Ensure it's on top */
+}
