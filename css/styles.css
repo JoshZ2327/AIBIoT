@@ -765,3 +765,22 @@ h3.revenue-trends {
     font-weight: bold;
   }
 }
+
+/* 📊 Force Product Labels Closer to Pie Chart */
+@media (min-width: 768px) {
+  .pie-chart-labels {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0px !important; /* Eliminates extra spacing */
+    margin-top: -40px !important; /* Moves labels up */
+  }
+
+  .pie-chart-labels span {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    line-height: 1.1 !important; /* Adjusts vertical spacing */
+    padding: 0px 5px !important; /* Adjust spacing around text */
+  }
+}
