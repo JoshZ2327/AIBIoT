@@ -727,3 +727,17 @@ h3.revenue-trends {
     margin-top: -25px !important; /* Moves charts closer to the heading */
   }
 }
+
+/* 📊 Remove Extra Space Between "Revenue Trend Over the Next 6 Months" and Charts */
+h3.revenue-trends {
+  margin-bottom: -20px !important; /* Moves heading closer */
+  padding-bottom: 0 !important;
+  line-height: 1.2; /* Adjusts text spacing */
+}
+
+/* 📊 Move Charts Closer to the Heading on Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    margin-top: -30px !important; /* Moves charts even closer */
+  }
+}
