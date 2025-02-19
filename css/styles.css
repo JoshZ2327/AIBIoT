@@ -682,14 +682,14 @@ h3.revenue-trends {
   }
 
   .chart-container canvas {
-    max-width: 48%; /* Increases size of both charts */
+    max-width: 47%; /* Increases size of both charts */
     height: auto;
   }
 }
 
 /* 📊 Move "Revenue Trends" Heading Closer */
 h3.revenue-trends {
-  margin-bottom: 5px !important; /* Further reduces space below heading */
+  margin-bottom: 10px !important; /* Further reduces space below heading */
 }
 
 /* 📊 Bring Product Labels Closer to Pie Chart */
