@@ -487,3 +487,21 @@ h3.filter-title {
   text-align: center;
   min-width: 120px; /* Ensures even spacing */
 }
+
+/* 📊 Force Sensor Labels Into Rows */
+.iot-pie-chart-labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.iot-pie-chart-labels span {
+  flex: 1 1 45%; /* Ensures two labels per row */
+  min-width: 100px;
+  text-align: center;
+}
