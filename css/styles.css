@@ -529,29 +529,13 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
-/* 📊 Make AI-Generated Business Insights Section White */
 .ai-insights-section {
-  background-color: white !important; /* Changes background to white */
-  padding: 35px !important; /* Ensures padding is consistent */
-  border-radius: 12px !important; /* Matches the dashboard's rounded corners */
-  border: 2px solid #ddd !important; /* Matches the dashboard border */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important; /* Adds subtle shadow for consistency */
-}
-
-/* 📊 Make AI-Generated Business Insights Section White */
-.ai-insights-section {
-  background-color: #ffffff !important; /* Forces white background */
-  padding: 35px !important; /* Matches dashboard spacing */
-  border-radius: 12px !important; /* Matches dashboard rounded corners */
-  border: 2px solid #ddd !important; /* Matches dashboard border */
-  box-shadow: none !important; /* Removes unnecessary shadow */
-}
-
-.ai-insights-section {
-  background: white !important; /* Ensure it's white */
-  padding: 35px !important; /* Match dashboard padding */
-  border-radius: 12px !important; /* Keep it rounded */
+  background-color: #ffffff !important; /* Force white background */
+  color: #333 !important; /* Ensure text remains readable */
+  padding: 35px !important; /* Match dashboard spacing */
+  border-radius: 12px !important; /* Keep consistent styling */
   border: 2px solid #ddd !important; /* Match dashboard border */
-  box-shadow: none !important; /* Ensure consistency */
-  margin-top: -10px !important; /* Pulls it closer to previous section */
+  box-shadow: none !important; /* Remove any unwanted shadow */
+  margin-top: -5px !important; /* Adjust vertical position */
+  width: 100% !important; /* Ensure it spans full width */
 }
