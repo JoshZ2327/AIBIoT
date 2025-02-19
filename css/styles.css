@@ -452,3 +452,7 @@ h3.filter-title {
 .predict-section label {
   font-weight: normal; /* Makes text non-bold */
 }
+
+.export-section {
+  margin-top: 15px; /* Adds space between the heading and buttons */
+}
