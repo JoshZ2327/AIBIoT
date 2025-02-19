@@ -698,6 +698,6 @@ h3.revenue-trends {
 /* 📊 Fix Spacing Below "Predict Future Business Trends" on Mobile */
 @media (max-width: 767px) {
   .predict-section {
-    margin-bottom: 10px !important; /* Ensures proper spacing */
+    margin-bottom: 5px !important; /* Ensures proper spacing */
   }
 }
