@@ -524,7 +524,7 @@ h3.filter-title {
   }
 
   .chart-container canvas {
-    max-width: 50%; /* Increased size of both charts */
+    max-width: 30%; /* Increased size of both charts */
     height: auto;
   }
 }
