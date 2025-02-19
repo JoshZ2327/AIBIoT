@@ -741,3 +741,11 @@ h3.revenue-trends {
     margin-top: -30px !important; /* Moves charts even closer */
   }
 }
+
+/* 📊 Adjust Bar Graph Width on Desktop */
+@media (min-width: 768px) {
+  #revenueBarChart {
+    max-width: 55% !important; /* Increase width */
+    height: auto;
+  }
+}
