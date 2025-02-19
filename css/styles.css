@@ -603,7 +603,7 @@ h3.filter-title {
 
   /* 📊 Move Product Labels EVEN Closer to Pie Chart */
   .pie-chart-labels {
-    margin-top: -50px; /* Moves labels even closer to the pie chart */
+    margin-top: -80px; /* Moves labels even closer to the pie chart */
   }
 }
 
