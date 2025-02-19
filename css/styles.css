@@ -523,3 +523,8 @@ h3.filter-title {
 h3.revenue-trends {
   margin-bottom: 20px !important; /* Adds space below heading */
 }
+
+/* 📊 Add More Space Between "Revenue Trend Over the Next 6 Months" and Bar Graph */
+h3.revenue-trends {
+  margin-bottom: 30px !important; /* Increases space below heading */
+}
