@@ -537,3 +537,12 @@ h3.revenue-trends {
   border: 2px solid #ddd !important; /* Matches the dashboard border */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important; /* Adds subtle shadow for consistency */
 }
+
+/* 📊 Make AI-Generated Business Insights Section White */
+.ai-insights-section {
+  background-color: #ffffff !important; /* Forces white background */
+  padding: 35px !important; /* Matches dashboard spacing */
+  border-radius: 12px !important; /* Matches dashboard rounded corners */
+  border: 2px solid #ddd !important; /* Matches dashboard border */
+  box-shadow: none !important; /* Removes unnecessary shadow */
+}
