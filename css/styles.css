@@ -498,7 +498,7 @@ h3.filter-title {
 }
 
 .chart-container canvas {
-  max-width: 45%; /* Increases the size of both charts on desktop */
+  max-width: 40%; /* Increases the size of both charts on desktop */
 }
 
 /* 📊 Stack Charts on Mobile (Full Size) */
