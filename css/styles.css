@@ -745,7 +745,7 @@ h3.revenue-trends {
 /* 📊 Adjust Bar Graph Width on Desktop */
 @media (min-width: 768px) {
   #revenueBarChart {
-    max-width: 47% !important; /* Increase width */
+    max-width: 48% !important; /* Increase width */
     height: auto;
   }
 }
