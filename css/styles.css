@@ -1,76 +1,104 @@
-/* ========================= */
-/*         Global Reset      */
-/* ========================= */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ========================= */
-/*       Body & Layout       */
-/* ========================= */
+/* Body & Typography */
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
   color: #333;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-/* ========================= */
-/*        Header/Nav         */
-/* ========================= */
+/* ✅ Fix for Centered Logo & Navigation */
 header {
   background: #007BFF;
-  color: white;
+  color: #fff;
   padding: 10px 20px;
   text-align: center;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Ensures everything is centered */
 }
 
+/* ✅ Center Logo */
 header .logo {
-  height: 80px;
+  height: 80px; /* Adjust as needed */
   width: auto;
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 10px auto; /* Centers the logo */
 }
 
+/* ✅ Ensure Navigation is Fully Centered */
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centers navigation */
   align-items: center;
   gap: 20px;
   width: 100%;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Prevents overlap on smaller screens */
 }
 
+/* ✅ Keep Navigation Text White */
 nav a {
-  color: white;
+  color: #fff; /* White text restored */
   text-decoration: none;
   font-weight: bold;
   white-space: nowrap;
   padding: 10px 15px;
 }
 
-/* Navigation Mobile Fix */
+/* ✅ Fix for Horizontal Navigation on Mobile */
 @media (max-width: 768px) {
   nav {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap;  /* Allows wrapping but keeps it horizontal */
+    justify-content: center; /* Ensures links remain centered */
   }
 
   nav a {
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 8px 12px; /* Adjusts spacing for mobile */
+    font-size: 14px; /* Makes text slightly smaller for better fit */
   }
 }
 
-/* ========================= */
-/*         Dashboard         */
-/* ========================= */
+/* ✅ Restored 7-Day Free Trial & Login Design */
+nav a.btn {
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Hero Section */
+#hero {
+  background: #e9f2ff;
+  padding: 60px 20px;
+}
+
+#hero h1 {
+  margin-top: -10px;
+}
+
+/* Call-To-Action Button */
+.cta-btn {
+  display: inline-block;
+  background: #007BFF;
+  color: #fff;
+  padding: 12px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+ /* ======================== */
+/*   AI-Powered Dashboard  */
+/* ======================== */
 #dashboard {
   max-width: 1000px;
   margin: 50px auto;
@@ -82,16 +110,16 @@ nav a {
   border: 2px solid #ddd;
 }
 
+/* Dashboard Title */
 #dashboard h2 {
+  text-align: center;
   color: #007BFF;
   font-size: 26px;
   margin-bottom: 40px;
   font-weight: bold;
 }
 
-/* ========================= */
-/*    Business Metrics       */
-/* ========================= */
+/* 🚀 AI Business Metrics - Improved Spacing */
 .dashboard-metrics {
   display: flex;
   justify-content: space-around;
@@ -100,6 +128,7 @@ nav a {
   padding: 35px 0;
 }
 
+/* Individual Metric Box */
 .metric-box {
   background: #f9f9f9;
   padding: 30px;
@@ -111,71 +140,396 @@ nav a {
   font-weight: bold;
 }
 
-/* ========================= */
-/*    Business Predictions   */
-/* ========================= */
-h3.predict-trends {
+/* ✅ More Space Between AI-Generated Insights and the Section Above */
+.ai-insights-section {
+  margin-top: 100px; /* Increased margin for extra spacing */
+  padding-top: 40px;
+  border-top: 2px solid #ddd;
+}
+
+/* ======================== */
+/*   Ask Business Question UI (Fully Restored to Pasted Code)  */
+/* ======================== */
+#ask-section, #connect-data-section {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #ddd;
+}
+
+#ask-section h2, #connect-data-section h2 {
+  color: #007BFF;
+}
+
+#ask-form textarea, #connect-data-form input, #connect-data-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#ask-form button, #connect-data-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* AI Response Box */
+.response-box {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: none;
+}
+
+/* ✅ Added Spacing Above "Data Source Name" */
+#connect-data-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* ✅ Added Spacing Below "Connect Data" Button */
+#connect-data-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Extra spacing */
+}
+
+/* ======================== */
+/*   Connect Data Table UI  */
+/* ======================== */
+#connected-data table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+#connected-data th, #connected-data td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#connected-data th {
+  background: #007BFF;
+  color: white;
+}
+
+/* ======================== */
+/*   Free Trial Page (Title Centered, Form Left-Aligned)  */
+/* ======================== */
+#signup-section {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Centered Title, Made Text Blue */
+#signup-section h2 {
+  color: #007BFF;
+  text-align: center;
+}
+
+/* ✅ Left-Aligned Form */
+#signup-form {
+  text-align: left;
+}
+
+/* ======================== */
+/*   Login & Free Trial Pages */
+/* ======================== */
+#login-section {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* ✅ Added Spacing Below "Login to Your Account" */
+#login-section h2 {
+  text-align: center;
+  color: #007BFF;
+  margin-bottom: 15px; /* Extra spacing */
+}
+
+#login-form input, #signup-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#login-form button.btn, #signup-form button.btn {
+  width: 100%;
+  padding: 12px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#login-form button.btn:hover, #signup-form button.btn:hover {
+  background: #0056b3;
+}
+
+/* About Page Styling */
+#about-section {
+  max-width: 900px;
+  margin: 60px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ddd;
+  text-align: left;
+}
+
+.section-title {
+  text-align: center;
+  color: #007BFF;
+  font-size: 32px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
-.predict-section {
-  margin-bottom: 10px !important;
+.section-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 25px;
 }
 
+.about-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.about-content hr {
+  border: none;
+  border-top: 2px solid #ddd;
+  margin: 30px 0;
+}
+
+.about-content h2 {
+  font-size: 24px;
+  color: #007BFF;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ======================== */
+/*   Footer Styles          */
+/* ======================== */
+footer {
+  background: #333;
+  color: #fff;
+  padding: 15px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) { 
+  .predict-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content */
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px; /* Adjust spacing */
+  }
+
+  .predict-section label {
+    margin-top: 10px; /* Ensure spacing */
+  }
+
+  .predict-section select,
+  .predict-section input,
+  .predict-section button {
+    margin-top: 5px; /* Keep elements close together */
+  }
+}
+
+/* Ensure Select Metric Section is Horizontal */
 .select-metric-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
+  gap: 10px; /* Adds spacing between elements */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  margin-bottom: 15px; /* Adjusts spacing */
 }
 
-/* Ensure No Extra Space Between Sections */
-@media (max-width: 767px) {
+.select-metric-container label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) { 
   .predict-section {
-    margin-bottom: 10px !important;
-    padding-bottom: 0px !important;
-  }
-
-  #recommendations-section {
-    margin-top: 5px !important;
-    padding-top: 0px !important;
+    margin-top: 15px; /* Adds spacing between the heading and Select Metric section */
   }
 }
 
-/* ========================= */
-/*    Revenue Charts Fix     */
-/* ========================= */
+/* 📅 Data Filtering Section */
+h3.filter-title {
+  margin-bottom: 15px; /* Adds space between the title and the filtering section */
+}
+
+.filter-section {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 480px) { 
+  .filter-section label, 
+  .filter-section select {
+    display: block; /* Forces each label and select to appear on its own line */
+    width: 100%; /* Ensures full width for better spacing */
+    margin-bottom: 10px; /* Adds spacing between the dropdowns */
+  }
+}
+
+@media (max-width: 480px) { 
+  .filter-section select {
+    width: 50%; /* Reduces dropdown width to half */
+    font-size: 14px; /* Adjusts font size for better readability */
+    padding: 5px; /* Reduces padding for a more compact look */
+  }
+}
+
+@media (max-width: 480px) { 
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the dropdowns */
+  }
+
+  .filter-section select {
+    width: 50%; /* Keeps them half-sized */
+    font-size: 14px;
+    padding: 5px;
+    text-align: center; /* Ensures text is centered inside the box */
+  }
+
+  .filter-section label {
+    text-align: center; /* Centers the labels */
+    display: block;
+    margin-bottom: 5px; /* Adds some spacing */
+  }
+}
+
+/* Remove bold from filter labels under Predict Future Business Trends */
+.predict-section label {
+  font-weight: normal; /* Makes text non-bold */
+}
+
+.export-section {
+  margin-top: 15px; /* Adds space between the heading and buttons */
+}
+
+.export-section {
+  margin-bottom: 15px; /* Adds space between the export buttons and the line below */
+}
+
+/* 📊 Align Charts Side-by-Side on Desktop (Half Size) */
 .chart-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: -10px;
+  gap: 30px; /* Adjusts spacing between the two charts */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  margin-top: 20px;
 }
 
 .chart-container canvas {
-  max-width: 45%;
-  height: auto;
+  max-width: 25%; /* Makes both charts half the size on desktop */
 }
 
-/* Adjust Chart Labels */
-.pie-chart-labels {
+/* 📊 Stack Charts on Mobile (Full Size) */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%; /* Keeps both charts full-width on mobile */
+  }
+}
+
+/* 📊 Align Charts Side-by-Side on Desktop */
+.chart-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 5px;
-  margin-top: -30px; /* Move labels closer */
+  gap: 30px; /* Adjusts spacing between the two charts */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  margin-top: 20px;
 }
 
-.pie-chart-labels span {
-  font-size: 14px;
-  font-weight: bold;
+.chart-container canvas {
+  max-width: 40%; /* Increases the size of both charts on desktop */
 }
 
-/* Adjust Chart Layout for Mobile */
+/* 📊 Stack Charts on Mobile (Full Size) */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%; /* Keeps both charts full-width on mobile */
+  }
+}
+
+/* 📊 Adjust Chart Sizes for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Increased spacing between charts */
+    flex-wrap: nowrap; /* Ensures they stay side by side */
+  }
+
+  .chart-container canvas {
+    max-width: 45%; /* Increased size of both charts */
+    height: auto;
+  }
+}
+
+/* 📊 Stack Charts on Mobile (No Changes) */
 @media (max-width: 767px) {
   .chart-container {
     flex-direction: column;
@@ -187,52 +541,102 @@ h3.predict-trends {
   }
 }
 
-/* ========================= */
-/*      Export Section       */
-/* ========================= */
-.export-section {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-/* ========================= */
-/*          Footer           */
-/* ========================= */
-footer {
-  background: #333;
-  color: white;
-  padding: 15px;
-  margin-top: 40px;
-  text-align: center;
-  font-size: 16px;
-}
-
-/* ========================= */
-/*      Miscellaneous        */
-/* ========================= */
-@media (max-width: 480px) {
-  .filter-section label,
-  .filter-section select {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .filter-section select {
-    width: 50%;
-    font-size: 14px;
-    padding: 5px;
-  }
-
-  .filter-section {
+/* 📊 Adjust Chart Spacing for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Reducing space between the two charts */
+    flex-wrap: nowrap;
+    margin-top: -10px; /* Moves charts closer to the heading */
+  }
+
+  .chart-container canvas {
+    max-width: 45%; /* Keeps charts large */
+    height: auto;
+  }
+
+  /* 📊 Move "Revenue Trends" Text Closer to Charts */
+  h3.revenue-trends {
+    margin-bottom: 10px; /* Reduces space below the heading */
+  }
+
+  /* 📊 Move Product Labels Closer to Pie Chart */
+  .pie-chart-labels {
+    margin-top: -15px; /* Moves labels closer to the pie chart */
+  }
+}
+
+/* 📊 Keep Mobile Chart Layout Unchanged */
+@media (max-width: 767px) {
+  .chart-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .filter-section label {
-    text-align: center;
-    display: block;
-    margin-bottom: 5px;
+  .chart-container canvas {
+    max-width: 100%;
+  }
+}
+
+/* 📊 Adjust Chart Spacing for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Keeps spacing between the two charts */
+    flex-wrap: nowrap;
+    margin-top: -10px; /* Moves charts closer to the heading */
+  }
+
+  .chart-container canvas {
+    max-width: 45%; /* Keeps charts large */
+    height: auto;
+  }
+
+  /* 📊 Move "Revenue Trends" Text Closer to Charts */
+  h3.revenue-trends {
+    margin-bottom: 10px; /* Reduces space below the heading */
+  }
+
+  /* 📊 Move Product Labels EVEN Closer to Pie Chart */
+  .pie-chart-labels {
+    margin-top: -80px; /* Moves labels even closer to the pie chart */
+  }
+}
+
+/* 📊 Keep Mobile Chart Layout Unchanged */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%;
+  }
+}
+
+/* 📊 Bring Product Labels Closer to Pie Chart on Desktop */
+@media (min-width: 768px) {
+  .pie-chart-labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Reduce spacing between labels */
+    margin-top: -10px; /* Move labels closer to pie chart */
+  }
+
+  .pie-chart-labels span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 767px) {
+  .predict-section {
+    margin-bottom: 10px !important; /* Forces the update */
   }
 }
