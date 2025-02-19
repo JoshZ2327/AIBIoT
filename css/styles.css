@@ -486,3 +486,15 @@ h3.filter-title {
     max-width: 100%; /* Makes both charts full-width on mobile */
   }
 }
+
+@media (min-width: 768px) { 
+  #revenueBarChart {
+    max-width: 700px; /* Restores the previous larger size on desktop */
+  }
+}
+
+@media (max-width: 767px) { 
+  #revenueBarChart {
+    max-width: 90%; /* Makes it slightly bigger on mobile */
+  }
+}
