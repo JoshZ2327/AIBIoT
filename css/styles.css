@@ -682,7 +682,7 @@ h3.revenue-trends {
   }
 
   .chart-container canvas {
-    max-width: 47%; /* Increases size of both charts */
+    max-width: 48%; /* Increases size of both charts */
     height: auto;
   }
 }
