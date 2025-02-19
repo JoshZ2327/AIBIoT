@@ -460,3 +460,8 @@ h3.filter-title {
 .export-section {
   margin-bottom: 15px; /* Adds space between the export buttons and the line below */
 }
+
+/* 📊 Add Vertical Spacing Between Bar Graph and Pie Chart */
+.chart-container canvas:first-child {
+  margin-bottom: 30px; /* Adjust as needed */
+}
