@@ -553,7 +553,7 @@ h3.filter-title {
   }
 
   .chart-container canvas {
-    max-width: 65%; /* Keeps charts large */
+    max-width: 45%; /* Keeps charts large */
     height: auto;
   }
 
