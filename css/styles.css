@@ -465,3 +465,25 @@ h3.filter-title {
 .chart-container canvas:first-child {
   margin-bottom: 30px; /* Adjust as needed */
 }
+
+/* 📊 Align Sensor Labels Under IoT Device Distribution Pie Chart */
+#iotPieChart {
+  display: block;
+  margin: 0 auto;
+}
+
+.iot-pie-chart-labels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensures labels wrap properly */
+  gap: 10px; /* Adds spacing between labels */
+  margin-top: 10px; /* Adds space between chart and labels */
+}
+
+.iot-pie-chart-labels span {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 120px; /* Ensures even spacing */
+}
