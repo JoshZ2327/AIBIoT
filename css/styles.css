@@ -579,3 +579,42 @@ h3.filter-title {
     max-width: 100%;
   }
 }
+
+/* 📊 Adjust Chart Spacing for Desktop */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Keeps spacing between the two charts */
+    flex-wrap: nowrap;
+    margin-top: -10px; /* Moves charts closer to the heading */
+  }
+
+  .chart-container canvas {
+    max-width: 45%; /* Keeps charts large */
+    height: auto;
+  }
+
+  /* 📊 Move "Revenue Trends" Text Closer to Charts */
+  h3.revenue-trends {
+    margin-bottom: 10px; /* Reduces space below the heading */
+  }
+
+  /* 📊 Move Product Labels EVEN Closer to Pie Chart */
+  .pie-chart-labels {
+    margin-top: -25px; /* Moves labels even closer to the pie chart */
+  }
+}
+
+/* 📊 Keep Mobile Chart Layout Unchanged */
+@media (max-width: 767px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container canvas {
+    max-width: 100%;
+  }
+}
