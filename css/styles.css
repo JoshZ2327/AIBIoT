@@ -757,7 +757,7 @@ h3.revenue-trends {
     justify-content: center;
     align-items: center;
     gap: 2px; /* Reduce space between labels */
-    margin-top: -20px !important; /* Moves labels closer */
+    margin-top: -30px !important; /* Moves labels closer */
   }
 
   .pie-chart-labels span {
