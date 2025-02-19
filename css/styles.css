@@ -512,3 +512,9 @@ h3.filter-title {
   padding-top: 20px !important;
   border-top: 1px solid #ddd; /* Keeps a subtle separation */
 }
+
+.ai-insights-section {
+  margin-top: 10px !important; /* Moves AI Insights closer */
+  padding-top: 10px !important;
+  border-top: none !important; /* Removes extra border space */
+}
