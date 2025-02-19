@@ -634,3 +634,9 @@ h3.filter-title {
     font-weight: bold;
   }
 }
+
+@media (max-width: 767px) {
+  .predict-section {
+    margin-bottom: 10px !important; /* Forces the update */
+  }
+}
