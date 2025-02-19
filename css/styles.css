@@ -657,7 +657,7 @@ h3.filter-title {
   }
 
   .chart-container canvas {
-    max-width: 45%; /* Increases the chart size on desktop */
+    max-width: 47%; /* Increases the chart size on desktop */
     height: auto;
   }
 }
@@ -685,7 +685,7 @@ h3.revenue-trends {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px; /* Reduces spacing between labels */
+    gap: 2px; /* Reduces spacing between labels */
     margin-top: -30px !important; /* Moves labels closer */
   }
 
