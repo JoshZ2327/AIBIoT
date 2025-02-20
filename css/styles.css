@@ -539,3 +539,14 @@ hr {
   width: 100%;         /* Ensure it spans full width */
   display: block;      /* Make sure it's visible */
 }
+
+.full-width-divider {
+  width: 100vw; /* Ensure full viewport width */
+  height: 1px; /* Keep line thin */
+  background-color: black; /* Keep it black */
+  margin: 30px 0; /* Adjust spacing */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block; /* Ensure it's visible */
+}
