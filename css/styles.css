@@ -835,7 +835,7 @@ h3.revenue-trends {
 /* ✅ Standard Thin Black Divider (1px) */
 .section-divider {
   border: none;
-  height: 1px; /* Ensures thinness */
+  height: 0.5px; /* Ensures thinness */
   background-color: black; /* Solid black */
   width: 100%;
   display: block;
