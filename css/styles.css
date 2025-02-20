@@ -586,3 +586,32 @@ h3.revenue-trends {
     gap: 50px; /* Increase space between buttons on larger screens */
   }
 }
+
+/* ✅ AI-Generated Business Recommendations Section */
+.ai-insights-section {
+  max-width: 1000px;
+  margin: 50px auto; /* Center the section */
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #ddd;
+}
+
+/* ✅ AI Recommendations Title */
+.ai-insights-section h3 {
+  color: #007BFF;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* ✅ AI Insights Box */
+#recommendations-section {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  text-align: center;
+}
