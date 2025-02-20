@@ -152,7 +152,7 @@ nav a.btn {
 /* ======================== */
 #ask-section {
   width: 100% !important; /* Ensures full width */
-  max-width: 1100px !important; /* Increase width */
+  max-width: 900px !important; /* Increase width */
   margin: 40px auto !important; /* Keep it centered */
   background: white !important;
   padding: 25px !important;
