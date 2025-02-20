@@ -831,21 +831,3 @@ h3.revenue-trends {
   display: block;
   width: 100%;
 }
-
-/* ✅ Force Ultra-Thin Dividers */
-.section-divider {
-  border: none; /* Remove any default border */
-  border-top: 0.5px solid rgba(0, 0, 0, 0.5); /* Ultra-thin, slight transparency */
-  width: 100%;
-  display: block;
-  margin: 5px 0; /* Moves sections closer together */
-}
-
-/* ✅ Alternative: Use Background Gradient for 0.5px Thin Effect */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  width: 100%;
-  display: block;
-  margin: 5px 0;
-}
