@@ -825,3 +825,27 @@ h3.revenue-trends {
 .export-section + .section-divider {
   height: 1px; /* Make these dividers thinner */
 }
+
+/* ✅ Ensure Export Title is Centered & Moved Closer to Divider */
+.export-title {
+  font-size: 24px; /* Large heading */
+  font-weight: bold;
+  color: black; /* Black text */
+  margin-top: 3px; /* Moves it even closer to the divider */
+  margin-bottom: 8px; /* Further reduces space below */
+  text-align: center;
+  display: block; /* Ensures proper spacing */
+  width: 100%; /* Ensures full width alignment */
+}
+
+/* ✅ Ultra-Thin Black Divider for AI Insights & Export Section */
+.section-divider {
+  border: none;
+  height: 0.5px; /* Even thinner black line */
+  background-color: black;
+  width: 100%;
+  display: block;
+  margin: 12px 0; /* Reduces space above and below */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
