@@ -569,3 +569,13 @@ h3.revenue-trends {
     display: block;
   }
 }
+
+/* ✅ Add spacing between export buttons (only for desktop) */
+@media (min-width: 769px) {
+  .export-section {
+    display: flex;
+    justify-content: center; /* Centers buttons */
+    gap: 20px; /* Adds space between buttons */
+    margin-top: 20px; /* Adds some space above */
+  }
+}
