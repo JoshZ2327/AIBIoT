@@ -892,29 +892,3 @@ footer {
     margin: 40px 0 !important; /* Keep spacing uniform */
     opacity: 1 !important; /* Ensure full visibility */
 }
-
-/* ✅ Increase Width of "Ask Your Business Question" Box */
-#ask-section {
-    max-width: 1200px; /* Increased from 900px */
-}
-
-/* ✅ Reduce Space Between "Ask" and "Connect Data" Sections on Desktop */
-@media (min-width: 1024px) { 
-    #connect-data-section {
-        margin-top: 20px !important; /* Reduced spacing */
-    }
-}
-
-/* ✅ Force "Ask Your Business Question" Box to Be Wider */
-#ask-section {
-    width: 100% !important; /* Ensures full width */
-    max-width: 1100px !important; /* Increase width */
-    margin: 40px auto !important; /* Keep it centered */
-}
-
-/* ✅ Force "Connect Your Business Data" Box to Be Closer on Desktop */
-@media (min-width: 1024px) { 
-    #connect-data-section {
-        margin-top: 10px !important; /* Reduce spacing */
-    }
-}
