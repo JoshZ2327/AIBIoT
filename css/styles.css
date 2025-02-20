@@ -530,48 +530,13 @@ h3.revenue-trends {
 }
 
 .ai-insights-section {
-  background-color: #ffffff !important; /* Force white background */
-  color: #333 !important; /* Ensure text remains readable */
-  padding: 35px !important; /* Match dashboard spacing */
-  border-radius: 12px !important; /* Keep consistent styling */
-  border: 2px solid #ddd !important; /* Match dashboard border */
-  box-shadow: none !important; /* Remove any unwanted shadow */
-  margin-top: -5px !important; /* Adjust vertical position */
-  width: 100% !important; /* Ensure it spans full width */
-}
-
-.ai-insights-section {
-  background-color: #ffffff !important; /* Force white background */
-  color: #333 !important; /* Ensure readable text */
-  padding: 35px !important; /* Match dashboard spacing */
-  border-radius: 12px !important; /* Keep consistent styling */
-  border: 2px solid #ddd !important; /* Match dashboard border */
-  box-shadow: none !important; /* Remove any unwanted shadow */
-  margin-top: -5px !important; /* Adjust vertical position */
-  width: 100% !important; /* Ensure it spans full width */
-  display: block !important; /* Force it to be visible */
-  position: relative !important; /* Override any absolute positioning */
-  z-index: 100 !important; /* Ensure it's on top */
-}
-
-.ai-insights-section * {
-  background-color: white !important; /* Forces all child elements to be white */
-}
-
-.ai-insights-section {
-    background-color: white !important;
-    padding: 35px !important;
-    border-radius: 12px !important;
-    border: 2px solid #ddd !important;
-    box-shadow: none !important;
-    margin-top: -10px !important; /* Reduce space */
-}
-
-.ai-insights-section {
     background-color: white !important;
     padding: 35px !important;
     border-radius: 12px !important;
     border: 2px solid #ddd !important;
     box-shadow: none !important;
     margin-top: -10px !important;
+    max-width: 1000px !important; /* Match the dashboard width */
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
