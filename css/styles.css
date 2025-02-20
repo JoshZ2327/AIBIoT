@@ -807,3 +807,21 @@ h3.revenue-trends {
   display: block; /* Ensures proper spacing */
   width: 100%; /* Ensures full width alignment */
 }
+
+/* ✅ Standard Black Divider (Dashboard-Wide) */
+.section-divider {
+  border: none;
+  height: 1px; /* Standard thin black line */
+  background-color: black;
+  width: 100%;
+  display: block;
+  margin: 20px 0; /* Reduce vertical spacing */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* ✅ Thinner Divider ONLY for AI-Generated Business Recommendations and Below */
+.ai-insights-section + .section-divider,
+.export-section + .section-divider {
+  height: 1px; /* Make these dividers thinner */
+}
