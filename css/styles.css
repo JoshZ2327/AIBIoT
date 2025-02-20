@@ -584,3 +584,48 @@ h3.revenue-trends {
     max-width: 200px; /* Prevents buttons from being too wide */
   }
 }
+
+/* Ensure dividers appear properly */
+.section-divider {
+  border: none;
+  height: 1px; /* Adjust the thickness */
+  background-color: black; /* Ensures black color */
+  width: 100%; /* Full width */
+  display: block;
+  margin: 30px 0; /* Adjust spacing above and below */
+}
+
+/* Force dividers to show properly */
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: black;
+  width: 100%;
+}
+
+/* Ensure dividers display properly on mobile */
+@media (max-width: 768px) {
+  .section-divider {
+    height: 1px; /* Keep the thickness the same */
+    background-color: black; /* Ensure visibility */
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Fix spacing for export buttons */
+.export-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Add space between buttons */
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Ensure proper spacing on desktop */
+.export-section button {
+  padding: 10px 20px;
+  min-width: 150px; /* Keeps buttons uniform */
+}
