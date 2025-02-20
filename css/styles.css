@@ -637,3 +637,13 @@ hr {
   display: block; 
   margin: 30px 0; /* Adds spacing */
 }
+
+.full-width-divider {
+  width: 100vw; /* Full viewport width */
+  height: 2px; /* Adjust thickness */
+  background-color: black; /* Ensures visibility */
+  margin: 30px 0; /* Adjusts spacing */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
