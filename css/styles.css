@@ -853,3 +853,38 @@ h3.revenue-trends {
     width: 100%;
     position: relative;
 }
+
+/* ✅ Ensure Dashboard Footer Stays at Bottom */
+.dashboard-footer {
+    background: #333; /* Match footer style on other pages */
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* ✅ Ensure the main content takes full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ✅ Push Dashboard Content Above Footer */
+#dashboard {
+    flex: 1; /* Makes the dashboard section take the full height */
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #ddd;
+}
