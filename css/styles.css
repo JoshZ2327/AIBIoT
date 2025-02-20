@@ -532,11 +532,14 @@ h3.revenue-trends {
 .ai-insights-section {
     background-color: white !important;
     padding: 35px !important;
-    border-radius: 12px !important;
-    border: 2px solid #ddd !important;
+    border-radius: 0 !important; /* Removes rounded edges to blend in */
+    border-top: none !important; /* Remove border separating it from the dashboard */
+    border-left: 2px solid #ddd !important;
+    border-right: 2px solid #ddd !important;
+    border-bottom: 2px solid #ddd !important; /* Keeps bottom border */
     box-shadow: none !important;
-    margin-top: -10px !important;
-    max-width: 1000px !important; /* Match the dashboard width */
+    margin-top: -35px !important; /* Moves section up to touch dashboard */
+    max-width: 1000px !important; /* Matches dashboard width */
     margin-left: auto !important;
     margin-right: auto !important;
 }
