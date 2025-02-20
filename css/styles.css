@@ -908,3 +908,36 @@ html, body {
     width: 100%;
     margin-top: auto; /* Forces footer to bottom */
 }
+
+/* ✅ Ensure Full Page Height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ✅ Make Dashboard Fill Remaining Space */
+#dashboard {
+    flex: 1; /* Pushes footer down */
+    max-width: 1000px;
+    margin: 50px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #ddd;
+}
+
+/* ✅ Ensure Footer Stays at Bottom */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: auto; /* Ensures it moves to bottom */
+}
