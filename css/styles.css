@@ -841,3 +841,15 @@ h3.revenue-trends {
   display: block;
   margin: 20px 0; /* Keeps spacing consistent */
 }
+
+/* ✅ Consistent Footer Styling */
+.site-footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    margin-top: 40px;
+    width: 100%;
+    position: relative;
+}
