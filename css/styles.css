@@ -547,25 +547,29 @@ h3.revenue-trends {
 .ai-insights-section {
     background-color: white !important;
     padding: 35px !important;
-    border-radius: 0 !important; /* Remove rounded edges */
-    border-top: none !important; /* Remove top border to merge */
-    border-left: 2px solid #ddd !important;
-    border-right: 2px solid #ddd !important;
-    border-bottom: 2px solid #ddd !important; /* Keep bottom border */
-    box-shadow: none !important;
-    max-width: 1000px !important; /* Match dashboard width */
+    border-radius: 0 !important; /* Remove rounded corners */
+    border: none !important; /* Remove all borders */
+    box-shadow: none !important; /* Remove any shadow */
+    max-width: 1000px !important; /* Match the dashboard width */
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: -35px !important; /* Move up to touch dashboard */
+    margin-top: -35px !important; /* Move up to merge perfectly */
 }
 
 /* Ensure the #dashboard section does not have bottom margin */
 #dashboard {
     margin-bottom: 0 !important; /* Prevents any space below the dashboard */
     padding-bottom: 0 !important; /* Prevents unnecessary spacing */
+    border-bottom: none !important; /* Removes bottom border */
 }
 
-/* Ensure no margin on h3 inside AI Insights */
+/* Ensure no extra spacing or border inside AI Insights */
+.ai-insights-section * {
+    border: none !important;
+    background-color: white !important;
+}
+
+/* Ensure headings inside AI Insights do not create a gap */
 .ai-insights-section h3 {
     margin-top: 0 !important;
     padding-top: 0 !important;
