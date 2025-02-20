@@ -832,14 +832,12 @@ h3.revenue-trends {
   width: 100%;
 }
 
-/* ✅ Make Dividers Ultra-Thin & Consistent */
+/* ✅ Force Dividers to be Extremely Thin */
 .section-divider {
-  border: none;
-  height: 0.25px; /* **Super-thin line** */
-  background-color: black;
+  border-top: 0.5px solid black !important; /* Forces ultra-thin line */
   width: 100%;
   display: block;
-  margin: 8px 0; /* Moves sections closer together */
+  margin: 5px 0; /* Moves sections closer together */
   visibility: visible !important;
   opacity: 1 !important;
 }
