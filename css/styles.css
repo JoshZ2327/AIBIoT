@@ -529,33 +529,41 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
-/* Ensure AI Insights section fully merges with dashboard */
+/* Fully merge AI Insights with Dashboard */
 .ai-insights-section {
     background-color: white !important;
     padding: 35px !important;
-    border: none !important; /* Removes all borders */
-    box-shadow: none !important; /* Removes any shadow effect */
-    max-width: 1000px !important; /* Matches dashboard width */
+    border-top: none !important; /* ✅ REMOVE TOP BORDER */
+    border: none !important; /* ✅ REMOVE ALL BORDERS */
+    box-shadow: none !important; /* ✅ REMOVE ANY SHADOW */
+    max-width: 1000px !important; /* ✅ MATCH DASHBOARD WIDTH */
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: -35px !important; /* Moves up to seamlessly connect */
+    margin-top: -35px !important; /* ✅ MOVE UP TO REMOVE GAP */
 }
 
-/* Ensure the #dashboard section does not create any gaps */
+/* Remove any residual border from the dashboard */
 #dashboard {
-    margin-bottom: 0 !important; /* Removes spacing below the dashboard */
-    padding-bottom: 0 !important; /* Prevents extra padding */
-    border-bottom: none !important; /* Removes bottom border */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important; /* ✅ REMOVE DASHBOARD BOTTOM BORDER */
 }
 
-/* Ensure all elements inside AI Insights have no border */
+/* Ensure all elements inside AI Insights do not add a border */
 .ai-insights-section * {
     border: none !important;
-    background-color: transparent !important; /* Ensures background is inherited */
+    background-color: transparent !important; /* ✅ ENSURE NO BACKGROUND COLOR OVERLAY */
 }
 
-/* Ensure headings inside AI Insights do not create a gap */
+/* Ensure headings do not create extra space */
 .ai-insights-section h3 {
     margin-top: 0 !important;
     padding-top: 0 !important;
+}
+
+/* ✅ Ensure that ANY hidden top border is removed */
+.ai-insights-section::before {
+    content: none !important; /* ✅ REMOVE ANY AUTO-GENERATED BORDERS */
+    display: none !important;
+    border-top: none !important;
 }
