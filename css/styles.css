@@ -531,71 +531,19 @@ h3.revenue-trends {
 
 }
 
-/* ✅ Thinner Black Divider */
+/* ✅ Ensure the divider appears correctly */
 .section-divider {
   border: none;
-  height: 1px; /* Reduced thickness */
-  background-color: black; /* Ensures visibility */
-  width: 100%; /* Ensures full width */
-  display: block; /* Ensures it's always visible */
-  margin: 30px auto; /* Adjusts spacing above and below */
-}
-
-/* ✅ Ensure Dividers are Always Visible */
-.section-divider::before, .section-divider::after {
-  content: "";
-  display: block;
-  height: 1px; /* Reduced thickness */
-  background-color: black;
-  width: 100%;
-}
-
-/* ✅ Ensure Black Divider is Always Visible */
-.full-width-divider {
-  width: 100%;
-  height: 1px; /* Keeps it thin */
-  background-color: black; /* Ensures visibility */
-  margin: 30px 0; /* Adjusts spacing */
-  display: block; /* Ensures it shows up */
-}
-
-/* ✅ Fix for Mobile */
-@media (max-width: 768px) {
-  .full-width-divider {
-    width: 100%; /* Ensure full width */
-    height: 1px; /* Keep thin */
-    background-color: black;
-    margin: 20px 0; /* Adjust spacing for mobile */
-    display: block;
-  }
-}
-
-/* ✅ Ensure spacing between export buttons ONLY on desktop */
-@media (min-width: 769px) {
-  .export-section {
-    display: flex;
-    justify-content: center; /* Centers buttons horizontally */
-    gap: 40px; /* Adds space between buttons */
-    margin-top: 20px; /* Adds space above */
-  }
-
-  .export-section button {
-    flex: 1; /* Makes buttons evenly spaced */
-    max-width: 200px; /* Prevents buttons from being too wide */
-  }
-}
-
-/* Ensure dividers appear properly */
-.section-divider {
-  border: none;
-  height: 1px; /* Adjust the thickness */
-  background-color: black; /* Ensures black color */
+  height: 1px; /* Thin black line */
+  background-color: black; /* Keep it black */
   width: 100%; /* Full width */
   display: block;
-  margin: 30px 0; /* Adjust spacing above and below */
+  margin: 40px 0; /* Adds space above and below */
+  visibility: visible !important; /* Forces visibility */
+  opacity: 1 !important; /* Ensures it's not hidden */
 }
 
-/* Force dividers to show properly */
+/* ✅ Force dividers to always be rendered */
 .section-divider::before,
 .section-divider::after {
   content: "";
@@ -605,13 +553,14 @@ h3.revenue-trends {
   width: 100%;
 }
 
-/* Ensure dividers display properly on mobile */
+/* ✅ Ensure visibility on mobile */
 @media (max-width: 768px) {
   .section-divider {
-    height: 1px; /* Keep the thickness the same */
+    height: 1px; /* Keep it thin */
     background-color: black; /* Ensure visibility */
     width: 100%;
     display: block;
+    margin: 30px 0;
   }
 }
 
@@ -635,35 +584,5 @@ h3.revenue-trends {
 @media (min-width: 1024px) {
   .export-section {
     gap: 50px; /* Increase space between buttons on larger screens */
-  }
-}
-
-/* ✅ Ensure the divider appears properly */
-.section-divider {
-  border: none;
-  height: 1px; /* Thin black line */
-  background-color: black; /* Keep it black */
-  width: 100%; /* Full width */
-  display: block;
-  margin: 40px 0; /* Adds space above and below */
-}
-
-/* ✅ Force visibility for dividers */
-.section-divider::before, .section-divider::after {
-  content: "";
-  display: block;
-  height: 1px;
-  background-color: black;
-  width: 100%;
-}
-
-/* ✅ Ensure visibility on mobile */
-@media (max-width: 768px) {
-  .section-divider {
-    height: 1px; /* Keep it thin */
-    background-color: black; /* Ensure visibility */
-    width: 100%;
-    display: block;
-    margin: 30px 0;
   }
 }
