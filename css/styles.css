@@ -613,3 +613,38 @@ h3.revenue-trends {
   font-size: 18px;
   text-align: center;
 }
+
+/* ✅ Ensure Divider Shows Above AI Insights */
+.section-divider {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: black; /* Keep it black */
+  width: 100%; /* Full width */
+  display: block;
+  margin: 40px 0; /* Adds space above and below */
+  visibility: visible !important; /* Forces visibility */
+  opacity: 1 !important; /* Ensures it's not hidden */
+}
+
+/* ✅ Fix Export Button Spacing */
+.export-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Adjusts spacing */
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ✅ Ensure Buttons Are the Same Size */
+.export-section button {
+  padding: 12px 20px;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* ✅ Increase Space Between Buttons on Desktop */
+@media (min-width: 1024px) {
+  .export-section {
+    gap: 50px; /* Increase space between buttons */
+  }
+}
