@@ -529,41 +529,42 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
-/* Fully merge AI Insights with Dashboard */
+/* ✅ Remove ALL Borders & Merge AI Insights with Dashboard */
 .ai-insights-section {
-    background-color: white !important;
-    padding: 35px !important;
-    border-top: none !important; /* ✅ REMOVE TOP BORDER */
-    border: none !important; /* ✅ REMOVE ALL BORDERS */
-    box-shadow: none !important; /* ✅ REMOVE ANY SHADOW */
-    max-width: 1000px !important; /* ✅ MATCH DASHBOARD WIDTH */
+    background-color: white !important; /* ✅ Match dashboard */
+    padding: 35px !important; /* ✅ Match dashboard spacing */
+    border: none !important; /* ✅ Remove ALL borders */
+    box-shadow: none !important; /* ✅ Remove any shadow effect */
+    max-width: 1000px !important; /* ✅ Match dashboard width */
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: -35px !important; /* ✅ MOVE UP TO REMOVE GAP */
+    margin-top: -35px !important; /* ✅ Move up to blend with dashboard */
+    position: relative !important; /* ✅ Ensure correct layering */
 }
 
-/* Remove any residual border from the dashboard */
+/* ✅ Remove Any Unwanted Border Before AI Insights */
+.ai-insights-section::before {
+    content: none !important;
+    display: none !important;
+    border-top: none !important;
+}
+
+/* ✅ Ensure Dashboard Bottom Border is Removed */
 #dashboard {
-    margin-bottom: 0 !important;
+    border-bottom: none !important;
     padding-bottom: 0 !important;
-    border-bottom: none !important; /* ✅ REMOVE DASHBOARD BOTTOM BORDER */
+    margin-bottom: 0 !important;
 }
 
-/* Ensure all elements inside AI Insights do not add a border */
+/* ✅ Ensure NO Borders Inside AI Insights */
 .ai-insights-section * {
     border: none !important;
-    background-color: transparent !important; /* ✅ ENSURE NO BACKGROUND COLOR OVERLAY */
+    background-color: transparent !important; /* ✅ Prevent hidden background overlays */
 }
 
-/* Ensure headings do not create extra space */
+/* ✅ Prevent Headings from Adding Extra Space */
 .ai-insights-section h3 {
     margin-top: 0 !important;
     padding-top: 0 !important;
-}
-
-/* ✅ Ensure that ANY hidden top border is removed */
-.ai-insights-section::before {
-    content: none !important; /* ✅ REMOVE ANY AUTO-GENERATED BORDERS */
-    display: none !important;
     border-top: none !important;
 }
