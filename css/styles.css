@@ -529,42 +529,48 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
-/* ✅ Remove ALL Borders & Merge AI Insights with Dashboard */
+/* ✅ Completely Remove Border & Merge with Dashboard */
 .ai-insights-section {
     background-color: white !important; /* ✅ Match dashboard */
     padding: 35px !important; /* ✅ Match dashboard spacing */
-    border: none !important; /* ✅ Remove ALL borders */
-    box-shadow: none !important; /* ✅ Remove any shadow effect */
+    border: none !important; /* ✅ REMOVE ALL BORDERS */
+    box-shadow: none !important; /* ✅ Remove any shadow */
     max-width: 1000px !important; /* ✅ Match dashboard width */
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: -35px !important; /* ✅ Move up to blend with dashboard */
-    position: relative !important; /* ✅ Ensure correct layering */
+    margin-top: -35px !important; /* ✅ Move UP to blend into dashboard */
+    position: relative !important; /* ✅ Fix potential stacking issues */
 }
 
-/* ✅ Remove Any Unwanted Border Before AI Insights */
-.ai-insights-section::before {
+/* ✅ Completely REMOVE Any Auto-Generated Borders */
+.ai-insights-section::before,
+.ai-insights-section::after {
     content: none !important;
     display: none !important;
-    border-top: none !important;
+    border: none !important;
 }
 
-/* ✅ Ensure Dashboard Bottom Border is Removed */
+/* ✅ Remove Bottom Border from Dashboard (If Present) */
 #dashboard {
     border-bottom: none !important;
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
 }
 
-/* ✅ Ensure NO Borders Inside AI Insights */
-.ai-insights-section * {
+/* ✅ Force Remove Borders from ANY Child Elements */
+.ai-insights-section *,
+.ai-insights-section h3,
+.ai-insights-section div,
+.ai-insights-section p {
     border: none !important;
-    background-color: transparent !important; /* ✅ Prevent hidden background overlays */
-}
-
-/* ✅ Prevent Headings from Adding Extra Space */
-.ai-insights-section h3 {
+    background: transparent !important; /* ✅ Ensure No Extra Backgrounds */
     margin-top: 0 !important;
     padding-top: 0 !important;
+}
+
+/* ✅ Remove Any Hidden Borders From Headings */
+.ai-insights-section h3 {
     border-top: none !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }
