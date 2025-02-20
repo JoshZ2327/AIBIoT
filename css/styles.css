@@ -738,3 +738,13 @@ h3.revenue-trends {
 .export-buttons button:hover {
   background: #0056b3; /* Darker blue on hover */
 }
+
+/* ✅ Ensure Export Title Appears Above & Centered in Black */
+.export-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: black; /* Ensures the text is black */
+  margin-bottom: 15px; /* Adds space between title and buttons */
+  text-align: center;
+  display: block; /* Ensures proper spacing */
+}
