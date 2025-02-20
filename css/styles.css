@@ -529,7 +529,7 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
-/* ✅ Completely Remove Border & Merge with Dashboard */
+/* ✅ Completely Remove Borders & Merge with Dashboard */
 .ai-insights-section {
     background-color: white !important; /* ✅ Match dashboard */
     padding: 35px !important; /* ✅ Match dashboard spacing */
@@ -542,22 +542,23 @@ h3.revenue-trends {
     position: relative !important; /* ✅ Fix potential stacking issues */
 }
 
-/* ✅ Completely REMOVE Any Auto-Generated Borders */
+/* ✅ Remove ANY Hidden Borders */
 .ai-insights-section::before,
 .ai-insights-section::after {
-    content: none !important;
+    content: '' !important;
     display: none !important;
     border: none !important;
+    background: transparent !important;
 }
 
-/* ✅ Remove Bottom Border from Dashboard (If Present) */
+/* ✅ Remove ANY Borders from the Dashboard (If Present) */
 #dashboard {
     border-bottom: none !important;
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
 }
 
-/* ✅ Force Remove Borders from ANY Child Elements */
+/* ✅ Force Remove Borders from ALL Child Elements */
 .ai-insights-section *,
 .ai-insights-section h3,
 .ai-insights-section div,
@@ -568,9 +569,16 @@ h3.revenue-trends {
     padding-top: 0 !important;
 }
 
-/* ✅ Remove Any Hidden Borders From Headings */
+/* ✅ Remove Any Hidden Borders from Headings */
 .ai-insights-section h3 {
     border-top: none !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
+}
+
+/* ✅ Absolute Overlap Fix (If Needed) */
+.ai-insights-section {
+    display: block !important;
+    z-index: 100 !important;
+    clip-path: inset(0px 0px 0px 0px) !important; /* ✅ Ensures No Extra Border Rendering */
 }
