@@ -583,3 +583,39 @@ h3.revenue-trends {
     z-index: 100 !important;
     clip-path: inset(0px 0px 0px 0px) !important; /* ✅ Ensures No Extra Border Rendering */
 }
+
+/* ✅ REMOVE ALL POSSIBLE BORDERS AROUND AI INSIGHTS */
+#dashboard,
+#dashboard::before,
+#dashboard::after,
+.ai-insights-section,
+.ai-insights-section::before,
+.ai-insights-section::after {
+    border: none !important; /* ✅ Remove ALL Borders */
+    box-shadow: none !important; /* ✅ Remove Shadows */
+    outline: none !important; /* ✅ Remove Outlines */
+    background: white !important; /* ✅ Ensure Full White Background */
+    clip-path: inset(0px 0px 0px 0px) !important; /* ✅ Remove Any Hidden Border Renders */
+}
+
+/* ✅ REMOVE TOP BORDER IF IT'S STILL VISIBLE */
+#dashboard {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* ✅ REMOVE GAP BETWEEN DASHBOARD & AI INSIGHTS */
+.ai-insights-section {
+    margin-top: -40px !important; /* 🔥 Move AI Insights Upwards */
+}
+
+/* ✅ FORCE REMOVE ANY REMAINING LINES */
+.ai-insights-section h3,
+.ai-insights-section div,
+.ai-insights-section p {
+    border-top: none !important;
+    border-bottom: none !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
