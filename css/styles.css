@@ -578,3 +578,22 @@ hr.full-width-divider {
   background-color: black;
   width: 100%;
 }
+
+/* ✅ Full-Width Divider */
+.section-divider {
+  border: none; 
+  height: 2px; /* Controls thickness */
+  background-color: black; /* Keeps the line black */
+  width: 100%; /* Ensures full width */
+  display: block; /* Ensures visibility */
+  margin: 40px auto; /* Adds space above and below */
+}
+
+/* ✅ Force Remove Any Unexpected Borders */
+.section-divider::before, .section-divider::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: black;
+  width: 100%;
+}
