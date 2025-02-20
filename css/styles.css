@@ -808,44 +808,26 @@ h3.revenue-trends {
   width: 100%; /* Ensures full width alignment */
 }
 
-/* ✅ Standard Black Divider (Dashboard-Wide) */
-.section-divider {
-  border: none;
-  height: 1px; /* Standard thin black line */
-  background-color: black;
-  width: 100%;
-  display: block;
-  margin: 20px 0; /* Reduce vertical spacing */
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* ✅ Thinner Divider ONLY for AI-Generated Business Recommendations and Below */
-.ai-insights-section + .section-divider,
-.export-section + .section-divider {
-  height: 1px; /* Make these dividers thinner */
-}
-
 /* ✅ Ensure Export Title is Centered & Moved Closer to Divider */
 .export-title {
   font-size: 24px; /* Large heading */
   font-weight: bold;
   color: black; /* Black text */
-  margin-top: 3px; /* Moves it even closer to the divider */
-  margin-bottom: 8px; /* Further reduces space below */
+  margin-top: 5px; /* Moves it even closer to the divider */
+  margin-bottom: 10px; /* Further reduces space below */
   text-align: center;
   display: block; /* Ensures proper spacing */
   width: 100%; /* Ensures full width alignment */
 }
 
-/* ✅ Ultra-Thin Black Divider for AI Insights & Export Section */
+/* ✅ Thinner Black Divider for AI Insights & Export Section */
 .section-divider {
   border: none;
-  height: 0.5px; /* Even thinner black line */
+  height: 1px; /* Matches the dashboard’s dividers */
   background-color: black;
   width: 100%;
   display: block;
-  margin: 12px 0; /* Reduces space above and below */
+  margin: 15px 0; /* Reduces space above and below */
   visibility: visible !important;
   opacity: 1 !important;
 }
