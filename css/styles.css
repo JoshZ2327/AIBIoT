@@ -748,3 +748,14 @@ h3.revenue-trends {
   text-align: center;
   display: block; /* Ensures proper spacing */
 }
+
+/* ✅ Ensure "Export AI Insights" is Centered & Black */
+.export-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: black; /* Ensures text is black */
+  text-align: center; /* Centers text */
+  width: 100%; /* Ensures full width alignment */
+  margin-bottom: 15px; /* Adds space between heading and buttons */
+  display: block;
+}
