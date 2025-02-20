@@ -831,3 +831,27 @@ h3.revenue-trends {
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+/* ✅ Ensure Export Title is Centered & Closer to Divider */
+.export-title {
+  font-size: 22px; /* Slightly smaller */
+  font-weight: bold;
+  color: black; /* Black text */
+  margin-top: 3px; /* Moves closer to divider */
+  margin-bottom: 8px; /* Further reduces space below */
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+/* ✅ Super Thin Black Divider (Same as Dashboard Dividers) */
+.section-divider {
+  border: none;
+  height: 0.5px; /* **Ultra-thin line** */
+  background-color: black;
+  width: 100%;
+  display: block;
+  margin: 10px 0; /* Even less space above and below */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
