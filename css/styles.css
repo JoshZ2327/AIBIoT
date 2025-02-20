@@ -759,3 +759,27 @@ h3.revenue-trends {
   margin-bottom: 15px; /* Adds space between heading and buttons */
   display: block;
 }
+
+/* ✅ Black Divider Line (Above Export Section) */
+.section-divider {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: black; /* Ensure it's black */
+  width: 100%; /* Full width */
+  display: block;
+  margin: 30px 0; /* Reduced bottom margin */
+  visibility: visible !important; /* Forces visibility */
+  opacity: 1 !important; /* Ensures it's not hidden */
+}
+
+/* ✅ Export AI Insights Title (Heading) */
+.export-title {
+  font-size: 24px; /* Large heading */
+  font-weight: bold;
+  color: black; /* Black text */
+  margin-top: 10px; /* Move it closer to divider */
+  margin-bottom: 15px; /* Space below title */
+  text-align: center;
+  display: block; /* Ensures proper spacing */
+  width: 100%; /* Ensures full width alignment */
+}
