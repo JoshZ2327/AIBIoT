@@ -687,3 +687,54 @@ h3.revenue-trends {
 .export-buttons button:hover {
   background: #0056b3;
 }
+
+/* ✅ Export Section */
+.export-section {
+  text-align: center; /* Center the section */
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* ✅ Export AI Insights Title (Heading) */
+.export-title {
+  font-size: 24px; /* Large heading */
+  font-weight: bold;
+  color: black; /* Black text */
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center;
+}
+
+/* ✅ Export Buttons Container */
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between buttons */
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* ✅ Export Buttons Styling */
+.export-buttons button {
+  padding: 12px 20px;
+  min-width: 180px; /* Ensures consistent button size */
+  text-align: center;
+  border-radius: 6px;
+  border: none;
+  background: #007BFF; /* Button color */
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ✅ Increase Space Between Buttons on Desktop */
+@media (min-width: 1024px) {
+  .export-buttons {
+    gap: 50px; /* Increase space between buttons */
+  }
+}
+
+/* ✅ Button Hover Effect */
+.export-buttons button:hover {
+  background: #0056b3; /* Darker blue on hover */
+}
