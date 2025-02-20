@@ -886,3 +886,14 @@ footer {
     width: 100%;
     margin-top: auto; /* Ensures it moves to bottom */
 }
+
+/* ✅ Force Uniform Thin Black Divider (0.5px) */
+.section-divider {
+    border: none !important;
+    height: 0.5px !important; /* Ensure ultra-thin line */
+    background-color: black !important;
+    width: 100% !important;
+    display: block !important;
+    margin: 40px 0 !important; /* Keep spacing uniform */
+    opacity: 1 !important; /* Ensure full visibility */
+}
