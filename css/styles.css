@@ -626,29 +626,6 @@ h3.revenue-trends {
   opacity: 1 !important; /* Ensures it's not hidden */
 }
 
-/* ✅ Fix Export Button Spacing */
-.export-section {
-  display: flex;
-  justify-content: center;
-  gap: 30px; /* Adjusts spacing */
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-/* ✅ Ensure Buttons Are the Same Size */
-.export-section button {
-  padding: 12px 20px;
-  min-width: 180px;
-  text-align: center;
-}
-
-/* ✅ Increase Space Between Buttons on Desktop */
-@media (min-width: 1024px) {
-  .export-section {
-    gap: 50px; /* Increase space between buttons */
-  }
-}
-
 /* ✅ Black Divider Line */
 .section-divider {
   border: none;
@@ -659,4 +636,42 @@ h3.revenue-trends {
   margin: 40px 0; /* Adjust spacing */
   visibility: visible !important; /* Forces visibility */
   opacity: 1 !important; /* Ensures it's not hidden */
+}
+
+/* ✅ Export Section */
+.export-section {
+  text-align: center; /* Center-align heading */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* ✅ Ensure Export Title Appears Above Buttons */
+.export-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007BFF; /* Same color as AI Insights Title */
+  margin-bottom: 15px; /* Add space between title and buttons */
+}
+
+/* ✅ Export Buttons Styling */
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* ✅ Ensure Buttons Are the Same Size */
+.export-buttons button {
+  padding: 12px 20px;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* ✅ Increase Space Between Buttons on Desktop */
+@media (min-width: 1024px) {
+  .export-buttons {
+    gap: 50px; /* Increase space between buttons */
+  }
 }
