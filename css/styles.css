@@ -615,17 +615,25 @@ h3.revenue-trends {
   }
 }
 
-/* Fix spacing for export buttons */
+/* ✅ Fix spacing between export buttons */
 .export-section {
   display: flex;
   justify-content: center;
-  gap: 40px; /* Add space between buttons */
+  gap: 20px; /* Adjust spacing between buttons */
   flex-wrap: wrap;
   margin-top: 20px;
 }
 
-/* Ensure proper spacing on desktop */
+/* ✅ Ensure equal width for all buttons */
 .export-section button {
-  padding: 10px 20px;
-  min-width: 150px; /* Keeps buttons uniform */
+  padding: 12px 20px;
+  min-width: 180px; /* Adjust width for consistency */
+  text-align: center;
+}
+
+/* ✅ Add more spacing between buttons on desktop */
+@media (min-width: 1024px) {
+  .export-section {
+    gap: 50px; /* Increase space between buttons on larger screens */
+  }
 }
