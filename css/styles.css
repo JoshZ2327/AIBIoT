@@ -763,7 +763,7 @@ h3.revenue-trends {
 /* ✅ Black Divider Line (Above Export Section) */
 .section-divider {
   border: none;
-  height: 2px; /* Adjust thickness */
+  height: 0.5px; /* Adjust thickness */
   background-color: black; /* Ensure it's black */
   width: 100%; /* Full width */
   display: block;
