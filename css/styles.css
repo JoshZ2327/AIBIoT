@@ -835,7 +835,7 @@ h3.revenue-trends {
 /* ✅ Make Dividers Ultra-Thin & Consistent */
 .section-divider {
   border: none;
-  height: 0.5px; /* **Super-thin line** */
+  height: 0.25px; /* **Super-thin line** */
   background-color: black;
   width: 100%;
   display: block;
