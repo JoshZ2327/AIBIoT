@@ -648,3 +648,15 @@ h3.revenue-trends {
     gap: 50px; /* Increase space between buttons */
   }
 }
+
+/* ✅ Black Divider Line */
+.section-divider {
+  border: none;
+  height: 2px; /* Adjust thickness */
+  background-color: black; /* Ensure it's black */
+  width: 100%; /* Full width */
+  display: block;
+  margin: 40px 0; /* Adjust spacing */
+  visibility: visible !important; /* Forces visibility */
+  opacity: 1 !important; /* Ensures it's not hidden */
+}
