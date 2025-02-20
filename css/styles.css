@@ -529,20 +529,21 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
-/* ✅ Completely Remove Borders & Merge with Dashboard */
+/* ✅ COMPLETELY REMOVE BORDER & MERGE WITH DASHBOARD */
 .ai-insights-section {
     background-color: white !important; /* ✅ Match dashboard */
     padding: 35px !important; /* ✅ Match dashboard spacing */
     border: none !important; /* ✅ REMOVE ALL BORDERS */
-    box-shadow: none !important; /* ✅ Remove any shadow */
+    box-shadow: none !important; /* ✅ Remove shadow */
     max-width: 1000px !important; /* ✅ Match dashboard width */
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-top: -35px !important; /* ✅ Move UP to blend into dashboard */
-    position: relative !important; /* ✅ Fix potential stacking issues */
+    margin-top: -40px !important; /* ✅ Move UP to fully merge */
+    position: relative !important; /* ✅ Prevent overlapping issues */
+    clip-path: inset(0px 0px 0px 0px) !important; /* ✅ Remove hidden border rendering */
 }
 
-/* ✅ Remove ANY Hidden Borders */
+/* ✅ Remove ANY Possible Borders */
 .ai-insights-section::before,
 .ai-insights-section::after {
     content: '' !important;
@@ -551,14 +552,14 @@ h3.revenue-trends {
     background: transparent !important;
 }
 
-/* ✅ Remove ANY Borders from the Dashboard (If Present) */
+/* ✅ Remove Bottom Border from the Dashboard */
 #dashboard {
     border-bottom: none !important;
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
 }
 
-/* ✅ Force Remove Borders from ALL Child Elements */
+/* ✅ Force Remove Borders from All Child Elements */
 .ai-insights-section *,
 .ai-insights-section h3,
 .ai-insights-section div,
@@ -569,14 +570,14 @@ h3.revenue-trends {
     padding-top: 0 !important;
 }
 
-/* ✅ Remove Any Hidden Borders from Headings */
+/* ✅ Ensure Headings Have No Borders */
 .ai-insights-section h3 {
     border-top: none !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
 
-/* ✅ Absolute Overlap Fix (If Needed) */
+/* ✅ Absolute Override of Any Remaining Borders */
 .ai-insights-section {
     display: block !important;
     z-index: 100 !important;
