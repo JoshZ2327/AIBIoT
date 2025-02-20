@@ -549,3 +549,22 @@ h3.revenue-trends {
   background-color: black;
   width: 100%;
 }
+
+/* ✅ Thinner Black Divider */
+.section-divider {
+  border: none;
+  height: 1px; /* Reduced thickness */
+  background-color: black; /* Ensures visibility */
+  width: 100%; /* Ensures full width */
+  display: block; /* Ensures it's always visible */
+  margin: 30px auto; /* Adjusts spacing above and below */
+}
+
+/* ✅ Ensure Dividers are Always Visible */
+.section-divider::before, .section-divider::after {
+  content: "";
+  display: block;
+  height: 1px; /* Reduced thickness */
+  background-color: black;
+  width: 100%;
+}
