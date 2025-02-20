@@ -294,5 +294,15 @@
   </footer>
 
   <script src="js/dashboard.js"></script>
+
+<script>
+  fetch("js/dashboard.js")
+    .then(response => {
+      if (!response.ok) throw new Error("🚨 dashboard.js not found!");
+      return response.text();
+    })
+    .then(text => console.log("✅ dashboard.js loaded"))
+    .catch(error => console.error(error));
+</script>
 </body>
 </html>
