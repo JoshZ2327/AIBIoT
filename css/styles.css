@@ -622,9 +622,9 @@ h3.revenue-trends {
 
 hr {
   border: none;        /* Remove any default border */
-  height: 2px;         /* Set the thickness of the line */
-  background-color: black; /* Ensure the line is black */
-  margin: 40px 0;      /* Add space above and below */
+  height: 1px;         /* Make the line thinner */
+  background-color: black; /* Keep it black */
+  margin: 30px 0;      /* Adjust spacing above and below */
   width: 100%;         /* Ensure it spans full width */
-  display: block;      /* Make sure it's visible */
+  display: block;      /* Ensure visibility */
 }
