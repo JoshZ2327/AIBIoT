@@ -531,57 +531,9 @@ h3.revenue-trends {
 
 }
 
-hr {
-  border: none;        /* Remove any default border */
-  height:1px;         /* Set the thickness of the line */
-  background-color: black; /* Ensure the line is black */
-  margin: 20px 0;      /* Add space above and below */
-  width: 100%;         /* Ensure it spans full width */
-  display: block;      /* Make sure it's visible */
-}
-
-.full-width-divider {
-  width: 100vw; /* Ensure full viewport width */
-  height: 1px; /* Keep line thin */
-  background-color: black; /* Keep it black */
-  margin: 30px 0; /* Adjust spacing */
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  display: block; /* Ensure it's visible */
-}
-
 /* ✅ Standard Black Horizontal Line */
-hr.full-width-divider {
-  border: none; 
-  height: 1px; /* Thin black line */
-  background-color: black; /* Ensures visibility */
-  margin: 30px 0; /* Adds space above and below */
-  width: 100%; /* Makes sure it spans the full width */
-  display: block; /* Ensures it's always visible */
-}
-
-/* ✅ Ensure Full Width and No Unexpected Borders */
-.full-width-divider {
-  width: 100%;
-  height: 1px;
-  background-color: black;
-  margin: 30px 0;
-  display: block;
-}
-
-/* ✅ Fix Any Possible Hidden or Missing Lines */
-.full-width-divider::before, .full-width-divider::after {
-  content: "";
-  display: block;
-  height: 1px;
-  background-color: black;
-  width: 100%;
-}
-
-/* ✅ Full-Width Divider */
 .section-divider {
-  border: none; 
+  border: none;
   height: 2px; /* Controls thickness */
   background-color: black; /* Keeps the line black */
   width: 100%; /* Ensures full width */
@@ -589,7 +541,7 @@ hr.full-width-divider {
   margin: 40px auto; /* Adds space above and below */
 }
 
-/* ✅ Force Remove Any Unexpected Borders */
+/* ✅ Ensure Dividers are Always Visible */
 .section-divider::before, .section-divider::after {
   content: "";
   display: block;
