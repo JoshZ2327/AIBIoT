@@ -832,14 +832,14 @@ h3.revenue-trends {
   width: 100%;
 }
 
-/* ✅ Super Thin Black Divider (Same as Dashboard Dividers) */
+/* ✅ Make Dividers Ultra-Thin & Consistent */
 .section-divider {
   border: none;
-  height: 0.5px; /* **Ultra-thin line** */
+  height: 0.5px; /* **Super-thin line** */
   background-color: black;
   width: 100%;
   display: block;
-  margin: 10px 0; /* Even less space above and below */
+  margin: 8px 0; /* Moves sections closer together */
   visibility: visible !important;
   opacity: 1 !important;
 }
