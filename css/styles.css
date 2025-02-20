@@ -637,3 +637,33 @@ h3.revenue-trends {
     gap: 50px; /* Increase space between buttons on larger screens */
   }
 }
+
+/* ✅ Ensure the divider appears properly */
+.section-divider {
+  border: none;
+  height: 1px; /* Thin black line */
+  background-color: black; /* Keep it black */
+  width: 100%; /* Full width */
+  display: block;
+  margin: 40px 0; /* Adds space above and below */
+}
+
+/* ✅ Force visibility for dividers */
+.section-divider::before, .section-divider::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: black;
+  width: 100%;
+}
+
+/* ✅ Ensure visibility on mobile */
+@media (max-width: 768px) {
+  .section-divider {
+    height: 1px; /* Keep it thin */
+    background-color: black; /* Ensure visibility */
+    width: 100%;
+    display: block;
+    margin: 30px 0;
+  }
+}
