@@ -529,44 +529,29 @@ h3.revenue-trends {
   margin-bottom: 30px !important; /* Increases space below heading */
 }
 
+/* Ensure AI Insights section fully merges with dashboard */
 .ai-insights-section {
     background-color: white !important;
     padding: 35px !important;
-    border-radius: 0 !important; /* Removes rounded edges to blend in */
-    border-top: none !important; /* Remove border separating it from the dashboard */
-    border-left: 2px solid #ddd !important;
-    border-right: 2px solid #ddd !important;
-    border-bottom: 2px solid #ddd !important; /* Keeps bottom border */
-    box-shadow: none !important;
-    margin-top: -35px !important; /* Moves section up to touch dashboard */
+    border: none !important; /* Removes all borders */
+    box-shadow: none !important; /* Removes any shadow effect */
     max-width: 1000px !important; /* Matches dashboard width */
     margin-left: auto !important;
     margin-right: auto !important;
+    margin-top: -35px !important; /* Moves up to seamlessly connect */
 }
 
-.ai-insights-section {
-    background-color: white !important;
-    padding: 35px !important;
-    border-radius: 0 !important; /* Remove rounded corners */
-    border: none !important; /* Remove all borders */
-    box-shadow: none !important; /* Remove any shadow */
-    max-width: 1000px !important; /* Match the dashboard width */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: -35px !important; /* Move up to merge perfectly */
-}
-
-/* Ensure the #dashboard section does not have bottom margin */
+/* Ensure the #dashboard section does not create any gaps */
 #dashboard {
-    margin-bottom: 0 !important; /* Prevents any space below the dashboard */
-    padding-bottom: 0 !important; /* Prevents unnecessary spacing */
+    margin-bottom: 0 !important; /* Removes spacing below the dashboard */
+    padding-bottom: 0 !important; /* Prevents extra padding */
     border-bottom: none !important; /* Removes bottom border */
 }
 
-/* Ensure no extra spacing or border inside AI Insights */
+/* Ensure all elements inside AI Insights have no border */
 .ai-insights-section * {
     border: none !important;
-    background-color: white !important;
+    background-color: transparent !important; /* Ensures background is inherited */
 }
 
 /* Ensure headings inside AI Insights do not create a gap */
