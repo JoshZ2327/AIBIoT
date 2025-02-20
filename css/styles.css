@@ -148,113 +148,108 @@ nav a.btn {
 }
 
 /* ======================== */
-/*   Ask Business Question UI (Fully Restored to Pasted Code)  */
+/*   Ask Business Question UI (Updated)  */
 /* ======================== */
-#ask-section, #connect-data-section {
-  max-width: 900px;
-  margin: 40px auto;
-  background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border: 2px solid #ddd;
+#ask-section {
+  width: 100% !important; /* Ensures full width */
+  max-width: 1100px !important; /* Increase width */
+  margin: 40px auto !important; /* Keep it centered */
+  background: white !important;
+  padding: 25px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  text-align: center !important;
+  border: 2px solid #ddd !important;
+}
+
+#connect-data-section {
+  max-width: 900px !important;
+  margin: 10px auto !important; /* Reduce top margin to bring it closer */
+  background: white !important;
+  padding: 25px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  text-align: center !important;
+  border: 2px solid #ddd !important;
 }
 
 #ask-section h2, #connect-data-section h2 {
-  color: #007BFF;
+  color: #007BFF !important;
 }
 
 #ask-form textarea, #connect-data-form input, #connect-data-form select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 100% !important;
+  padding: 10px !important;
+  margin: 10px 0 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 5px !important;
 }
 
 #ask-form button, #connect-data-form button {
-  width: 100%;
-  padding: 10px;
-  background: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  width: 100% !important;
+  padding: 10px !important;
+  background: #007BFF !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
 }
 
 /* AI Response Box */
 .response-box {
-  background: #f9f9f9;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  display: none;
+  background: #f9f9f9 !important;
+  padding: 15px !important;
+  margin-top: 15px !important;
+  border-radius: 6px !important;
+  border: 1px solid #ddd !important;
+  display: none !important;
 }
 
 /* ✅ Added Spacing Above "Data Source Name" */
 #connect-data-form label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 5px;
-  font-weight: bold;
+  display: block !important;
+  margin-top: 12px !important;
+  margin-bottom: 5px !important;
+  font-weight: bold !important;
 }
 
 /* ✅ Added Spacing Below "Connect Data" Button */
 #connect-data-form button {
-  width: 100%;
-  padding: 10px;
-  background: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 15px; /* Extra spacing */
+  width: 100% !important;
+  padding: 10px !important;
+  background: #007BFF !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  margin-bottom: 15px !important; /* Extra spacing */
 }
 
 /* ======================== */
 /*   Connect Data Table UI  */
 /* ======================== */
 #connected-data table {
-  width: 100%;
-  margin-top: 15px;
-  border-collapse: collapse;
+  width: 100% !important;
+  margin-top: 15px !important;
+  border-collapse: collapse !important;
 }
 
 #connected-data th, #connected-data td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+  border: 1px solid #ddd !important;
+  padding: 8px !important;
+  text-align: left !important;
 }
 
 #connected-data th {
-  background: #007BFF;
-  color: white;
+  background: #007BFF !important;
+  color: white !important;
 }
 
-/* ======================== */
-/*   Free Trial Page (Title Centered, Form Left-Aligned)  */
-/* ======================== */
-#signup-section {
-  max-width: 420px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  border: 2px solid #ddd;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ✅ Centered Title, Made Text Blue */
-#signup-section h2 {
-  color: #007BFF;
-  text-align: center;
-}
-
-/* ✅ Left-Aligned Form */
-#signup-form {
-  text-align: left;
+/* ✅ Adjust spacing for larger screens */
+@media (min-width: 1024px) { 
+  #connect-data-section {
+    margin-top: 10px !important; /* Reduce spacing between sections */
+  }
 }
 
 /* ======================== */
