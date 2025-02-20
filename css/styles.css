@@ -628,3 +628,12 @@ hr {
   width: 100%;         /* Ensure it spans full width */
   display: block;      /* Ensure visibility */
 }
+
+.section-divider {
+  border: none; 
+  height: 1px; 
+  background-color: black; /* Ensures visibility */
+  width: 100%; 
+  display: block; 
+  margin: 30px 0; /* Adds spacing */
+}
