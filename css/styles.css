@@ -840,3 +840,12 @@ h3.revenue-trends {
   display: block;
   margin: 5px 0; /* Moves sections closer together */
 }
+
+/* ✅ Alternative: Use Background Gradient for 0.5px Thin Effect */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+}
