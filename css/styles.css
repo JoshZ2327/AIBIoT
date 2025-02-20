@@ -549,3 +549,23 @@ h3.revenue-trends {
   background-color: black;
   width: 100%;
 }
+
+/* ✅ Ensure Black Divider is Always Visible */
+.full-width-divider {
+  width: 100%;
+  height: 1px; /* Keeps it thin */
+  background-color: black; /* Ensures visibility */
+  margin: 30px 0; /* Adjusts spacing */
+  display: block; /* Ensures it shows up */
+}
+
+/* ✅ Fix for Mobile */
+@media (max-width: 768px) {
+  .full-width-divider {
+    width: 100%; /* Ensure full width */
+    height: 1px; /* Keep thin */
+    background-color: black;
+    margin: 20px 0; /* Adjust spacing for mobile */
+    display: block;
+  }
+}
