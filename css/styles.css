@@ -640,23 +640,25 @@ h3.revenue-trends {
 
 /* ✅ Export Section */
 .export-section {
-  text-align: center; /* Center-align heading */
+  text-align: center; /* Center-align heading and buttons */
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-/* ✅ Ensure Export Title Appears Above Buttons */
+/* ✅ Ensure Export Title Appears Above & Centered in Black */
 .export-title {
   font-size: 22px;
   font-weight: bold;
-  color: #007BFF; /* Same color as AI Insights Title */
+  color: black; /* Ensures the text is black */
   margin-bottom: 15px; /* Add space between title and buttons */
+  text-align: center;
 }
 
 /* ✅ Export Buttons Styling */
 .export-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px; /* Space between buttons */
   flex-wrap: wrap;
   margin-top: 10px;
@@ -667,6 +669,11 @@ h3.revenue-trends {
   padding: 12px 20px;
   min-width: 180px;
   text-align: center;
+  border-radius: 6px;
+  border: none;
+  background: #007BFF;
+  color: white;
+  cursor: pointer;
 }
 
 /* ✅ Increase Space Between Buttons on Desktop */
@@ -674,4 +681,9 @@ h3.revenue-trends {
   .export-buttons {
     gap: 50px; /* Increase space between buttons */
   }
+}
+
+/* ✅ Button Hover Effect */
+.export-buttons button:hover {
+  background: #0056b3;
 }
