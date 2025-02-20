@@ -531,20 +531,18 @@ h3.revenue-trends {
 
 }
 
-/* ✅ Ensure the divider appears correctly */
+/* ✅ Black Divider Line */
 .section-divider {
   border: none;
   height: 1px; /* Thin black line */
-  background-color: black; /* Keep it black */
+  background-color: black; /* Ensure visibility */
   width: 100%; /* Full width */
   display: block;
   margin: 40px 0; /* Adds space above and below */
-  visibility: visible !important; /* Forces visibility */
-  opacity: 1 !important; /* Ensures it's not hidden */
 }
 
-/* ✅ Force dividers to always be rendered */
-.section-divider::before,
+/* ✅ Force Divider to Always Show */
+.section-divider::before, 
 .section-divider::after {
   content: "";
   display: block;
@@ -553,7 +551,7 @@ h3.revenue-trends {
   width: 100%;
 }
 
-/* ✅ Ensure visibility on mobile */
+/* ✅ Ensure Divider Shows Up on Mobile */
 @media (max-width: 768px) {
   .section-divider {
     height: 1px; /* Keep it thin */
