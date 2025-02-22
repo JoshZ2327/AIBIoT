@@ -1,4 +1,5 @@
 const BACKEND_URL = "https://aib-io-t-backend-final.vercel.app"; // Replace with actual backend URL
+const STORAGE_KEY = "connectedDataSources"; // LocalStorage Key
 
 // ✅ WebSocket for Real-Time Data Sources
 const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-sources");
@@ -6,8 +7,11 @@ const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-so
 // 📡 Listen for Data Source Updates
 socket.onmessage = function (event) {
     const data = JSON.parse(event.data);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data.data_sources)); // ✅ Sync with storage
-    updateDataTableUI(data.data_sources);
+    
+    if (data.type === "update") {  // ✅ Expect a type field
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.data_sources));
+        updateDataTableUI(data.data_sources);
+    }
 };
 
 socket.onerror = function (error) {
@@ -24,9 +28,9 @@ function updateDataTableUI(dataSources) {
     });
 }
 
-// 🏁 Ensure existing sources are loaded
-document.addEventListener("DOMContentLoaded", function () {
-    loadDataSourcesFromBackend(); 
+// 🏁 Ensure existing sources are loaded (first from backend, then localStorage)
+document.addEventListener("DOMContentLoaded", async function () {
+    await loadDataSourcesFromBackend();  // ✅ Ensure fresh data first
     const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     updateDataTableUI(storedSources);
 });
@@ -75,13 +79,7 @@ function updateDataTable(name, type, path, saveToStorage = true) {
     const deleteCell = row.insertCell(3);
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "❌ Delete";
-    deleteButton.style.cursor = "pointer";
-    deleteButton.style.padding = "5px";
-    deleteButton.style.margin = "5px";
-    deleteButton.style.backgroundColor = "#ff4d4d";
-    deleteButton.style.border = "none";
-    deleteButton.style.color = "white";
-    deleteButton.style.borderRadius = "5px";
+    deleteButton.classList.add("delete-btn");
 
     deleteButton.addEventListener("click", async function () {
         if (confirm(`Are you sure you want to remove ${name}?`)) {
