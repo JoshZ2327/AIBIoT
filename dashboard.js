@@ -1,16 +1,14 @@
 const BACKEND_URL = "https://aibiot-backend.vercel.app"; // Replace with actual backend URL
 
-// Sound Alerts
-const alertSound = new Audio("sounds/alert.mp3"); // Add an alert sound file to your project
-let soundEnabled = true; // Default setting: Sound alerts ON
-
-// Alert Log Storage
+// 🎵 Sound Alerts
+const alertSound = new Audio("sounds/alert.mp3");
+let soundEnabled = true;
 let alertLog = [];
 
-// Fetch Latest IoT Sensor Data
+// ✅ Prevent Duplicate API Calls
 let isFetchingIoTData = false;
 async function fetchLatestIoTData() {
-    if (isFetchingIoTData) return; // ✅ Prevents duplicate requests
+    if (isFetchingIoTData) return;
     isFetchingIoTData = true;
 
     try {
@@ -43,16 +41,16 @@ async function fetchAnomalies() {
         document.getElementById("anomaly-results").innerHTML = 
             data.anomalies.length ? data.anomalies.map(a => `<li>⚠️ ${a.value} (Score: ${a.score})</li>`).join("") 
             : "<p>No anomalies detected.</p>";
+
+        if (data.anomalies.length > 0) {
+            showWarning(`⚠️ Anomalies detected in ${category}`);
+            logAnomaly(category, data.anomalies[0].value, data.anomalies[0].score);
+            playAlertSound();
+        }
     } catch (error) {
         console.error("Error fetching anomalies:", error);
     } finally {
         isFetchingAnomalies = false;
-    }
-}
-
-    // 🚨 Show Warning Banner
-    if (warningMessage) {
-        showWarning(warningMessage);
     }
 }
 
@@ -95,6 +93,18 @@ function toggleSoundAlerts() {
     document.getElementById("sound-status").innerText = soundEnabled ? "🔊 ON" : "🔇 OFF";
 }
 
+// 🎵 Play Alert Sound with Cooldown
+let lastAlertTime = 0;
+const ALERT_COOLDOWN = 3000; // 3 seconds
+
+function playAlertSound() {
+    const now = Date.now();
+    if (soundEnabled && now - lastAlertTime > ALERT_COOLDOWN) {
+        alertSound.play();
+        lastAlertTime = now;
+    }
+}
+
 // 🧹 Clear Alert Log
 function clearAlertLog() {
     alertLog = [];
@@ -125,38 +135,37 @@ async function fetchBusinessMetrics() {
     }
 }
 
-// 📊 Update Business Charts
-function updateBusinessCharts(data) {
-    updateChart("revenueChart", "Revenue Trends", data.revenueTrends.dates, data.revenueTrends.values);
-    updateChart("usersChart", "User Growth", data.userTrends.dates, data.userTrends.values);
-    updateChart("trafficChart", "Traffic Trends", data.trafficTrends.dates, data.trafficTrends.values);
-}
-
 // 📈 Fetch Predictive Analytics Data
 async function fetchPredictions() {
     const category = document.getElementById("predict-metric").value;
     const future_days = parseInt(document.getElementById("predict-days").value, 10);
-    const model = document.getElementById("predict-model").value; // User-selected model
+    const model = document.getElementById("predict-model").value;
 
     if (future_days < 1 || future_days > 90) {
         alert("Please select a valid prediction period (1-90 days).");
         return;
     }
 
-    const response = await fetch(`${BACKEND_URL}/predict-trends`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category, future_days, model })
-    });
+    try {
+        const response = await fetch(`${BACKEND_URL}/predict-trends`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ category, future_days, model })
+        });
 
-    const data = await response.json();
-    updatePredictionChart(
-        data.predicted_trends.dates, 
-        data.predicted_trends.values, 
-        data.predicted_trends.lower_bounds, 
-        data.predicted_trends.upper_bounds,
-        category
-    );
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        const data = await response.json();
+        updatePredictionChart(
+            data.predicted_trends?.dates || [],
+            data.predicted_trends?.values || [],
+            data.predicted_trends?.lower_bounds || [],
+            data.predicted_trends?.upper_bounds || [],
+            category
+        );
+    } catch (error) {
+        console.error("Error fetching predictions:", error);
+    }
 }
 
 // 📊 Update Prediction Chart with Confidence Intervals
@@ -219,35 +228,16 @@ async function fetchAlerts() {
         isFetchingAlerts = false;
     }
 }
-    const data = await response.json();
-    if (data.alerts_sent.length > 0) {
-        displayWarning(data.alerts_sent);
-    }
-}
 
-// 🚨 Display Warnings on Dashboard
-function displayWarning(warnings) {
-    const warningSection = document.getElementById("dashboard-warnings");
-    const warningMessage = document.getElementById("warning-message");
-
-    warningMessage.innerHTML = warnings.join("<br>");
-    warningSection.classList.remove("hidden");
-}
-
-// 🔄 Auto-update every 5 seconds
-setInterval(() => {
-    fetchLatestIoTData();
-    fetchAnomalies();
-    fetchBusinessMetrics();
-    fetchAlerts();
-}, 5000);
+// 🔄 Auto-update at staggered intervals
+setInterval(fetchLatestIoTData, 5000);
+setInterval(fetchAnomalies, 7000);
+setInterval(fetchBusinessMetrics, 10000);
+setInterval(fetchAlerts, 12000);
 
 // 🏁 Initial Fetch
 updateAlertLog();
 fetchBusinessMetrics();
 fetchAlerts();
-
-setInterval(fetchLatestIoTData, 5000);
-setInterval(fetchAnomalies, 7000);
-setInterval(fetchBusinessMetrics, 10000);
-setInterval(fetchAlerts, 12000);
+fetchLatestIoTData();
+fetchAnomalies();
