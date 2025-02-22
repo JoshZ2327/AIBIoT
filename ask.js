@@ -43,9 +43,14 @@ document.getElementById("connect-data-form").addEventListener("submit", async fu
     updateDataTable(name, type, path);
 });
 
-// Update Connected Data Sources Table
 function updateDataTable(name, type, path) {
     const table = document.getElementById("data-table");
+    
+    // Prevent duplicate entries
+    for (let row of table.rows) {
+        if (row.cells[0]?.innerText === name) return;
+    }
+
     const row = table.insertRow();
     row.insertCell(0).innerText = name;
     row.insertCell(1).innerText = type;
