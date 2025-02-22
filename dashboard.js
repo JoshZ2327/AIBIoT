@@ -26,33 +26,29 @@ async function fetchLatestIoTData() {
 }
 
 // 🚨 Fetch AI-Powered Anomaly Detection
+let isFetchingAnomalies = false;
 async function fetchAnomalies() {
-    const category = document.getElementById("anomaly-category").value;
+    if (isFetchingAnomalies) return;
+    isFetchingAnomalies = true;
 
-    const response = await fetch(`${BACKEND_URL}/detect-anomalies`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category })
-    });
+    try {
+        const category = document.getElementById("anomaly-category").value;
+        const response = await fetch(`${BACKEND_URL}/detect-anomalies`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ category })
+        });
 
-    const data = await response.json();
-    
-    let anomaliesHTML = "<ul>";
-    let warningMessage = "";
-
-    data.anomalies.forEach(anomaly => {
-        anomaliesHTML += `<li>⚠️ ${anomaly.value} (Score: ${anomaly.score})</li>`;
-        if (anomaly.is_anomaly) {
-            warningMessage = `⚠️ Anomaly detected in ${category}: ${anomaly.value}`;
-            logAnomaly(category, anomaly.value, anomaly.score);
-            if (soundEnabled) {
-                alertSound.play(); // Play alert sound
-            }
-        }
-    });
-    anomaliesHTML += "</ul>";
-
-    document.getElementById("anomaly-results").innerHTML = anomaliesHTML;
+        const data = await response.json();
+        document.getElementById("anomaly-results").innerHTML = 
+            data.anomalies.length ? data.anomalies.map(a => `<li>⚠️ ${a.value} (Score: ${a.score})</li>`).join("") 
+            : "<p>No anomalies detected.</p>";
+    } catch (error) {
+        console.error("Error fetching anomalies:", error);
+    } finally {
+        isFetchingAnomalies = false;
+    }
+}
 
     // 🚨 Show Warning Banner
     if (warningMessage) {
@@ -106,19 +102,27 @@ function clearAlertLog() {
 }
 
 // 🚀 Fetch Business Metrics
+let isFetchingMetrics = false;
 async function fetchBusinessMetrics() {
-    const response = await fetch(`${BACKEND_URL}/ai-dashboard`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ dateRange: 30, category: "all" })
-    });
+    if (isFetchingMetrics) return;
+    isFetchingMetrics = true;
 
-    const data = await response.json();
-    document.getElementById("total-revenue").innerText = `$${data.revenue}`;
-    document.getElementById("new-users").innerText = data.users;
-    document.getElementById("traffic").innerText = data.traffic;
+    try {
+        const response = await fetch(`${BACKEND_URL}/ai-dashboard`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ dateRange: 30, category: "all" })
+        });
 
-    updateBusinessCharts(data);
+        const data = await response.json();
+        document.getElementById("total-revenue").innerText = `$${data.revenue}`;
+        document.getElementById("new-users").innerText = data.users;
+        document.getElementById("traffic").innerText = data.traffic;
+    } catch (error) {
+        console.error("Error fetching business metrics:", error);
+    } finally {
+        isFetchingMetrics = false;
+    }
 }
 
 // 📊 Update Business Charts
@@ -194,12 +198,27 @@ function updatePredictionChart(dates, values, lowerBounds, upperBounds, metric) 
 }
 
 // 🚨 Fetch AI-Powered Alerts & Notifications
+let isFetchingAlerts = false;
 async function fetchAlerts() {
-    const response = await fetch(`${BACKEND_URL}/check-alerts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" }
-    });
+    if (isFetchingAlerts) return;
+    isFetchingAlerts = true;
 
+    try {
+        const response = await fetch(`${BACKEND_URL}/check-alerts`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        const data = await response.json();
+        if (data.alerts_sent.length > 0) {
+            displayWarning(data.alerts_sent);
+        }
+    } catch (error) {
+        console.error("Error fetching alerts:", error);
+    } finally {
+        isFetchingAlerts = false;
+    }
+}
     const data = await response.json();
     if (data.alerts_sent.length > 0) {
         displayWarning(data.alerts_sent);
