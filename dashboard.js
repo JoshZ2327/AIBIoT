@@ -8,10 +8,21 @@ let soundEnabled = true; // Default setting: Sound alerts ON
 let alertLog = [];
 
 // Fetch Latest IoT Sensor Data
+let isFetchingIoTData = false;
 async function fetchLatestIoTData() {
-    const response = await fetch(`${BACKEND_URL}/latest-iot-data`);
-    const data = await response.json();
-    document.getElementById("latest-data").innerText = JSON.stringify(data.latest_reading, null, 2);
+    if (isFetchingIoTData) return; // ✅ Prevents duplicate requests
+    isFetchingIoTData = true;
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/latest-iot-data`);
+        const data = await response.json();
+        document.getElementById("latest-data").innerText = 
+            data.latest_reading ? JSON.stringify(data.latest_reading, null, 2) : "No recent IoT data available.";
+    } catch (error) {
+        console.error("Error fetching IoT data:", error);
+    } finally {
+        isFetchingIoTData = false;
+    }
 }
 
 // 🚨 Fetch AI-Powered Anomaly Detection
