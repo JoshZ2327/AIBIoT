@@ -244,6 +244,7 @@ setInterval(fetchLatestIoTData, 5000);
 setInterval(fetchAnomalies, 7000);
 setInterval(fetchBusinessMetrics, 10000);
 setInterval(fetchAlerts, 12000);
+setInterval(fetchRecommendations, 15000);  // ✅ Fetch recommendations every 15 seconds
 
 // 🏁 Initial Fetch
 updateAlertLog();
