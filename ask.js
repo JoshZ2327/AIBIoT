@@ -1,37 +1,57 @@
-const BACKEND_URL = "https://aib-io-t-backend-final.vercel.app"; // Replace with actual backend URL
+const BACKEND_URL = "https://aib-io-t-backend-final.vercel.app"; // ✅ Replace with actual backend URL
 const STORAGE_KEY = "connectedDataSources"; // LocalStorage Key
 
+// ✅ WebSocket connections
+let dataSourceSocket, iotSocket;
+
 // ✅ Function to Connect to WebSocket (with Auto-Reconnect)
-function connectWebSocket() {
-    const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-sources");
+function connectWebSockets() {
+    dataSourceSocket = new WebSocket(`${BACKEND_URL.replace("https", "wss")}/ws/data-sources`);
+    iotSocket = new WebSocket(`${BACKEND_URL.replace("https", "wss")}/ws/iot`);
 
-    socket.onopen = () => console.log("✅ WebSocket connected.");
-    
-    socket.onclose = () => {
-        console.warn("⚠️ WebSocket disconnected. Reconnecting in 3 seconds...");
-        setTimeout(connectWebSocket, 3000);
-    };
-    
-    socket.onerror = error => console.error("❌ WebSocket Error:", error);
+    // 🔹 Handle WebSocket connection for data sources
+    dataSourceSocket.onopen = () => console.log("✅ Data Source WebSocket connected.");
+    dataSourceSocket.onclose = () => retryWebSocket(connectWebSockets, "⚠️ Data Source WebSocket disconnected.");
+    dataSourceSocket.onerror = error => console.error("❌ Data Source WebSocket Error:", error);
 
-    // 📡 Listen for Data Source Updates
-    socket.onmessage = function (event) {
+    dataSourceSocket.onmessage = function (event) {
         try {
             const data = JSON.parse(event.data);
-            if (data.type === "update" && data.data_sources) {  // ✅ Validate message type
+            if (data.type === "update" && data.data_sources) {
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(data.data_sources));
                 updateDataTableUI(data.data_sources);
             } else {
                 console.warn("⚠️ Unexpected WebSocket message:", data);
             }
         } catch (error) {
-            console.error("❌ Error processing WebSocket message:", error);
+            console.error("❌ Error processing Data Source WebSocket message:", error);
+        }
+    };
+
+    // 🔹 Handle WebSocket connection for IoT streaming
+    iotSocket.onopen = () => console.log("✅ IoT WebSocket connected.");
+    iotSocket.onclose = () => retryWebSocket(connectWebSockets, "⚠️ IoT WebSocket disconnected.");
+    iotSocket.onerror = error => console.error("❌ IoT WebSocket Error:", error);
+
+    iotSocket.onmessage = function (event) {
+        try {
+            const sensorData = JSON.parse(event.data);
+            document.getElementById("latest-iot-data").innerText = 
+                `📡 ${sensorData.sensor}: ${sensorData.value} at ${sensorData.timestamp}`;
+        } catch (error) {
+            console.error("❌ Error processing IoT WebSocket message:", error);
         }
     };
 }
 
-// 🏁 Connect WebSocket when page loads
-document.addEventListener("DOMContentLoaded", connectWebSocket);
+// 🔄 WebSocket Auto-Reconnect Function
+function retryWebSocket(reconnectFunction, message) {
+    console.warn(message, "Reconnecting in 3 seconds...");
+    setTimeout(reconnectFunction, 3000);
+}
+
+// 🏁 Connect WebSockets when page loads
+document.addEventListener("DOMContentLoaded", connectWebSockets);
 
 // ✅ Function to Load Data Sources from Backend
 async function loadDataSourcesFromBackend() {
@@ -43,7 +63,8 @@ async function loadDataSourcesFromBackend() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data.sources));
         updateDataTableUI(data.sources);
     } catch (error) {
-        console.error("❌ Error loading data sources from backend:", error);
+        showError("❌ Failed to load data sources.");
+        console.error("Error loading data sources:", error);
     }
 }
 
@@ -87,6 +108,8 @@ document.getElementById("ask-form").addEventListener("submit", async function (e
         responseText.innerText = data.answer;
     } catch (error) {
         responseText.innerText = "❌ Error: " + error;
+        showError("❌ Failed to fetch AI response.");
+        console.error("Error fetching AI response:", error);
     }
 });
 
@@ -121,7 +144,8 @@ function updateDataTable(name, type, path, saveToStorage = true) {
 
                 console.log(`✅ Data source ${name} deleted. WebSocket will refresh UI.`);
             } catch (error) {
-                console.error("❌ Error deleting data source:", error);
+                showError(`❌ Error deleting ${name}.`);
+                console.error("Error deleting data source:", error);
             }
         }
     });
@@ -151,3 +175,11 @@ document.addEventListener("DOMContentLoaded", function () {
         dataTypeDropdown.appendChild(iotOption);
     }
 });
+
+// ✅ Show User-Friendly Error Messages
+function showError(message) {
+    const responseSection = document.getElementById("response-section");
+    const responseText = document.getElementById("response-text");
+    responseSection.style.display = "block";
+    responseText.innerText = message;
+}
