@@ -1,22 +1,58 @@
 const BACKEND_URL = "https://aib-io-t-backend-final.vercel.app"; // Replace with actual backend URL
 const STORAGE_KEY = "connectedDataSources"; // LocalStorage Key
 
-// ✅ WebSocket for Real-Time Data Sources
-const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-sources");
+// ✅ Function to Connect to WebSocket (with Auto-Reconnect)
+function connectWebSocket() {
+    const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-sources");
 
-// 📡 Listen for Data Source Updates
-socket.onmessage = function (event) {
-    const data = JSON.parse(event.data);
+    socket.onopen = () => console.log("✅ WebSocket connected.");
     
-    if (data.type === "update") {  // ✅ Expect a type field
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.data_sources));
-        updateDataTableUI(data.data_sources);
-    }
-};
+    socket.onclose = () => {
+        console.warn("⚠️ WebSocket disconnected. Reconnecting in 3 seconds...");
+        setTimeout(connectWebSocket, 3000);
+    };
+    
+    socket.onerror = error => console.error("❌ WebSocket Error:", error);
 
-socket.onerror = function (error) {
-    console.error("WebSocket Error:", error);
-};
+    // 📡 Listen for Data Source Updates
+    socket.onmessage = function (event) {
+        try {
+            const data = JSON.parse(event.data);
+            if (data.type === "update" && data.data_sources) {  // ✅ Validate message type
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data.data_sources));
+                updateDataTableUI(data.data_sources);
+            } else {
+                console.warn("⚠️ Unexpected WebSocket message:", data);
+            }
+        } catch (error) {
+            console.error("❌ Error processing WebSocket message:", error);
+        }
+    };
+}
+
+// 🏁 Connect WebSocket when page loads
+document.addEventListener("DOMContentLoaded", connectWebSocket);
+
+// ✅ Function to Load Data Sources from Backend
+async function loadDataSourcesFromBackend() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/list-data-sources`);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        const data = await response.json();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.sources));
+        updateDataTableUI(data.sources);
+    } catch (error) {
+        console.error("❌ Error loading data sources from backend:", error);
+    }
+}
+
+// 🏁 Load backend data first, then fallback to LocalStorage
+document.addEventListener("DOMContentLoaded", async function () {
+    await loadDataSourcesFromBackend();
+    const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    updateDataTableUI(storedSources);
+});
 
 // ✅ Function to Update the Data Table UI
 function updateDataTableUI(dataSources) {
@@ -28,14 +64,7 @@ function updateDataTableUI(dataSources) {
     });
 }
 
-// 🏁 Ensure existing sources are loaded (first from backend, then localStorage)
-document.addEventListener("DOMContentLoaded", async function () {
-    await loadDataSourcesFromBackend();  // ✅ Ensure fresh data first
-    const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    updateDataTableUI(storedSources);
-});
-
-// Handle Business Question Submission
+// ✅ Handle Business Question Submission
 document.getElementById("ask-form").addEventListener("submit", async function (event) {
     event.preventDefault();
     const question = document.getElementById("question").value;
@@ -43,7 +72,7 @@ document.getElementById("ask-form").addEventListener("submit", async function (e
     const responseText = document.getElementById("response-text");
 
     responseSection.style.display = "block";
-    responseText.innerText = "Loading...";
+    responseText.innerText = "⏳ Loading...";
 
     try {
         const response = await fetch(`${BACKEND_URL}/ask-question`, {
@@ -57,7 +86,7 @@ document.getElementById("ask-form").addEventListener("submit", async function (e
         const data = await response.json();
         responseText.innerText = data.answer;
     } catch (error) {
-        responseText.innerText = "Error: " + error;
+        responseText.innerText = "❌ Error: " + error;
     }
 });
 
@@ -90,9 +119,9 @@ function updateDataTable(name, type, path, saveToStorage = true) {
 
                 if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
-                console.log(`Data source ${name} deleted. WebSocket will refresh UI.`);
+                console.log(`✅ Data source ${name} deleted. WebSocket will refresh UI.`);
             } catch (error) {
-                console.error("Error deleting data source:", error);
+                console.error("❌ Error deleting data source:", error);
             }
         }
     });
@@ -112,19 +141,7 @@ function saveDataSourceToStorage(name, type, path) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sources));
 }
 
-// ✅ Load Data Sources from Backend
-async function loadDataSourcesFromBackend() {
-    try {
-        const response = await fetch(`${BACKEND_URL}/list-data-sources`);
-        const data = await response.json();
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.sources));
-        updateDataTableUI(data.sources);
-    } catch (error) {
-        console.error("Error loading data sources from backend:", error);
-    }
-}
-
-// Ensure IoT Device Option is Included in Dropdown
+// ✅ Ensure IoT Device Option is Included in Dropdown
 document.addEventListener("DOMContentLoaded", function () {
     const dataTypeDropdown = document.getElementById("data-type");
     if (!document.querySelector("#data-type option[value='iot']")) {
