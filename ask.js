@@ -1,5 +1,35 @@
 const BACKEND_URL = "https://aib-io-t-backend-final.vercel.app"; // Replace with actual backend URL
 
+// ✅ WebSocket for Real-Time Data Sources
+const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-sources");
+
+// 📡 Listen for Data Source Updates
+socket.onmessage = function (event) {
+    const data = JSON.parse(event.data);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data.data_sources)); // ✅ Sync with storage
+    updateDataTableUI(data.data_sources);
+};
+
+socket.onerror = function (error) {
+    console.error("WebSocket Error:", error);
+};
+
+// ✅ Function to Update the Data Table UI
+function updateDataTableUI(dataSources) {
+    const table = document.getElementById("data-table");
+    table.innerHTML = ""; // Clear existing table
+
+    dataSources.forEach(({ name, type, path }) => {
+        updateDataTable(name, type, path, false);
+    });
+}
+
+// 🏁 Ensure existing sources are loaded
+document.addEventListener("DOMContentLoaded", function () {
+    const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    updateDataTableUI(storedSources);
+});
+
 // Handle Business Question Submission
 document.getElementById("ask-form").addEventListener("submit", async function (event) {
     event.preventDefault();
