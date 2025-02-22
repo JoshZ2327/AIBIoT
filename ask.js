@@ -45,6 +45,22 @@ document.getElementById("connect-data-form").addEventListener("submit", async fu
 
 const STORAGE_KEY = "connectedDataSources"; // LocalStorage Key
 
+async function loadDataSourcesFromBackend() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/list-data-sources`);
+        const data = await response.json();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.sources)); // ✅ Sync storage with backend
+        data.sources.forEach(({ name, type, path }) => updateDataTable(name, type, path, false));
+    } catch (error) {
+        console.error("Error loading data sources from backend:", error);
+    }
+}
+
+// 🏁 Load sources on page load
+document.addEventListener("DOMContentLoaded", function () {
+    loadDataSourcesFromBackend(); // ✅ Syncs frontend with backend
+});
+
 // ✅ Load Data Sources from LocalStorage on Page Load
 document.addEventListener("DOMContentLoaded", function () {
     const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
