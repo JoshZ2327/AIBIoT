@@ -1,5 +1,4 @@
 const BACKEND_URL = "https://aib-io-t-backend-final.vercel.app"; // Replace with actual backend URL
-const STORAGE_KEY = "connectedDataSources"; // LocalStorage Key
 
 // ✅ WebSocket for Real-Time Data Sources
 const socket = new WebSocket("wss://aib-io-t-backend-final.vercel.app/ws/data-sources");
@@ -25,13 +24,14 @@ function updateDataTableUI(dataSources) {
     });
 }
 
-// 🏁 Load sources on page load
+// 🏁 Ensure existing sources are loaded
 document.addEventListener("DOMContentLoaded", function () {
+    loadDataSourcesFromBackend(); 
     const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     updateDataTableUI(storedSources);
 });
 
-// ✅ Handle Business Question Submission
+// Handle Business Question Submission
 document.getElementById("ask-form").addEventListener("submit", async function (event) {
     event.preventDefault();
     const question = document.getElementById("question").value;
@@ -57,35 +57,6 @@ document.getElementById("ask-form").addEventListener("submit", async function (e
     }
 });
 
-// ✅ Handle Data Source Connection
-document.getElementById("connect-data-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const name = document.getElementById("data-name").value.trim();
-    const type = document.getElementById("data-type").value;
-    const path = document.getElementById("data-path").value.trim();
-
-    if (!name || !type || !path) {
-        alert("All fields are required.");
-        return;
-    }
-
-    try {
-        const response = await fetch(`${BACKEND_URL}/connect-data-source`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, type, path })
-        });
-
-        if (!response.ok) throw new Error(`Server responded with ${response.status}`);
-
-        const result = await response.json();
-        alert(result.message || "Data source connected successfully.");
-    } catch (error) {
-        alert(`Error: ${error.message || "Failed to connect to the server."}`);
-    }
-});
-
 // ✅ Function to Update the Data Table
 function updateDataTable(name, type, path, saveToStorage = true) {
     const table = document.getElementById("data-table");
@@ -95,7 +66,6 @@ function updateDataTable(name, type, path, saveToStorage = true) {
         if (row.cells[0]?.innerText === name) return;
     }
 
-    // Create new row
     const row = table.insertRow();
     row.insertCell(0).innerText = name;
     row.insertCell(1).innerText = type;
@@ -113,7 +83,6 @@ function updateDataTable(name, type, path, saveToStorage = true) {
     deleteButton.style.color = "white";
     deleteButton.style.borderRadius = "5px";
 
-    // 📌 WebSocket-Enabled Delete Function
     deleteButton.addEventListener("click", async function () {
         if (confirm(`Are you sure you want to remove ${name}?`)) {
             try {
@@ -123,7 +92,7 @@ function updateDataTable(name, type, path, saveToStorage = true) {
 
                 if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
-                // ✅ No manual UI update needed, WebSockets handle it
+                console.log(`Data source ${name} deleted. WebSocket will refresh UI.`);
             } catch (error) {
                 console.error("Error deleting data source:", error);
             }
@@ -145,14 +114,19 @@ function saveDataSourceToStorage(name, type, path) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sources));
 }
 
-// ✅ Function to Remove a Data Source from LocalStorage
-function removeDataSourceFromStorage(name) {
-    let sources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    sources = sources.filter(source => source.name !== name);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(sources));
+// ✅ Load Data Sources from Backend
+async function loadDataSourcesFromBackend() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/list-data-sources`);
+        const data = await response.json();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.sources));
+        updateDataTableUI(data.sources);
+    } catch (error) {
+        console.error("Error loading data sources from backend:", error);
+    }
 }
 
-// ✅ Ensure IoT Device Option is Included in Dropdown
+// Ensure IoT Device Option is Included in Dropdown
 document.addEventListener("DOMContentLoaded", function () {
     const dataTypeDropdown = document.getElementById("data-type");
     if (!document.querySelector("#data-type option[value='iot']")) {
