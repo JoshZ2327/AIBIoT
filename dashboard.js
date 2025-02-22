@@ -4,86 +4,88 @@ const BACKEND_URL = "https://aibiot-backend.vercel.app"; // Replace with actual 
 const alertSound = new Audio("sounds/alert.mp3");
 let soundEnabled = true;
 let alertLog = [];
+let socket; // WebSocket for IoT Streaming
 
-// ✅ Prevent Duplicate API Calls
-let isFetchingIoTData = false;
-async function fetchLatestIoTData() {
-    if (isFetchingIoTData) return;
-    isFetchingIoTData = true;
+/** ✅ Function to Connect to WebSocket for Real-Time IoT Data */
+function connectIoTWebSocket() {
+    socket = new WebSocket("wss://aibiot-backend.vercel.app/ws/iot");
 
-    try {
-        const response = await fetch(`${BACKEND_URL}/latest-iot-data`);
-        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+    socket.onopen = () => console.log("✅ WebSocket connected for real-time IoT data.");
 
-        const data = await response.json();
-        document.getElementById("latest-data").innerText = 
-            data.latest_reading ? JSON.stringify(data.latest_reading, null, 2) : "No recent IoT data available.";
-    } catch (error) {
-        console.error("Error fetching IoT data:", error);
-    } finally {
-        isFetchingIoTData = false;
-    }
+    socket.onmessage = (event) => {
+        try {
+            const data = JSON.parse(event.data);
+            if (data.sensor && data.value) {
+                updateIoTDataDisplay(data);
+            } else {
+                console.warn("⚠️ Unexpected IoT data format:", data);
+            }
+        } catch (error) {
+            console.error("❌ Error processing WebSocket message:", error);
+        }
+    };
+
+    socket.onerror = (error) => console.error("❌ WebSocket Error:", error);
+
+    socket.onclose = () => {
+        console.warn("⚠️ WebSocket disconnected. Reconnecting in 3 seconds...");
+        setTimeout(connectIoTWebSocket, 3000);
+    };
 }
 
-// 🚨 Fetch AI-Powered Anomaly Detection
-let isFetchingAnomalies = false;
-async function fetchAnomalies() {
-    if (isFetchingAnomalies) return;
-    isFetchingAnomalies = true;
+// ✅ Auto-connect WebSocket on page load
+document.addEventListener("DOMContentLoaded", connectIoTWebSocket);
+
+/** ✅ Function to Update IoT Data in the UI */
+function updateIoTDataDisplay(sensorData) {
+    const { timestamp, sensor, value } = sensorData;
+    document.getElementById("latest-data").innerText = 
+        `📡 ${sensor} - ${value} | 🕒 ${new Date(timestamp).toLocaleTimeString()}`;
+
+    updateIoTChart(sensor, value);
+}
+
+/** ✅ Function to Update IoT Data Chart */
+function updateIoTChart(sensor, value) {
+    if (!window.iotChart) return;
+
+    const timeLabel = new Date().toLocaleTimeString();
+    if (window.iotChart.data.labels.length > 10) {
+        window.iotChart.data.labels.shift();
+        window.iotChart.data.datasets[0].data.shift();
+    }
+
+    window.iotChart.data.labels.push(timeLabel);
+    window.iotChart.data.datasets[0].data.push(value);
+    window.iotChart.update();
+}
+
+// ✅ Fetch AI-Powered Alerts & Notifications
+let isFetchingAlerts = false;
+async function fetchAlerts() {
+    if (isFetchingAlerts) return;
+    isFetchingAlerts = true;
 
     try {
-        const category = document.getElementById("anomaly-category").value;
-        const response = await fetch(`${BACKEND_URL}/detect-anomalies`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ category })
-        });
-
+        const response = await fetch(`${BACKEND_URL}/check-alerts`, { method: "POST" });
         if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
         const data = await response.json();
-        const anomalies = data.anomalies || [];  // ✅ Ensures a valid response
+        const alerts = data.alerts || [];
 
-        document.getElementById("anomaly-results").innerHTML = 
-            anomalies.length ? anomalies.map(a => `<li>⚠️ ${a.value} (Score: ${a.score})</li>`).join("") 
-            : "<p>No anomalies detected.</p>";
-
-        if (anomalies.length > 0) {
-            showWarning(`⚠️ Anomalies detected in ${category}`);
-            logAnomaly(category, anomalies[0].value, anomalies[0].score);
-            playAlertSound();
+        if (alerts.length > 0) {
+            displayWarning(alerts);
         }
     } catch (error) {
-        console.error("Error fetching anomalies:", error);
+        console.error("❌ Error fetching alerts:", error);
     } finally {
-        isFetchingAnomalies = false;
+        isFetchingAlerts = false;
     }
-}
-
-// 📜 Log Anomalies in History
-function logAnomaly(category, value, score) {
-    const timestamp = new Date().toLocaleString();
-    alertLog.push({ timestamp, category, value, score });
-
-    if (alertLog.length > 10) {
-        alertLog.shift();
-    }
-
-    updateAlertLog();
-}
-
-// 📜 Update Alert Log Table
-function updateAlertLog() {
-    let logHTML = "<tr><th>Timestamp</th><th>Category</th><th>Value</th><th>Score</th></tr>";
-    alertLog.forEach(entry => {
-        logHTML += `<tr><td>${entry.timestamp}</td><td>${entry.category}</td><td>${entry.value}</td><td>${entry.score}</td></tr>`;
-    });
-    document.getElementById("alert-log-table").innerHTML = logHTML;
 }
 
 // 🚨 Show Warning Banner
-function showWarning(message) {
-    document.getElementById("warning-message").innerText = message;
+function displayWarning(warnings) {
+    document.getElementById("warning-message").innerHTML = warnings.join("<br>");
     document.getElementById("dashboard-warnings").classList.remove("hidden");
 }
 
@@ -92,43 +94,14 @@ function dismissWarning() {
     document.getElementById("dashboard-warnings").classList.add("hidden");
 }
 
-// 🎵 Toggle Sound Alerts
-function toggleSoundAlerts() {
-    soundEnabled = !soundEnabled;
-    document.getElementById("sound-status").innerText = soundEnabled ? "🔊 ON" : "🔇 OFF";
-}
-
-// 🎵 Play Alert Sound with Cooldown
-let lastAlertTime = 0;
-const ALERT_COOLDOWN = 3000; // 3 seconds
-
-function playAlertSound() {
-    const now = Date.now();
-    if (soundEnabled && now - lastAlertTime > ALERT_COOLDOWN) {
-        alertSound.play();
-        lastAlertTime = now;
-    }
-}
-
-// 🧹 Clear Alert Log
-function clearAlertLog() {
-    alertLog = [];
-    updateAlertLog();
-}
-
-// 🚀 Fetch Business Metrics
+// ✅ Fetch AI-Powered Business Metrics
 let isFetchingMetrics = false;
 async function fetchBusinessMetrics() {
     if (isFetchingMetrics) return;
     isFetchingMetrics = true;
 
     try {
-        const response = await fetch(`${BACKEND_URL}/ai-dashboard`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ dateRange: 30, category: "all" })
-        });
-
+        const response = await fetch(`${BACKEND_URL}/ai-dashboard`, { method: "POST" });
         if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
         const data = await response.json();
@@ -136,40 +109,43 @@ async function fetchBusinessMetrics() {
         document.getElementById("new-users").innerText = data.users || 0;
         document.getElementById("traffic").innerText = data.traffic || 0;
     } catch (error) {
-        console.error("Error fetching business metrics:", error);
+        console.error("❌ Error fetching business metrics:", error);
     } finally {
         isFetchingMetrics = false;
     }
 }
 
-// 🚨 Fetch AI-Powered Alerts & Notifications
-let isFetchingAlerts = false;
-async function fetchAlerts() {
-    if (isFetchingAlerts) return;
-    isFetchingAlerts = true;
+// ✅ Fetch AI-Powered Business Recommendations
+let isFetchingRecommendations = false;
+async function fetchRecommendations() {
+    if (isFetchingRecommendations) return;
+    isFetchingRecommendations = true;
 
     try {
-        const response = await fetch(`${BACKEND_URL}/check-alerts`, {
+        const category = document.getElementById("predict-metric").value;
+        const response = await fetch(`${BACKEND_URL}/get-recommendations`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ category })
         });
 
         if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
         const data = await response.json();
-        const alerts = data.alerts_sent || []; // ✅ Ensures an empty array doesn't cause issues
+        const recommendations = data.recommendations || [];
 
-        if (alerts.length > 0) {
-            displayWarning(alerts);
-        }
+        document.getElementById("recommendations-section").innerHTML =
+            recommendations.length
+                ? recommendations.map(r => `<li>✅ ${r}</li>`).join("")
+                : "<p>No recommendations available.</p>";
     } catch (error) {
-        console.error("Error fetching alerts:", error);
+        console.error("❌ Error fetching recommendations:", error);
     } finally {
-        isFetchingAlerts = false;
+        isFetchingRecommendations = false;
     }
 }
 
-// 📈 Fetch Predictive Analytics Data
+// ✅ Fetch Predictive Analytics Data
 async function fetchPredictions() {
     const category = document.getElementById("predict-metric").value;
     const future_days = parseInt(document.getElementById("predict-days").value, 10);
@@ -190,65 +166,31 @@ async function fetchPredictions() {
         if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
         const data = await response.json();
-        updatePredictionChart(
-            data.predicted_trends?.dates || [],
-            data.predicted_trends?.values || [],
-            data.predicted_trends?.lower_bounds || [],
-            data.predicted_trends?.upper_bounds || [],
-            category
-        );
+        updatePredictionChart(data.predicted_values, category);
     } catch (error) {
-        console.error("Error fetching predictions:", error);
+        console.error("❌ Error fetching predictions:", error);
     }
 }
 
-// 🚀 Fetch AI-Powered Business Recommendations
-let isFetchingRecommendations = false;
-async function fetchRecommendations() {
-    if (isFetchingRecommendations) return;
-    isFetchingRecommendations = true;
+// ✅ Toggle Sound Alerts
+function toggleSoundAlerts() {
+    soundEnabled = !soundEnabled;
+    document.getElementById("sound-status").innerText = soundEnabled ? "🔊 ON" : "🔇 OFF";
+}
 
-    try {
-        const category = document.getElementById("predict-metric").value;
-        const response = await fetch(`${BACKEND_URL}/get-recommendations`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ category })
-        });
+// ✅ Play Alert Sound with Cooldown
+let lastAlertTime = 0;
+const ALERT_COOLDOWN = 3000; // 3 seconds
 
-        if (!response.ok) throw new Error(`Server error: ${response.status}`);
-
-        const data = await response.json();
-        const recommendations = data.recommendations || [];
-
-        // Display recommendations in the UI
-        document.getElementById("recommendations-results").innerHTML =
-            recommendations.length
-                ? recommendations.map(r => `<li>✅ ${r}</li>`).join("")
-                : "<p>No recommendations available.</p>";
-    } catch (error) {
-        console.error("Error fetching recommendations:", error);
-    } finally {
-        isFetchingRecommendations = false;
+function playAlertSound() {
+    const now = Date.now();
+    if (soundEnabled && now - lastAlertTime > ALERT_COOLDOWN) {
+        alertSound.play();
+        lastAlertTime = now;
     }
 }
 
-// 🚨 Display Warnings on Dashboard
-function displayWarning(warnings) {
-    document.getElementById("warning-message").innerHTML = warnings.join("<br>");
-    document.getElementById("dashboard-warnings").classList.remove("hidden");
-}
-
-// 🔄 Auto-update at staggered intervals
-setInterval(fetchLatestIoTData, 5000);
-setInterval(fetchAnomalies, 7000);
+// ✅ Auto-update at staggered intervals
 setInterval(fetchBusinessMetrics, 10000);
 setInterval(fetchAlerts, 12000);
-setInterval(fetchRecommendations, 15000);  // ✅ Fetch recommendations every 15 seconds
-
-// 🏁 Initial Fetch
-updateAlertLog();
-fetchBusinessMetrics();
-fetchAlerts();
-fetchLatestIoTData();
-fetchAnomalies();
+setInterval(fetchRecommendations, 15000);
