@@ -13,6 +13,8 @@ async function fetchLatestIoTData() {
 
     try {
         const response = await fetch(`${BACKEND_URL}/latest-iot-data`);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
         const data = await response.json();
         document.getElementById("latest-data").innerText = 
             data.latest_reading ? JSON.stringify(data.latest_reading, null, 2) : "No recent IoT data available.";
@@ -37,14 +39,18 @@ async function fetchAnomalies() {
             body: JSON.stringify({ category })
         });
 
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
         const data = await response.json();
+        const anomalies = data.anomalies || [];  // ✅ Ensures a valid response
+
         document.getElementById("anomaly-results").innerHTML = 
-            data.anomalies.length ? data.anomalies.map(a => `<li>⚠️ ${a.value} (Score: ${a.score})</li>`).join("") 
+            anomalies.length ? anomalies.map(a => `<li>⚠️ ${a.value} (Score: ${a.score})</li>`).join("") 
             : "<p>No anomalies detected.</p>";
 
-        if (data.anomalies.length > 0) {
+        if (anomalies.length > 0) {
             showWarning(`⚠️ Anomalies detected in ${category}`);
-            logAnomaly(category, data.anomalies[0].value, data.anomalies[0].score);
+            logAnomaly(category, anomalies[0].value, anomalies[0].score);
             playAlertSound();
         }
     } catch (error) {
@@ -59,7 +65,6 @@ function logAnomaly(category, value, score) {
     const timestamp = new Date().toLocaleString();
     alertLog.push({ timestamp, category, value, score });
 
-    // Keep only the last 10 logs
     if (alertLog.length > 10) {
         alertLog.shift();
     }
@@ -124,14 +129,43 @@ async function fetchBusinessMetrics() {
             body: JSON.stringify({ dateRange: 30, category: "all" })
         });
 
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
         const data = await response.json();
-        document.getElementById("total-revenue").innerText = `$${data.revenue}`;
-        document.getElementById("new-users").innerText = data.users;
-        document.getElementById("traffic").innerText = data.traffic;
+        document.getElementById("total-revenue").innerText = `$${data.revenue || 0}`;
+        document.getElementById("new-users").innerText = data.users || 0;
+        document.getElementById("traffic").innerText = data.traffic || 0;
     } catch (error) {
         console.error("Error fetching business metrics:", error);
     } finally {
         isFetchingMetrics = false;
+    }
+}
+
+// 🚨 Fetch AI-Powered Alerts & Notifications
+let isFetchingAlerts = false;
+async function fetchAlerts() {
+    if (isFetchingAlerts) return;
+    isFetchingAlerts = true;
+
+    try {
+        const response = await fetch(`${BACKEND_URL}/check-alerts`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        const data = await response.json();
+        const alerts = data.alerts_sent || []; // ✅ Ensures an empty array doesn't cause issues
+
+        if (alerts.length > 0) {
+            displayWarning(alerts);
+        }
+    } catch (error) {
+        console.error("Error fetching alerts:", error);
+    } finally {
+        isFetchingAlerts = false;
     }
 }
 
@@ -168,65 +202,10 @@ async function fetchPredictions() {
     }
 }
 
-// 📊 Update Prediction Chart with Confidence Intervals
-function updatePredictionChart(dates, values, lowerBounds, upperBounds, metric) {
-    const ctx = document.getElementById("predictionChart").getContext("2d");
-
-    if (window.predictionChartInstance) {
-        window.predictionChartInstance.destroy();
-    }
-
-    window.predictionChartInstance = new Chart(ctx, {
-        type: "line",
-        data: {
-            labels: dates,
-            datasets: [
-                {
-                    label: `Predicted ${metric.charAt(0).toUpperCase() + metric.slice(1)}`,
-                    data: values,
-                    borderColor: "red",
-                    fill: false
-                },
-                {
-                    label: "Lower Bound",
-                    data: lowerBounds,
-                    borderColor: "green",
-                    borderDash: [5, 5],
-                    fill: false
-                },
-                {
-                    label: "Upper Bound",
-                    data: upperBounds,
-                    borderColor: "blue",
-                    borderDash: [5, 5],
-                    fill: false
-                }
-            ]
-        }
-    });
-}
-
-// 🚨 Fetch AI-Powered Alerts & Notifications
-let isFetchingAlerts = false;
-async function fetchAlerts() {
-    if (isFetchingAlerts) return;
-    isFetchingAlerts = true;
-
-    try {
-        const response = await fetch(`${BACKEND_URL}/check-alerts`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" }
-        });
-
-        const data = await response.json();
-        if (data.alerts_sent.length > 0) {
-            displayWarning(data.alerts_sent);
-        }
-    } catch (error) {
-        console.error("Error fetching alerts:", error);
-    } finally {
-        isFetchingAlerts = false;
-    }
+// 🚨 Display Warnings on Dashboard
+function displayWarning(warnings) {
+    document.getElementById("warning-message").innerHTML = warnings.join("<br>");
+    document.getElementById("dashboard-warnings").classList.remove("hidden");
 }
 
 // 🔄 Auto-update at staggered intervals
