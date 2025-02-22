@@ -202,6 +202,37 @@ async function fetchPredictions() {
     }
 }
 
+// 🚀 Fetch AI-Powered Business Recommendations
+let isFetchingRecommendations = false;
+async function fetchRecommendations() {
+    if (isFetchingRecommendations) return;
+    isFetchingRecommendations = true;
+
+    try {
+        const category = document.getElementById("predict-metric").value;
+        const response = await fetch(`${BACKEND_URL}/get-recommendations`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ category })
+        });
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        const data = await response.json();
+        const recommendations = data.recommendations || [];
+
+        // Display recommendations in the UI
+        document.getElementById("recommendations-results").innerHTML =
+            recommendations.length
+                ? recommendations.map(r => `<li>✅ ${r}</li>`).join("")
+                : "<p>No recommendations available.</p>";
+    } catch (error) {
+        console.error("Error fetching recommendations:", error);
+    } finally {
+        isFetchingRecommendations = false;
+    }
+}
+
 // 🚨 Display Warnings on Dashboard
 function displayWarning(warnings) {
     document.getElementById("warning-message").innerHTML = warnings.join("<br>");
