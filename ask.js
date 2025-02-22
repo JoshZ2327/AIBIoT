@@ -43,10 +43,19 @@ document.getElementById("connect-data-form").addEventListener("submit", async fu
     updateDataTable(name, type, path);
 });
 
-function updateDataTable(name, type, path) {
+const STORAGE_KEY = "connectedDataSources"; // LocalStorage Key
+
+// ✅ Load Data Sources from LocalStorage on Page Load
+document.addEventListener("DOMContentLoaded", function () {
+    const storedSources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    storedSources.forEach(({ name, type, path }) => updateDataTable(name, type, path, false));
+});
+
+// ✅ Function to Update the Data Table and Save to LocalStorage
+function updateDataTable(name, type, path, saveToStorage = true) {
     const table = document.getElementById("data-table");
 
-    // Check if the data source is already in the table
+    // Prevent duplicate entries
     for (let row of table.rows) {
         if (row.cells[0]?.innerText === name) return;
     }
@@ -69,14 +78,34 @@ function updateDataTable(name, type, path) {
     deleteButton.style.color = "white";
     deleteButton.style.borderRadius = "5px";
 
-    // Attach event listener to remove row
+    // Attach event listener to remove row and update localStorage
     deleteButton.addEventListener("click", function () {
         if (confirm(`Are you sure you want to remove ${name}?`)) {
             row.remove();
+            removeDataSourceFromStorage(name);
         }
     });
 
     deleteCell.appendChild(deleteButton);
+
+    // ✅ Save new entry to LocalStorage
+    if (saveToStorage) {
+        saveDataSourceToStorage(name, type, path);
+    }
+}
+
+// ✅ Function to Save Data Sources to LocalStorage
+function saveDataSourceToStorage(name, type, path) {
+    let sources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    sources.push({ name, type, path });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sources));
+}
+
+// ✅ Function to Remove a Data Source from LocalStorage
+function removeDataSourceFromStorage(name) {
+    let sources = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    sources = sources.filter(source => source.name !== name);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sources));
 }
 
 // 🏁 Ensure this function is called after adding a new data source
