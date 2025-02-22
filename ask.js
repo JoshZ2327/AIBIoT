@@ -124,15 +124,31 @@ function updateDataTable(name, type, path, saveToStorage = true) {
     deleteButton.style.color = "white";
     deleteButton.style.borderRadius = "5px";
 
-    // Attach event listener to remove row and update localStorage
-    deleteButton.addEventListener("click", function () {
+    // 📌 ⬇️ Replace Existing Delete Button Code with This:
+    deleteButton.addEventListener("click", async function () {
         if (confirm(`Are you sure you want to remove ${name}?`)) {
-            row.remove();
-            removeDataSourceFromStorage(name);
+            try {
+                const response = await fetch(`${BACKEND_URL}/delete-data-source/${name}`, {
+                    method: "DELETE"
+                });
+
+                if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+                // ✅ No need to manually update UI since WebSockets will handle it
+            } catch (error) {
+                console.error("Error deleting data source:", error);
+            }
         }
     });
 
     deleteCell.appendChild(deleteButton);
+    
+
+    // ✅ Save new entry to LocalStorage
+    if (saveToStorage) {
+        saveDataSourceToStorage(name, type, path);
+    }
+}
 
     // ✅ Save new entry to LocalStorage
     if (saveToStorage) {
