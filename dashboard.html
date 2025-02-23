@@ -107,10 +107,18 @@
     
   <hr>
     
-    <!-- 📡 IoT Data Monitoring -->
-    <h3>📡 Latest IoT Sensor Data</h3>
-    <div id="latest-data" style="margin-bottom: 20px;"></div>
+<!-- 📡 IoT Data Monitoring -->
+<h3>📡 Latest IoT Sensor Data</h3>
+<div id="latest-data" style="margin-bottom: 20px;"></div>
 
+<!-- 🚨 IoT Anomaly Alert Section -->
+<div id="anomaly-alerts" class="hidden alert-box"></div>
+
+<!-- 📊 IoT Anomaly History -->
+<h3>📊 IoT Anomaly History</h3>
+<ul id="anomaly-history"></ul>
+<button onclick="fetchAnomalyHistory()">🔄 Refresh Anomalies</button>
+    
     <!-- 📊 IoT Data History Line Chart -->
     <h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
     <canvas id="iotChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
