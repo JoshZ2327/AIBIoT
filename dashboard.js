@@ -131,29 +131,6 @@ function updateIoTChart(sensor, value) {
     window.iotChart.update();
 }
 
-// ✅ Fetch AI-Powered Alerts & Notifications
-let isFetchingAlerts = false;
-async function fetchAlerts() {
-    if (isFetchingAlerts) return;
-    isFetchingAlerts = true;
-
-    try {
-        const response = await fetch(`${BACKEND_URL}/check-alerts`, { method: "POST" });
-        if (!response.ok) throw new Error(`Server error: ${response.status}`);
-
-        const data = await response.json();
-        const alerts = data.alerts || [];
-
-        if (alerts.length > 0) {
-            displayWarning(alerts);
-        }
-    } catch (error) {
-        console.error("❌ Error fetching alerts:", error);
-    } finally {
-        isFetchingAlerts = false;
-    }
-}
-
 /** ✅ Function to Fetch and Display All Anomalies (IoT + Business) */
 async function fetchAllAnomalies() {
     try {
@@ -197,20 +174,13 @@ function displayWarning(warnings) {
     dashboardWarnings.classList.remove("hidden");
 }
 
-// ✅ Auto-update alerts at staggered intervals
-setInterval(fetchAllAnomalies, 12000);
-}
-
-// 🚨 Show Warning Banner
-function displayWarning(warnings) {
-    document.getElementById("warning-message").innerHTML = warnings.join("<br>");
-    document.getElementById("dashboard-warnings").classList.remove("hidden");
-}
-
 // 🚨 Dismiss Warning
 function dismissWarning() {
     document.getElementById("dashboard-warnings").classList.add("hidden");
 }
+
+// ✅ Auto-update alerts at staggered intervals
+setInterval(fetchAllAnomalies, 12000);
 
 // ✅ Fetch AI-Powered Business Metrics
 let isFetchingMetrics = false;
