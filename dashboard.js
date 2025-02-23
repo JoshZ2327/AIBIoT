@@ -7,6 +7,7 @@ let alertLog = [];
 let socket; // WebSocket for IoT Streaming
 
 /** ✅ Function to Connect to WebSocket for Real-Time IoT Data */
+/** ✅ Function to Connect to WebSocket for Real-Time IoT Data */
 function connectIoTWebSocket() {
     socket = new WebSocket("wss://aibiot-backend.vercel.app/ws/iot");
 
@@ -17,6 +18,11 @@ function connectIoTWebSocket() {
             const data = JSON.parse(event.data);
             if (data.sensor && data.value) {
                 updateIoTDataDisplay(data);
+
+                // ✅ NEW: Handle Anomaly Detection Alerts
+                if (data.anomaly_detected) {
+                    displayAnomalyAlert(data);
+                }
             } else {
                 console.warn("⚠️ Unexpected IoT data format:", data);
             }
@@ -31,6 +37,21 @@ function connectIoTWebSocket() {
         console.warn("⚠️ WebSocket disconnected. Reconnecting in 3 seconds...");
         setTimeout(connectIoTWebSocket, 3000);
     };
+}
+
+/** ✅ Function to Display IoT Anomaly Alerts */
+function displayAnomalyAlert(data) {
+    const alertBox = document.getElementById("iot-anomaly-alert");
+    alertBox.innerHTML = `🚨 <strong>IoT Anomaly Detected!</strong><br>
+                          Sensor: ${data.sensor}<br>
+                          Value: ${data.value}<br>
+                          Severity: ${data.anomaly_severity}`;
+    alertBox.style.display = "block";
+
+    // Optional: Auto-hide alert after 10 seconds
+    setTimeout(() => {
+        alertBox.style.display = "none";
+    }, 10000);
 }
 
 // ✅ Auto-connect WebSocket on page load
