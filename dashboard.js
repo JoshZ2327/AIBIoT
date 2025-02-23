@@ -38,6 +38,54 @@ function connectIoTWebSocket() {
     };
 }
 
+/** ✅ Function to Display Anomaly Alert */
+function displayAnomalyAlert(data) {
+    const { sensor, value, timestamp, anomaly_score, status } = data;
+
+    // 🔔 Display Alert in UI
+    const alertBox = document.getElementById("anomaly-alerts");
+    alertBox.classList.remove("hidden");
+    alertBox.innerHTML = `
+        🚨 <strong>IoT Anomaly Detected!</strong> 
+        <br>Sensor: ${sensor}
+        <br>Value: ${value}
+        <br>Timestamp: ${new Date(timestamp).toLocaleTimeString()}
+        <br>Risk Level: <strong>${status}</strong> (Score: ${anomaly_score})
+    `;
+
+    // 🔊 Play Alert Sound if Enabled
+    playAlertSound();
+
+    // 📝 Log the Alert
+    alertLog.push({ sensor, value, timestamp, anomaly_score, status });
+
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+        alertBox.classList.add("hidden");
+    }, 10000);
+}
+
+/** ✅ Function to Fetch and Display IoT Anomaly History */
+async function fetchAnomalyHistory() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/fetch-anomalies`);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        const data = await response.json();
+        const anomalies = data.anomalies || [];
+
+        const anomalyList = document.getElementById("anomaly-history");
+        anomalyList.innerHTML = anomalies.length
+            ? anomalies.map(a => `<li>🚨 ${a.sensor}: ${a.value} | ${a.timestamp}</li>`).join("")
+            : "<p>No anomalies detected.</p>";
+    } catch (error) {
+        console.error("❌ Error fetching anomalies:", error);
+    }
+}
+
+// ✅ Auto-load Anomaly History on Page Load
+document.addEventListener("DOMContentLoaded", fetchAnomalyHistory);
+
 /** ✅ Function to Fetch and Display All Anomalies (IoT + Business) */
 async function fetchAllAnomalies() {
     try {
@@ -86,15 +134,32 @@ function dismissWarning() {
     document.getElementById("dashboard-warnings").classList.add("hidden");
 }
 
-// ✅ Auto-update alerts at staggered intervals
-setInterval(fetchAllAnomalies, 12000);
+/** ✅ Function to Update IoT Data in the UI */
+function updateIoTDataDisplay(sensorData) {
+    const { timestamp, sensor, value } = sensorData;
+    document.getElementById("latest-data").innerText = 
+        `📡 ${sensor} - ${value} | 🕒 ${new Date(timestamp).toLocaleTimeString()}`;
+
+    updateIoTChart(sensor, value);
+}
+
+/** ✅ Function to Update IoT Data Chart */
+function updateIoTChart(sensor, value) {
+    if (!window.iotChart) return;
+
+    const timeLabel = new Date().toLocaleTimeString();
+    if (window.iotChart.data.labels.length > 10) {
+        window.iotChart.data.labels.shift();
+        window.iotChart.data.datasets[0].data.shift();
+    }
+
+    window.iotChart.data.labels.push(timeLabel);
+    window.iotChart.data.datasets[0].data.push(value);
+    window.iotChart.update();
+}
 
 /** ✅ Function to Fetch AI-Powered Business Metrics */
-let isFetchingMetrics = false;
 async function fetchBusinessMetrics() {
-    if (isFetchingMetrics) return;
-    isFetchingMetrics = true;
-
     try {
         const response = await fetch(`${BACKEND_URL}/ai-dashboard`, { method: "POST" });
         if (!response.ok) throw new Error(`Server error: ${response.status}`);
@@ -105,20 +170,11 @@ async function fetchBusinessMetrics() {
         document.getElementById("traffic").innerText = data.traffic || 0;
     } catch (error) {
         console.error("❌ Error fetching business metrics:", error);
-    } finally {
-        isFetchingMetrics = false;
     }
 }
 
-// ✅ Auto-update metrics every 10 seconds
-setInterval(fetchBusinessMetrics, 10000);
-
 /** ✅ Function to Fetch AI-Powered Business Recommendations */
-let isFetchingRecommendations = false;
 async function fetchRecommendations() {
-    if (isFetchingRecommendations) return;
-    isFetchingRecommendations = true;
-
     try {
         const category = document.getElementById("predict-metric").value;
         const response = await fetch(`${BACKEND_URL}/get-recommendations`, {
@@ -138,60 +194,10 @@ async function fetchRecommendations() {
                 : "<p>No recommendations available.</p>";
     } catch (error) {
         console.error("❌ Error fetching recommendations:", error);
-    } finally {
-        isFetchingRecommendations = false;
     }
 }
 
-// ✅ Auto-update recommendations every 15 seconds
+// ✅ Auto-update at staggered intervals
+setInterval(fetchBusinessMetrics, 10000);
+setInterval(fetchAllAnomalies, 12000);
 setInterval(fetchRecommendations, 15000);
-
-/** ✅ Function to Fetch Predictive Analytics Data */
-async function fetchPredictions() {
-    const category = document.getElementById("predict-metric").value;
-    const future_days = parseInt(document.getElementById("predict-days").value, 10);
-    const model = document.getElementById("predict-model").value;
-
-    if (future_days < 1 || future_days > 90) {
-        alert("Please select a valid prediction period (1-90 days).");
-        return;
-    }
-
-    try {
-        const response = await fetch(`${BACKEND_URL}/predict-trends`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ category, future_days, model })
-        });
-
-        if (!response.ok) throw new Error(`Server error: ${response.status}`);
-
-        const data = await response.json();
-        updatePredictionChart(data.predicted_values, category);
-    } catch (error) {
-        console.error("❌ Error fetching predictions:", error);
-    }
-}
-
-// ✅ Auto-update predictive analytics every 18 seconds
-setInterval(fetchPredictions, 18000);
-
-/** ✅ Function to Update Prediction Chart */
-function updatePredictionChart(predictions, category) {
-    const ctx = document.getElementById("predictionChart").getContext("2d");
-
-    new Chart(ctx, {
-        type: "line",
-        data: {
-            labels: [...Array(predictions.length).keys()].map(day => `Day ${day + 1}`),
-            datasets: [{
-                label: `Predicted ${category} Trend`,
-                data: predictions,
-                backgroundColor: "rgba(75, 192, 192, 0.6)",
-                borderColor: "rgba(75, 192, 192, 1)",
-                borderWidth: 2
-            }]
-        },
-        options: { responsive: true, scales: { y: { beginAtZero: true } } }
-    });
-}
