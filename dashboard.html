@@ -106,22 +106,22 @@
     <h2>📊 AI-Powered IoT & Business Intelligence Dashboard</h2>
     
   <hr>
-    
+
 <!-- 📡 IoT Data Monitoring -->
 <h3>📡 Latest IoT Sensor Data</h3>
 <div id="latest-data" style="margin-bottom: 20px;"></div>
 
 <!-- 🚨 IoT Anomaly Alert Section -->
-<div id="anomaly-alerts" class="hidden alert-box"></div>
+<div id="anomaly-alerts" class="hidden alert-box" style="margin-bottom: 20px;"></div>
 
 <!-- 📊 IoT Anomaly History -->
 <h3>📊 IoT Anomaly History</h3>
-<ul id="anomaly-history"></ul>
+<ul id="anomaly-history" style="margin-bottom: 30px;"></ul>
 <button onclick="fetchAnomalyHistory()">🔄 Refresh Anomalies</button>
-    
-    <!-- 📊 IoT Data History Line Chart -->
-    <h3 style="color: #007BFF; text-align: center;">📊 IoT Data History</h3>
-    <canvas id="iotChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
+
+<!-- 📊 IoT Data History Line Chart -->
+<h3 style="color: #007BFF; text-align: center; margin-top: 40px;">📊 IoT Data History</h3>
+<canvas id="iotChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
