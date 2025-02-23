@@ -154,6 +154,53 @@ async function fetchAlerts() {
     }
 }
 
+/** ✅ Function to Fetch and Display All Anomalies (IoT + Business) */
+async function fetchAllAnomalies() {
+    try {
+        // Fetch business anomalies
+        const businessResponse = await fetch(`${BACKEND_URL}/check-alerts`);
+        if (!businessResponse.ok) throw new Error(`Server error: ${businessResponse.status}`);
+        const businessData = await businessResponse.json();
+        const businessAlerts = businessData.alerts || [];
+
+        // Fetch IoT anomalies
+        const iotResponse = await fetch(`${BACKEND_URL}/fetch-anomalies`);
+        if (!iotResponse.ok) throw new Error(`Server error: ${iotResponse.status}`);
+        const iotData = await iotResponse.json();
+        const iotAlerts = iotData.anomalies || [];
+
+        // Merge both alerts
+        const allAlerts = [...businessAlerts, ...iotAlerts];
+
+        // Display all anomalies at the top
+        if (allAlerts.length > 0) {
+            displayWarning(allAlerts);
+        }
+    } catch (error) {
+        console.error("❌ Error fetching anomalies:", error);
+    }
+}
+
+// ✅ Auto-fetch anomalies on page load
+document.addEventListener("DOMContentLoaded", fetchAllAnomalies);
+
+/** ✅ Updated Function to Show Anomalies in the UI */
+function displayWarning(warnings) {
+    const warningMessage = document.getElementById("warning-message");
+    const dashboardWarnings = document.getElementById("dashboard-warnings");
+
+    // Format and display all alerts inside the existing UI
+    warningMessage.innerHTML = warnings
+        .map(alert => `🚨 ${alert.category || alert.sensor}: ${alert.value || alert.message} | ${alert.timestamp}`)
+        .join("<br>");
+
+    dashboardWarnings.classList.remove("hidden");
+}
+
+// ✅ Auto-update alerts at staggered intervals
+setInterval(fetchAllAnomalies, 12000);
+}
+
 // 🚨 Show Warning Banner
 function displayWarning(warnings) {
     document.getElementById("warning-message").innerHTML = warnings.join("<br>");
