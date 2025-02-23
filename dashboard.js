@@ -38,6 +38,54 @@ function connectIoTWebSocket() {
     };
 }
 
+/** ✅ Function to Display Anomaly Alert */
+function displayAnomalyAlert(data) {
+    const { sensor, value, timestamp, anomaly_score, status } = data;
+
+    // 🔔 Display Alert in UI
+    const alertBox = document.getElementById("anomaly-alerts");
+    alertBox.classList.remove("hidden");
+    alertBox.innerHTML = `
+        🚨 <strong>IoT Anomaly Detected!</strong> 
+        <br>Sensor: ${sensor}
+        <br>Value: ${value}
+        <br>Timestamp: ${new Date(timestamp).toLocaleTimeString()}
+        <br>Risk Level: <strong>${status}</strong> (Score: ${anomaly_score})
+    `;
+
+    // 🔊 Play Alert Sound if Enabled
+    playAlertSound();
+
+    // 📝 Log the Alert
+    alertLog.push({ sensor, value, timestamp, anomaly_score, status });
+
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+        alertBox.classList.add("hidden");
+    }, 10000);
+}
+
+/** ✅ Function to Fetch IoT Anomaly History */
+async function fetchAnomalyHistory() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/fetch-anomalies`);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+
+        const data = await response.json();
+        const anomalies = data.anomalies || [];
+
+        const anomalyList = document.getElementById("anomaly-history");
+        anomalyList.innerHTML = anomalies.length
+            ? anomalies.map(a => `<li>🚨 ${a.sensor}: ${a.value} | ${a.timestamp}</li>`).join("")
+            : "<p>No anomalies detected.</p>";
+    } catch (error) {
+        console.error("❌ Error fetching anomalies:", error);
+    }
+}
+
+// ✅ Auto-load Anomaly History on Page Load
+document.addEventListener("DOMContentLoaded", fetchAnomalyHistory);
+
 /** ✅ Function to Fetch IoT Anomaly History */
 async function fetchAnomalyHistory() {
     try {
