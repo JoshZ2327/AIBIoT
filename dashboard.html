@@ -236,18 +236,19 @@
     
 <div id="automation-rules-list" style="margin-top: 15px;"></div>
 
-<div id="automation-modal" class="hidden" style="margin-top: 10px; padding: 15px;">
+<div id="automation-modal" class="hidden" style="margin-top: 10px; padding: 15px; text-align: center;">
     <h3 style="margin-bottom: 6px;">Create Automation Rule</h3>
 
     <label style="display: block; margin-bottom: 8px;">Trigger Condition:</label>
-<input type="text" id="trigger-condition" placeholder="E.g., Temperature > 50°C" 
-       style="max-width: 80%; width: 100%; padding: 5px;">
+    <input type="text" id="trigger-condition" placeholder="E.g., Temperature > 50°C" 
+           style="margin-bottom: 12px; padding: 5px; width: 100%; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
 
-<label style="display: block; margin-bottom: 8px;">Action:</label>
-<input type="text" id="automation-action" placeholder="E.g., Send Alert" 
-       style="max-width: 80%; width: 100%; padding: 5px;">
+    <label style="display: block; margin-bottom: 8px;">Action:</label>
+    <input type="text" id="automation-action" placeholder="E.g., Send Alert" 
+           style="margin-bottom: 12px; padding: 5px; width: 100%; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
 
-    <button onclick="saveAutomationRule()" style="margin-top: 15px;">Save Rule</button>
+    <button onclick="saveAutomationRule()" style="margin-top: 15px; display: block; margin-left: auto; margin-right: auto;">Save Rule</button>
+</div>
 </div>
 
 <!-- ✅ Add Extra Space Below the Section -->
