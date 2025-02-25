@@ -183,3 +183,51 @@ function showError(message) {
     responseSection.style.display = "block";
     responseText.innerText = message;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const voiceBtn = document.getElementById("voice-btn");
+    const questionInput = document.getElementById("question");
+    const askForm = document.getElementById("ask-form");
+
+    if (!voiceBtn || !questionInput || !askForm) {
+        console.error("❌ Missing elements for voice recognition.");
+        return;
+    }
+
+    voiceBtn.addEventListener("click", function () {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("❌ Voice recognition is not supported in this browser.");
+            return;
+        }
+
+        const recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = "en-US";
+
+        recognition.onstart = function () {
+            voiceBtn.textContent = "🎙️ Listening...";
+            voiceBtn.style.opacity = "0.7";
+        };
+
+        recognition.onresult = function (event) {
+            const transcript = event.results[0][0].transcript.toLowerCase().trim();
+            questionInput.value = transcript;
+            voiceBtn.textContent = "🎤 Speak Your Question";
+            voiceBtn.style.opacity = "1";
+
+            // ✅ Auto-submit if user says "Submit" or "Enter"
+            if (transcript === "submit" || transcript === "enter") {
+                askForm.submit();
+            }
+        };
+
+        recognition.onerror = function () {
+            alert("❌ Voice recognition error. Try again.");
+            voiceBtn.textContent = "🎤 Speak Your Question";
+            voiceBtn.style.opacity = "1";
+        };
+
+        recognition.start();
+    });
+});
