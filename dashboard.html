@@ -104,6 +104,27 @@
   <!-- 📊 AI-Powered IoT & Business Intelligence Dashboard -->
   <section id="dashboard" style="margin-bottom: 50px;">
     <h2>📊 AI-Powered IoT & Business Intelligence Dashboard</h2>
+
+    <hr>
+    
+    <h3 style="margin-bottom: 15px;">⚙️ AI Model Selection</h3>
+
+<label for="ai-model" style="display: block; margin-bottom: 8px;">Select AI Model:</label>
+<select id="ai-model" style="padding: 8px; width: 100%; margin-bottom: 15px;">
+    <option value="auto">Automatic Selection</option>
+    <option value="linear_regression">Linear Regression</option>
+    <option value="arima">ARIMA</option>
+    <option value="prophet">Prophet</option>
+    <option value="isolation_forest">Isolation Forest (Anomaly Detection)</option>
+</select>
+
+<label style="display: flex; align-items: center;">
+    <input type="checkbox" id="auto-select" style="margin-right: 8px;"> Let the platform choose the best model
+</label>
+
+<button onclick="saveAIModel()" style="margin-top: 15px;">💾 Save Model</button>
+
+<p id="ai-model-status" style="color: green; font-weight: bold; margin-top: 10px;"></p>
     
   <hr>
 
