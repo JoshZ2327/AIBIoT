@@ -211,9 +211,15 @@ function saveAutomationRule() {
         return;
     }
 
-    const rule = { trigger: triggerCondition, action: automationAction };
-
     let rules = JSON.parse(localStorage.getItem("automationRules")) || [];
+
+    // Prevent duplicate rules
+    if (rules.some(rule => rule.trigger === triggerCondition && rule.action === automationAction)) {
+        alert("⚠️ This rule already exists.");
+        return;
+    }
+
+    const rule = { trigger: triggerCondition, action: automationAction };
     rules.push(rule);
     localStorage.setItem("automationRules", JSON.stringify(rules));
 
