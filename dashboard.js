@@ -197,6 +197,65 @@ async function fetchRecommendations() {
     }
 }
 
+/** ✅ IoT Automation Rules */
+function openAutomationModal() {
+    document.getElementById("automation-modal").classList.remove("hidden");
+}
+
+function saveAutomationRule() {
+    const triggerCondition = document.getElementById("trigger-condition").value.trim();
+    const automationAction = document.getElementById("automation-action").value.trim();
+
+    if (!triggerCondition || !automationAction) {
+        alert("⚠️ Please enter a valid condition and action.");
+        return;
+    }
+
+    const rule = { trigger: triggerCondition, action: automationAction };
+
+    let rules = JSON.parse(localStorage.getItem("automationRules")) || [];
+    rules.push(rule);
+    localStorage.setItem("automationRules", JSON.stringify(rules));
+
+    displayAutomationRules();
+    document.getElementById("trigger-condition").value = "";
+    document.getElementById("automation-action").value = "";
+    document.getElementById("automation-modal").classList.add("hidden");
+}
+
+function displayAutomationRules() {
+    const rulesList = document.getElementById("automation-rules-list");
+    rulesList.innerHTML = "";
+
+    let rules = JSON.parse(localStorage.getItem("automationRules")) || [];
+
+    if (rules.length === 0) {
+        rulesList.innerHTML = "<p>No automation rules created.</p>";
+        return;
+    }
+
+    rules.forEach((rule, index) => {
+        const ruleItem = document.createElement("div");
+        ruleItem.classList.add("automation-rule-item");
+        ruleItem.innerHTML = `
+            <p><strong>Trigger:</strong> ${rule.trigger}</p>
+            <p><strong>Action:</strong> ${rule.action}</p>
+            <button onclick="deleteAutomationRule(${index})">🗑️ Remove</button>
+        `;
+        rulesList.appendChild(ruleItem);
+    });
+}
+
+function deleteAutomationRule(index) {
+    let rules = JSON.parse(localStorage.getItem("automationRules")) || [];
+    rules.splice(index, 1);
+    localStorage.setItem("automationRules", JSON.stringify(rules));
+    displayAutomationRules();
+}
+
+// ✅ Load Automation Rules on Page Load
+document.addEventListener("DOMContentLoaded", displayAutomationRules);
+
 // ✅ Auto-update at staggered intervals
 setInterval(fetchBusinessMetrics, 10000);
 setInterval(fetchAllAnomalies, 12000);
