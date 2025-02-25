@@ -22,17 +22,19 @@
     <h2>Ask Your Business Question</h2>
     <form id="ask-form" style="position: relative;">
   <label for="question">Enter your question:</label>
-  
-  <div style="position: relative; display: inline-block; width: 100%;">
-    <textarea id="question" name="question" rows="4" placeholder="e.g., What were my sales trends last quarter?" required style="width: 100%; padding-right: 40px;"></textarea>
-    
-    <!-- 🎤 Voice-to-Text Button -->
-    <button type="button" id="voice-btn" class="voice-btn" style="position: absolute; top: 10px; right: 10px; border: none; background: transparent; cursor: pointer;">
+
+  <div style="position: relative; width: 100%;">
+    <textarea id="question" name="question" rows="4" placeholder="e.g., What were my sales trends last quarter?" required 
+      style="width: 100%; padding: 12px; padding-right: 50px; box-sizing: border-box;"></textarea>
+
+    <!-- 🎤 Voice-to-Text Button (Positioned in Top Right) -->
+    <button type="button" id="voice-btn" class="voice-btn" 
+      style="position: absolute; top: 8px; right: 10px; background: none; border: none; cursor: pointer; font-size: 20px;">
       🎤
     </button>
   </div>
 
-  <button type="submit" class="btn">Submit</button>
+  <button type="submit" class="btn" style="margin-top: 10px;">Submit</button>
 </form>
     <div id="response-section" style="display: none;">
       <h3>Response:</h3>
