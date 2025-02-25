@@ -312,6 +312,52 @@ function deleteAutomationRule(index) {
 // ✅ Load Automation Rules on Page Load
 document.addEventListener("DOMContentLoaded", displayAutomationRules);
 
+// ✅ Voice Command for IoT Actions
+function startVoiceCommand() {
+    const voiceStatus = document.getElementById("voice-command-status");
+
+    if (!('webkitSpeechRecognition' in window)) {
+        voiceStatus.textContent = "❌ Voice recognition not supported in this browser.";
+        return;
+    }
+
+    const recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "en-US";
+
+    recognition.onstart = function () {
+        voiceStatus.textContent = "🎙️ Listening...";
+    };
+
+    recognition.onresult = function (event) {
+        const command = event.results[0][0].transcript;
+        voiceStatus.textContent = `✅ Recognized: "${command}"`;
+
+        // Send command to backend
+        fetch(`${BACKEND_URL}/voice-command`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ command }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            voiceStatus.textContent = `✅ Action: ${data.message}`;
+        })
+        .catch(error => {
+            voiceStatus.textContent = "❌ Error processing command.";
+            console.error("Voice Command Error:", error);
+        });
+    };
+
+    recognition.onerror = function (event) {
+        voiceStatus.textContent = "❌ Voice recognition error.";
+        console.error("Voice Recognition Error:", event);
+    };
+
+    recognition.start();
+}
+
 // ✅ Auto-update at staggered intervals
 setInterval(fetchBusinessMetrics, 10000);
 setInterval(fetchAllAnomalies, 12000);
