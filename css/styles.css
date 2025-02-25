@@ -904,6 +904,6 @@ footer {
 @media (min-width: 769px) { 
     #trigger-condition, 
     #automation-action {
-        width: 80%; /* Adjust this value to control the width */
+        width: 60%; /* Adjust this value to control the width */
     }
 }
