@@ -900,3 +900,10 @@ footer {
         margin: 0 auto; /* Centers it */
     }
 }
+
+@media (min-width: 769px) { 
+    #trigger-condition, 
+    #automation-action {
+        width: 80%; /* Adjust this value to control the width */
+    }
+}
