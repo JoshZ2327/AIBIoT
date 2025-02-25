@@ -240,10 +240,12 @@
     <h3 style="margin-bottom: 6px;">Create Automation Rule</h3>
 
     <label style="display: block; margin-bottom: 8px;">Trigger Condition:</label>
-    <input type="text" id="trigger-condition" placeholder="E.g., Temperature > 50°C" style="margin-bottom: 12px; padding: 5px; width: 100%;">
+<input type="text" id="trigger-condition" placeholder="E.g., Temperature > 50°C" 
+       style="max-width: 80%; width: 100%; padding: 5px;">
 
-    <label style="display: block; margin-bottom: 8px;">Action:</label>
-    <input type="text" id="automation-action" placeholder="E.g., Send Alert" style="margin-bottom: 12px; padding: 5px; width: 100%;">
+<label style="display: block; margin-bottom: 8px;">Action:</label>
+<input type="text" id="automation-action" placeholder="E.g., Send Alert" 
+       style="max-width: 80%; width: 100%; padding: 5px;">
 
     <button onclick="saveAutomationRule()" style="margin-top: 15px;">Save Rule</button>
 </div>
