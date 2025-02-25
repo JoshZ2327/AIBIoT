@@ -892,3 +892,11 @@ footer {
     margin: 40px 0 !important; /* Keep spacing uniform */
     opacity: 1 !important; /* Ensure full visibility */
 }
+
+@media (min-width: 768px) { /* ✅ Applies only to Desktop */
+    .ai-model-dropdown {
+        width: 50%; /* Make dropdown half-width on desktop */
+        display: block;
+        margin: 0 auto; /* Centers it */
+    }
+}
