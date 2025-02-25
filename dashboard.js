@@ -1,5 +1,55 @@
 const BACKEND_URL = "https://aibiot-backend.vercel.app"; // Replace with actual backend URL
 
+// ✅ AI Model Selection Logic
+document.addEventListener("DOMContentLoaded", function () {
+    const aiModelDropdown = document.getElementById("ai-model");
+    const aiModelStatus = document.getElementById("ai-model-status");
+
+    // ✅ Load the saved AI model from localStorage (if it exists)
+    const savedModel = localStorage.getItem("selectedAIModel");
+    if (savedModel) {
+        aiModelDropdown.value = savedModel;
+    }
+
+    // ✅ Function to save AI model selection
+    window.saveAIModel = function () {
+        const selectedModel = aiModelDropdown.value;
+        localStorage.setItem("selectedAIModel", selectedModel);
+        aiModelStatus.textContent = `✅ Saved: ${selectedModel}`;
+    };
+
+    // ✅ Attach event listener to dropdown (optional: auto-save on change)
+    aiModelDropdown.addEventListener("change", saveAIModel);
+});
+
+// ✅ Function to get the selected AI model when making predictions
+function getSelectedAIModel() {
+    return localStorage.getItem("selectedAIModel") || "auto"; // Default to auto selection
+}
+
+// ✅ Example: Modify fetch request to send selected AI model
+function fetchPredictions() {
+    const selectedModel = getSelectedAIModel();
+    const metric = document.getElementById("predict-metric").value;
+    const days = document.getElementById("predict-days").value;
+
+    fetch(`${BACKEND_URL}/predict-trends`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            category: metric,
+            future_days: parseInt(days),
+            model: selectedModel
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Prediction Results:", data);
+        alert(`Predictions received for ${metric} using ${selectedModel}!`);
+    })
+    .catch(error => console.error("Error fetching predictions:", error));
+}
+
 // 🎵 Sound Alerts
 const alertSound = new Audio("sounds/alert.mp3");
 let soundEnabled = true;
