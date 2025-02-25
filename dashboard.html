@@ -209,6 +209,21 @@
 
     <hr>
 
+<h3>⚙️ IoT Automation Rules</h3>
+<button onclick="openAutomationModal()">➕ Add Rule</button>
+<div id="automation-rules-list"></div>
+
+<div id="automation-modal" class="hidden">
+    <h3>Create Automation Rule</h3>
+    <label>Trigger Condition:</label>
+    <input type="text" id="trigger-condition" placeholder="E.g., Temperature > 50°C">
+    <label>Action:</label>
+    <input type="text" id="automation-action" placeholder="E.g., Send Alert">
+    <button onclick="saveAutomationRule()">Save Rule</button>
+</div>
+    
+    <hr>
+
     <!-- 📈 Predict Future Business Trends -->
 <h3>📈 Predict Future Business Trends</h3>
 
