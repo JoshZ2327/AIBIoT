@@ -200,6 +200,29 @@ function displayWarning(warnings) {
     dashboardWarnings.classList.remove("hidden");
 }
 
+// ✅ Fetch AI-Adjusted IoT Automation Thresholds
+async function fetchAIThresholds() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/get-digital-twins`);
+        const data = await response.json();
+
+        const thresholdSection = document.getElementById("ai-thresholds");
+        if (data.digital_twins.length > 0) {
+            thresholdSection.innerHTML = data.digital_twins
+                .map(dt => `<p>⚙️ ${dt.asset_name}: <strong>${dt.ai_thresholds.adjusted_threshold || "N/A"}</strong></p>`)
+                .join("");
+        } else {
+            thresholdSection.innerHTML = "<p>✅ No AI thresholds available.</p>";
+        }
+    } catch (error) {
+        console.error("❌ Error fetching AI thresholds:", error);
+        document.getElementById("ai-thresholds").innerHTML = "<p>⚠️ Failed to load AI thresholds.</p>";
+    }
+}
+
+// ✅ Auto-fetch AI Thresholds when Dashboard Loads
+document.addEventListener("DOMContentLoaded", fetchAIThresholds);
+
 // 🚨 Dismiss Warning
 function dismissWarning() {
     document.getElementById("dashboard-warnings").classList.add("hidden");
