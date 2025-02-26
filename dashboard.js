@@ -229,6 +229,29 @@ function updateIoTChart(sensor, value) {
     window.iotChart.update();
 }
 
+// ✅ Fetch and Display AI-Adjusted IoT Thresholds
+async function fetchAIThresholds() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/get-ai-thresholds`);
+        const data = await response.json();
+
+        const thresholdSection = document.getElementById("ai-thresholds");
+        if (data.thresholds.length > 0) {
+            thresholdSection.innerHTML = data.thresholds
+                .map(th => `<p>⚙️ ${th.sensor}: <strong>${th.adjusted_threshold}</strong></p>`)
+                .join("");
+        } else {
+            thresholdSection.innerHTML = "<p>✅ No AI thresholds available.</p>";
+        }
+    } catch (error) {
+        console.error("❌ Error fetching AI thresholds:", error);
+        document.getElementById("ai-thresholds").innerHTML = "<p>⚠️ Failed to load AI thresholds.</p>";
+    }
+}
+
+// ✅ Auto-load AI Thresholds on Page Load
+document.addEventListener("DOMContentLoaded", fetchAIThresholds);
+
 /** ✅ Function to Fetch AI-Powered Business Metrics */
 async function fetchBusinessMetrics() {
     try {
