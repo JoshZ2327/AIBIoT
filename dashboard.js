@@ -133,6 +133,27 @@ async function fetchAnomalyHistory() {
     }
 }
 
+async function fetchAnomalyExplanations() {
+    try {
+        const response = await fetch(`${BACKEND_URL}/get-anomaly-explanations`);
+        const data = await response.json();
+
+        if (data.explanations.length > 0) {
+            displayAnomalyExplanations(data.explanations);
+        } else {
+            document.getElementById("anomaly-explanations").innerHTML = "<p>✅ No recent anomalies detected.</p>";
+        }
+    } catch (error) {
+        console.error("❌ Error fetching AI anomaly explanations:", error);
+        document.getElementById("anomaly-explanations").innerHTML = "<p>⚠️ Failed to load anomaly insights.</p>";
+    }
+}
+
+// ✅ Auto-load Anomaly Explanations on Page Load
+document.addEventListener("DOMContentLoaded", function () {
+    fetchAnomalyHistory(); 
+    fetchAnomalyExplanations(); // 🔹 Make sure it's called here
+});
 // ✅ Auto-load Anomaly History on Page Load
 document.addEventListener("DOMContentLoaded", fetchAnomalyHistory);
 
