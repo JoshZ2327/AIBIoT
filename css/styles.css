@@ -907,3 +907,17 @@ footer {
         width: 60%; /* Adjust this value to control the width */
     }
 }
+
+/* ✅ Default (Desktop View) */
+#digital-twin-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* ✅ Mobile-Specific Styling */
+@media (max-width: 768px) {
+    #digital-twin-title {
+        margin-top: -30px; /* Keep the negative margin for mobile */
+        margin-bottom: 5px;
+    }
+}
