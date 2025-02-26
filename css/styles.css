@@ -921,3 +921,42 @@ footer {
         margin-bottom: 5px;
     }
 }
+
+/* ✅ Standard Thin Black Divider */
+.section-divider {
+    border: none;
+    height: 0.5px;
+    background-color: black;
+    width: 100%;
+    display: block;
+    margin: 40px 0;
+}
+
+/* ✅ Ensure Divider Always Shows */
+.section-divider::before, 
+.section-divider::after {
+    content: "";
+    display: block;
+    height: 0.5px;
+    background-color: black;
+    width: 100%;
+}
+
+/* ✅ Ensure Divider is Visible on Desktop */
+@media (min-width: 769px) {
+    .section-divider {
+        display: block !important;
+        visibility: visible;
+    }
+}
+
+/* ✅ Ensure Divider is Visible on Mobile */
+@media (max-width: 768px) {
+    .section-divider {
+        height: 0.5px;
+        background-color: black;
+        width: 100%;
+        display: block;
+        margin: 30px 0;
+    }
+}
