@@ -425,50 +425,6 @@ function startVoiceCommand() {
     recognition.start();
 }
 
-import * as THREE from 'three';
-
-// Setup Three.js Scene
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-// Load 3D Model
-const loader = new THREE.GLTFLoader();
-loader.load('/models/digital_twin_model.glb', (gltf) => {
-    scene.add(gltf.scene);
-}, undefined, (error) => {
-    console.error('❌ Error loading 3D model:', error);
-});
-
-// Real-time IoT Data Overlay
-async function fetchDigitalTwinData() {
-    const response = await fetch('http://localhost:8000/get-digital-twin-3d?asset_name=Machine1');
-    const data = await response.json();
-
-    if (data.sensor_data.temperature > data.ai_thresholds.adjusted_threshold) {
-        gltf.scene.traverse((child) => {
-            if (child.isMesh) {
-                child.material.color.setHex(0xff0000);  // Change model color to red if anomaly detected
-            }
-        });
-    }
-}
-
-// WebSocket for real-time updates
-const socket = new WebSocket("ws://localhost:8000/ws/iot");
-socket.onmessage = (event) => {
-    fetchDigitalTwinData();
-};
-
-// Animation Loop
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-}
-animate();
-
 // ✅ Auto-update at staggered intervals
 setInterval(fetchBusinessMetrics, 10000);
 setInterval(fetchAllAnomalies, 12000);
