@@ -1049,3 +1049,30 @@ footer {
         margin: 20px 0 0px 0; /* Creates a little more space above the text */
     }
 }
+
+/* ✅ Keeps "Digital Twin Visualization" Extremely Close on Desktop */
+#digital-twin-title {
+    margin-top: -35px;  /* Keeps it very close on both desktop and mobile */
+    margin-bottom: 2px;
+}
+
+/* ✅ Ensures the line is ultra-thin on desktop */
+.section-divider {
+    border: none;
+    height: 0.25px !important; /* Ensures ultra-thin line */
+    background-color: black;
+    width: 100%;
+    display: block;
+    margin: 18px 0 0px 0; /* Keeps the line close */
+}
+
+/* ✅ Keeps mobile at -35px */
+@media (max-width: 768px) {
+    #digital-twin-title {
+        margin-top: -35px; /* Moves text even closer on mobile */
+    }
+
+    .section-divider {
+        margin: 20px 0 0px 0; /* Ensures proper spacing */
+    }
+}
