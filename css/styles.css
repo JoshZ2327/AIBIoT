@@ -942,10 +942,29 @@ footer {
     width: 100%;
 }
 
-/* ✅ Ensure Divider is Visible on Desktop */
-@media (min-width: 769px) {
+/* ✅ Moves "Digital Twin Visualization" closer on all devices */
+#digital-twin-title {
+    margin-top: -15px;  /* Moves it up closer */
+    margin-bottom: 5px; /* Keeps slight spacing */
+}
+
+/* ✅ Keeps the line thin and visible */
+.section-divider {
+    border: none;
+    height: 0.5px; /* ⬅ Keeps it very thin */
+    background-color: black;
+    width: 100%;
+    display: block;
+    margin: 25px 0 2px 0; /* ⬅ Moves the line closer to the text */
+}
+
+/* ✅ Ensures correct spacing on mobile */
+@media (max-width: 768px) {
+    #digital-twin-title {
+        margin-top: -20px; /* Moves text even closer on mobile */
+    }
+
     .section-divider {
-        display: block !important;
-        visibility: visible;
+        margin: 20px 0 2px 0; /* Adjusts spacing on mobile */
     }
 }
