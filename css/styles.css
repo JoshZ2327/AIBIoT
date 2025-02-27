@@ -1005,7 +1005,7 @@ footer {
 /* ✅ Keeps the line thin and even closer */
 .section-divider {
     border: none;
-    height: 0.5px; /* Keeps it ultra-thin */
+    height: 0.2px; /* Keeps it ultra-thin */
     background-color: black;
     width: 100%;
     display: block;
@@ -1042,7 +1042,7 @@ footer {
 /* ✅ Makes text slightly further away on mobile */
 @media (max-width: 768px) {
     #digital-twin-title {
-        margin-top: -25px; /* Moves text slightly further down */
+        margin-top: -35px; /* Moves text slightly further down */
     }
 
     .section-divider {
