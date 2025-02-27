@@ -968,3 +968,30 @@ footer {
         margin: 20px 0 2px 0; /* Adjusts spacing on mobile */
     }
 }
+
+/* ✅ Moves "Digital Twin Visualization" even closer */
+#digital-twin-title {
+    margin-top: -25px;  /* Moves it even closer */
+    margin-bottom: 3px; /* Slight space for balance */
+}
+
+/* ✅ Keeps the line thin and closer to the text */
+.section-divider {
+    border: none;
+    height: 0.5px; /* Keeps it very thin */
+    background-color: black;
+    width: 100%;
+    display: block;
+    margin: 22px 0 1px 0; /* Moves the line closer */
+}
+
+/* ✅ Ensures text is even closer on mobile */
+@media (max-width: 768px) {
+    #digital-twin-title {
+        margin-top: -30px; /* Moves text even closer on mobile */
+    }
+
+    .section-divider {
+        margin: 18px 0 1px 0; /* Reduces gap even more */
+    }
+}
