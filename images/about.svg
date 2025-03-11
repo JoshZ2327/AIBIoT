@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="OBJECTS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1619.04 682.02">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #646464;
+      }
+
+      .cls-2 {
+        fill: #9cf5f3;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #cbfdff;
+        stroke-width: 3px;
+      }
+
+      .cls-4 {
+        fill: #cbfdff;
+      }
+
+      .cls-5 {
+        fill: #b1f9f8;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-149.24" y1="882.07" x2="-149.24" y2="881.08" gradientTransform="translate(245259.85 607747.01) scale(1638 -689)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#cbfdff"/>
+      <stop offset="1" stop-color="#1f1f1f" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path id="Path_9" data-name="Path 9" class="cls-6" d="M42.52,3.97C20.7,3.95,3,21.62,2.98,43.44c0,.02,0,.05,0,.07v596.01c-.02,21.82,17.65,39.52,39.47,39.54h1534.08c21.82.02,39.52-17.65,39.54-39.47V43.51c.02-21.82-17.65-39.52-39.47-39.54-.02,0-.05,0-.07,0H42.52M42.52,1.01h1534.01c23.47,0,42.5,19.03,42.5,42.5v596.01c0,23.47-19.03,42.5-42.5,42.5H42.52C19.05,682.02.02,662.99.02,639.52H.02V43.51C.02,20.03,19.05,1.01,42.52,1.01Z"/>
+  <g id="Rectangle_103" data-name="Rectangle 103">
+    <path class="cls-1" d="M42.52.02h1534.01c23.47,0,42.5,19.03,42.5,42.5v28.66H.02v-28.66C.02,19.05,19.05.02,42.52.02Z"/>
+    <path class="cls-3" d="M42.52,1.5h1534.01c22.65,0,41.02,18.36,41.02,41.02v27.18H1.5v-27.18C1.5,19.86,19.86,1.5,42.52,1.5Z"/>
+  </g>
+  <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-4" cx="44.5" cy="35.6" r="8.9"/>
+  <circle id="Ellipse_5" data-name="Ellipse 5" class="cls-5" cx="65.25" cy="35.6" r="8.9"/>
+  <circle id="Ellipse_6" data-name="Ellipse 6" class="cls-2" cx="86.01" cy="35.6" r="8.9"/>
+</svg>

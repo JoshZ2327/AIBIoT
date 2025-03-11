@@ -1,399 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIBIoT | Dashboard</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    /* ✅ Standard Thin Black Divider */
-    .section-divider {
-        border: none;
-        height: 0.5px;
-        background-color: black;
-        width: 100%;
-        display: block;
-        margin: 40px 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-Powered IoT Dashboard</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-    /* ✅ Ensure Divider Always Shows */
-    .section-divider::before, 
-    .section-divider::after {
-        content: "";
-        display: block;
-        height: 0.5px;
-        background-color: black;
-        width: 100%;
-    }
+  <body class="text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html">AIBIoT</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
 
-    /* ✅ Ensure Divider is Visible on Mobile */
-    @media (max-width: 768px) {
-        .section-divider {
-            height: 0.5px;
-            background-color: black;
-            width: 100%;
-            display: block;
-            margin: 30px 0;
-        }
-    }
-    
-  .section-divider {
-    border: none;
-    height: 0.5px;
-    background-color: black;
-    width: 100%;
-    display: block;
-    margin: 40px 0;
-  }
-
-  .ai-insights-section {
-    max-width: 1000px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border: 2px solid #ddd;
-  }
-
-  #recommendations-section {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    font-size: 18px;
-    text-align: center;
-  }
-</style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="/static/js/digitalTwin.js"></script>
-</head>
-<body>
-
-  <div class="main-content">
-  <!-- All main content goes here -->
-
-  <!-- Header -->
-  <header>
-    <img src="images/4864CF5C-AE8F-4871-AD97-A69C928D344A.webp" alt="Maverick Software Logo" class="logo" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="dashboard.html" class="btn active">Dashboard</a>
-      <a href="login.html">Login</a>
-      <a href="ask.html" class="btn">Ask Question</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="industry.html">Industries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <a
+            href="dashboard.html"
+            class="gradient-button text-decoration-none ms-3"
+            >Dashboard</a
+          >
+        </div>
+      </div>
     </nav>
-  </header>
+    <div class="container-fluid py-4 px-4">
+      <!-- AI Model Selection -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
+          <div class="p-4 bg-dark text-white rounded">
+            <h3 class="mb-3 heroTitleSm">AI Model Selection</h3>
+            <select id="ai-model" class="form-select mb-3">
+              <option value="auto">Automatic Selection</option>
+              <option value="linear_regression">Linear Regression</option>
+              <option value="arima">ARIMA</option>
+              <option value="prophet">Prophet</option>
+            </select>
+            <button class="ctaSm w-100" onclick="saveAIModel()">
+              Save Model
+            </button>
+          </div>
+        </div>
 
-  <!-- 🚨 Real-Time Dashboard Warnings -->
-  <section id="dashboard-warnings" class="hidden" style="margin-bottom: 30px;">
-    <h3>🚨 Warning: Anomalies Detected</h3>
-    <p id="warning-message"></p>
-    <button onclick="dismissWarning()">Dismiss</button>
-  </section>
+        <!-- AI Metrics -->
+        <div class="col-12 col-md-2 mb-4">
+          <div class="card p-3 bg-dark text-white rounded">
+            <h4>Total Revenue</h4>
+            <p id="revenue" class="fs-4">0</p>
+          </div>
+        </div>
 
-  <hr>
+        <div class="col-12 col-md-2 mb-4">
+          <div class="card p-3 bg-dark text-white rounded">
+            <h4>New Users</h4>
+            <p id="users" class="fs-4">0</p>
+          </div>
+        </div>
 
-    <!-- ✅ AI-Powered Anomaly Explanations -->
-<section id="ai-anomaly-explanations" style="margin-top: 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 6px;">
-    <h3>🧠 AI-Powered Anomaly Insights</h3>
-    <div id="anomaly-explanations">
-        <p>⏳ Loading AI insights...</p>
+        <div class="col-12 col-md-2 mb-4">
+          <div class="card p-3 bg-dark text-white rounded">
+            <h4>Website Traffic</h4>
+            <p id="traffic" class="fs-4">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-6 mb-4">
+          <canvas id="lineChart"></canvas>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
+
+      <!-- IoT Automation Rules -->
+      <section class="py-4">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="heroTitleSm">IoT Automation Rules</h3>
+          </div>
+
+          <div class="col-md-6">
+            <h3 class="headerText">Create Automation Rules</h3>
+            <form id="createRule" onsubmit="saveAutomationRule(event)">
+              <div class="mb-4">
+                <label for="triggerCondition" class="form-label"
+                  >Trigger Condition</label
+                >
+                <input
+                  type="text"
+                  id="triggerCondition"
+                  class="form-control inputfield"
+                  placeholder="E.g., Temperature > 50°C"
+                  required
+                />
+              </div>
+
+              <div class="mb-4">
+                <label for="action" class="form-label">Action</label>
+                <input
+                  type="text"
+                  id="action"
+                  class="form-control inputfield"
+                  placeholder="E.g., Send Alert"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="ctaSm w-100">Save Rule</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Revenue Trend -->
+      <section class="py-4 text-center align-items-center">
+        <h3 class="text-center mt-4 mb-4 heroTitleSm">Revenue Trend</h3>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 mb-4">
+            <canvas id="barChart"></canvas>
+          </div>
+          <div class="col-12 col-md-4 mb-4">
+            <canvas id="productPieChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Export Buttons -->
+      <section class="py-4 text-center">
+        <h3 class="heroTitleSm my-4">Export AI Insights</h3>
+        <div class="export-buttons mb-5">
+          <button class="btn btn-success me-2">Export CSV</button>
+          <button class="btn btn-danger me-2">Export PDF</button>
+          <button class="btn btn-info">Export Excel</button>
+        </div>
+      </section>
     </div>
-</section>
 
-  <hr>
-    
-  <!-- 📜 Alert Log Section -->
-  <section id="alert-log-section" style="margin-bottom: 40px;">
-    <h3>📜 Alert Log</h3>
-    <ul id="alert-log"></ul>
-  </section>
-
-  <hr>
-
-  <!-- 📊 AI-Powered IoT & Business Intelligence Dashboard -->
-  <section id="dashboard" style="margin-bottom: 50px;">
-    <h2>📊 AI-Powered IoT & Business Intelligence Dashboard</h2>
-
-    <hr>
-    
-    <h3 style="margin-bottom: 15px;">⚙️ AI Model Selection</h3>
-
-<label for="ai-model" style="display: block; margin-bottom: 8px;">Select AI Model:</label>
-<select id="ai-model" class="ai-model-dropdown">
-    <option value="auto">Automatic Selection</option>
-    <option value="linear_regression">Linear Regression</option>
-    <option value="arima">ARIMA</option>
-    <option value="prophet">Prophet</option>
-    <option value="isolation_forest">Isolation Forest (Anomaly Detection)</option>
-</select>
-
-<button onclick="saveAIModel()" style="margin-top: 15px; margin-bottom: 30px;">💾 Save Model</button>
-
-<p id="ai-model-status" style="color: green; font-weight: bold; margin-top: 10px;"></p>
-    
-  <hr>
-    
-<!-- AI-Adjusted Thresholds Section -->
-<h3>📊 AI-Adjusted IoT Thresholds</h3>
-<div id="ai-thresholds" style="margin-bottom: 20px;"></div>
-
-    <hr>
-    
-<!-- 📡 IoT Data Monitoring -->
-<h3>📡 Latest IoT Sensor Data</h3>
-<div id="latest-data" style="margin-bottom: 20px;"></div>
-    
-<!-- 📊 IoT Data History Line Chart -->
-<h3 style="color: #007BFF; text-align: center; margin-top: 40px;">📊 IoT Data History</h3>
-<canvas id="iotChart" style="max-width: 600px; margin: 20px auto; display: block;"></canvas>
+    <footer class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">
+              &copy; 2025 Maveric Software. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <span>Powered by </span>
+            <a
+              href="https://www.gunadhyasoft.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-decoration-none text-white"
+            >
+              Gunadhya Software Solutions Pvt. Ltd.
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/dashboard.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const ctx = document.getElementById("iotChart").getContext("2d");
+      // Save AI Model
+      function saveAIModel() {
+        alert("AI Model Saved!");
+      }
 
-        const iotData = {
+      // Save Automation Rule
+      function saveAutomationRule(event) {
+        event.preventDefault();
+        alert("Automation Rule Saved!");
+      }
+
+      // Random Number Generator
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // Update Metrics
+      document.getElementById("revenue").textContent = random(1000, 5000);
+      document.getElementById("users").textContent = random(1000, 5000);
+      document.getElementById("traffic").textContent = random(1000, 5000);
+
+      // Line Chart (IoT Sensor Data)
+      new Chart(document.getElementById("lineChart"), {
+        type: "line",
+        data: {
           labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-          datasets: [{
-            label: "Temperature (°C)",
-            data: [22, 24, 26, 23, 25, 27, 28], 
-            backgroundColor: "rgba(54, 162, 235, 0.5)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 2
-          }]
-        };
-
-        new Chart(ctx, {
-          type: "line",
-          data: iotData,
-          options: {
-            responsive: true,
-            scales: {
-              y: { beginAtZero: false }
-            }
-          }
-        });
-      });
-    </script>
-
-    <!-- 🥧 IoT Device Distribution Pie Chart -->
-    <h3>📊 IoT Device Distribution</h3>
-    <canvas id="iotPieChart" style="max-width: 400px; margin: 20px auto;"></canvas>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const ctx = document.getElementById("iotPieChart").getContext("2d");
-
-        new Chart(ctx, {
-          type: "pie",
-          data: {
-            labels: ["Temperature Sensors", "Humidity Sensors", "Pressure Sensors", "Motion Sensors"],
-            datasets: [{
-              data: [35, 25, 20, 20], // Example data distribution
-              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: { position: "bottom" }
-            }
-          }
-        });
-      });
-    </script>
-
-    <hr>
-
-    <!-- 🚀 AI-Powered Business Metrics -->
-    <h3>🚀 AI-Powered Business Metrics</h3>
-    <div class="dashboard-metrics" style="display: flex; justify-content: space-around; margin-bottom: 30px;">
-      <div class="metric-box">
-        <h3>Total Revenue</h3>
-        <p id="total-revenue">$0</p>
-      </div>
-      <div class="metric-box">
-        <h3>New Users</h3>
-        <p id="new-users">0</p>
-      </div>
-      <div class="metric-box">
-        <h3>Website Traffic</h3>
-        <p id="traffic">0</p>
-      </div>
-    </div>
-
-    <!-- 📅 Data Filtering -->
-    <h3 class="filter-title">📅 Filter Business Data</h3>
-    <div class="filter-section" style="margin-bottom: 50px;">
-      <label for="date-range">Select Date Range:</label>
-      <select id="date-range">
-        <option value="7">Last 7 Days</option>
-        <option value="30">Last 30 Days</option>
-        <option value="custom">Custom</option>
-      </select>
-      <label for="category">Select Category:</label>
-      <select id="category">
-        <option value="sales">Sales</option>
-        <option value="users">Users</option>
-        <option value="traffic">Traffic</option>
-      </select>
-      <button id="apply-filter">Apply Filters</button>
-    </div>
-
-<hr>
-
-<h3 style="margin-top: 2px; margin-bottom: 8px;">🎙️ Voice-Controlled IoT Actions</h3>
-<button onclick="startVoiceCommand()" class="voice-btn" style="margin-top: 5px;">🎙️ Start Listening</button>
-<p id="voice-command-status" style="font-weight: bold; margin-top: 10px;"></p>
-<hr style="margin-top: 20px; margin-bottom: 0px;">
-
-<h3 style="margin-top: 0px; margin-bottom: 6px;">⚙️ IoT Automation Rules</h3>
-<button onclick="openAutomationModal()" style="margin-top: 2px; margin-bottom: 20px;">➕ Add Rule</button>
-    
-<div id="automation-rules-list" style="margin-top: 15px;"></div>
-
-<div id="automation-modal" class="hidden" style="margin-top: 5px; padding: 15px; text-align: center;">
-    <h3 style="margin-bottom: 6px;">Create Automation Rule</h3>
-
-    <label style="display: block; margin-bottom: 8px;">Trigger Condition:</label>
-    <input type="text" id="trigger-condition" placeholder="E.g., Temperature > 50°C" 
-           style="margin-bottom: 12px; padding: 5px; width: 100%; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
-
-    <label style="display: block; margin-bottom: 8px;">Action:</label>
-    <input type="text" id="automation-action" placeholder="E.g., Send Alert" 
-           style="margin-bottom: 12px; padding: 5px; width: 100%; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
-
-    <button onclick="saveAutomationRule()" style="margin-top: 15px; display: block; margin-left: auto; margin-right: auto;">Save Rule</button>
-</div>
-
-<!-- ✅ Add Extra Space Below the Section -->
-<div style="margin-bottom: 50px;"></div>
-    
-    <hr>
-
-    <!-- 📈 Predict Future Business Trends -->
-<h3>📈 Predict Future Business Trends</h3>
-
-<div class="predict-section">
-  <div class="select-metric-container">
-    <label for="predict-metric">Select Metric:</label>
-    <select id="predict-metric">
-        <option value="revenue">Revenue</option>
-        <option value="users">Users</option>
-        <option value="traffic">Traffic</option>
-    </select>
-
-    <label for="predict-days">Days to Predict:</label>
-    <input type="number" id="predict-days" value="7" min="1" max="90" />
-
-    <button onclick="fetchPredictions()">🔮 Get Predictions</button>
-</div>
-
-<canvas id="predictionChart" style="margin-bottom: 30px;"></canvas>
-
-    <!-- 📊 Revenue Trend Over the Next 6 Months -->
-<h3>📊 Revenue Trend Over the Next 6 Months</h3>
-
-<div class="chart-container">
-    <canvas id="revenueBarChart"></canvas> 
-    <canvas id="revenuePieChart"></canvas> 
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const barCtx = document.getElementById("revenueBarChart").getContext("2d");
-      const pieCtx = document.getElementById("revenuePieChart").getContext("2d");
-
-      // Bar Chart Data
-      const revenueData = {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-          datasets: [{
-              label: "Revenue ($)",
-              data: [5000, 7000, 6500, 8000, 9000, 9500], 
-              backgroundColor: "rgba(75, 192, 192, 0.6)",
-              borderColor: "rgba(75, 192, 192, 1)",
-              borderWidth: 2
-          }]
-      };
-
-      new Chart(barCtx, {
-          type: "bar",
-          data: revenueData,
-          options: {
-              responsive: true,
-              scales: { y: { beginAtZero: true } }
-          }
+          datasets: [
+            {
+              label: "Temperature (°C)",
+              data: Array.from({ length: 7 }, () => random(-10, 40)),
+              borderColor: "rgba(54, 162, 235, 1)",
+              backgroundColor: "rgba(54, 162, 235, 0.5)",
+            },
+          ],
+        },
+        options: { responsive: true },
       });
 
-      // Pie Chart Data (Revenue Distribution)
-      const revenueDistribution = {
+      // Pie Chart (IoT Sensors)
+      new Chart(document.getElementById("pieChart"), {
+        type: "pie",
+        data: {
+          labels: ["Temperature", "Humidity", "Pressure", "Motion"],
+          datasets: [
+            {
+              data: [40, 35, 25, 12],
+              backgroundColor: ["#FFCE56", "#4BC0C0", "#36A2EB", "#ff6384"],
+            },
+          ],
+        },
+        options: { responsive: true },
+      });
+
+      // Bar Chart (Revenue Analysis)
+      new Chart(document.getElementById("barChart"), {
+        type: "bar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+          datasets: [
+            {
+              label: "Revenue (in $)",
+              data: Array.from({ length: 7 }, () => random(100, 900)),
+              backgroundColor: "rgba(148, 226, 74, 0.7)",
+            },
+          ],
+        },
+        options: { responsive: true },
+      });
+
+      // Pie Chart (Products)
+      new Chart(document.getElementById("productPieChart"), {
+        type: "pie",
+        data: {
           labels: ["Product A", "Product B", "Product C", "Product D"],
-          datasets: [{
-              data: [40, 30, 20, 10], // Example distribution
-              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
-          }]
-      };
-
-      new Chart(pieCtx, {
-          type: "pie",
-          data: revenueDistribution,
-          options: {
-              responsive: true,
-              plugins: {
-                  legend: { position: "bottom" }
-              }
-          }
+          datasets: [
+            {
+              data: [40, 35, 25, 12],
+              backgroundColor: ["#FFCE56", "#4BC0C0", "#36A2EB", "#ff6384"],
+            },
+          ],
+        },
+        options: { responsive: true },
       });
-  });
-</script>
-
-  <div class="chart-container">
-    <canvas id="revenueBarChart"></canvas> 
-    <canvas id="revenuePieChart"></canvas> 
-</div>
-  
+    </script>
+  </body>
 </html>
-  
-<!-- ✅ AI-Generated Business Recommendations -->
-<section class="ai-insights-section">
-    <h3>📢 AI-Generated Business Recommendations</h3>
-    <div id="recommendations-section">
-        <p>🚀 AI is analyzing your data... please wait.</p> <!-- Updated Default Text -->
-    </div>
-</section>
-
-<hr class="section-divider">
-<h3 id="digital-twin-title" style="color: #007BFF; font-weight: bold;">🌎 Digital Twin Visualization</h3>
-<img id="digital-twin-demo" src="/images/01FF5E78-A4BB-4F83-B77C-640D061C4ED3.png" 
-     alt="Digital Twin 3D Demo" 
-     style="width:100%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
-
-<hr class="section-divider">
-  
-<!-- ✅ Export Section -->
-<section class="export-section">
-    <h3 class="export-title">🚀 Export AI Insights</h3> <!-- ✅ Centered & Black -->
-    <div class="export-buttons">
-        <button id="export-csv">Export CSV</button>
-        <button id="export-pdf">Export PDF</button>
-        <button id="export-excel">Export Excel</button>
-    </div>
-  
-</section>
-
-  </div>
-    
-  <script src="js/dashboard.js"></script>
-
-<script>
-  fetch("js/dashboard.js")
-    .then(response => {
-      if (!response.ok) throw new Error("🚨 dashboard.js not found!");
-      return response.text();
-    })
-    .then(text => console.log("✅ dashboard.js loaded"))
-    .catch(error => console.error(error));
-</script>
-</body>
-    </html>
