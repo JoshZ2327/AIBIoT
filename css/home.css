@@ -146,7 +146,7 @@ body {
 }
 .paraTextSm {
   font-size: 20px !important;
-  width: 60%;
+  width: 80%;
   text-align: center;
   margin: 0 auto;
   margin-bottom: 2rem;
@@ -168,7 +168,7 @@ body {
   /* letter-spacing: 1px; */
 }
 .feature-card {
-  border: 2px solid #8d8d8d;
+  border: 2px solid #585a63;
   border-radius: 8px;
   height: 200px;
   margin-bottom: 2rem;
@@ -193,13 +193,14 @@ body {
 .accordion-item {
   padding: 20px;
   background-color: #0a0f14 !important;
-  /* border-radius: 20px; */
+  border-radius: 12px;
   box-shadow: 2px 4px 8px #2a4e72;
   color: #fff !important;
   /* font-family: "Unbounded", sans-serif; */
   margin: 0;
   font-weight: 400;
   margin-bottom: 2rem;
+  border: 0 !important;
 }
 .accordion-button {
   font-family: "Unbounded", sans-serif !important;

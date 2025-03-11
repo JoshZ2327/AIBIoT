@@ -1,95 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About AIBIoT | Maverick Software</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <!-- Header with navigation -->
-  <header>
-    <img src="images/4864CF5C-AE8F-4871-AD97-A69C928D344A.webp" alt="Maverick Software Logo" class="logo" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="ask.html">Ask Question</a>
-      <a href="login.html">Login</a>
-      <a href="about.html" class="btn active">About</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About AIBIoT | Maverick Software</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html">AIBIoT</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="industry.html">Industries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <a
+            href="dashboard.html"
+            class="gradient-button text-decoration-none ms-3"
+            >Dashboard</a
+          >
+        </div>
+      </div>
     </nav>
-  </header>
 
-  <!-- About Section -->
-  <section id="about-section">
-    <h2 class="section-title">About AIBIoT by Maverick Software</h2>
-    <div class="about-content">
-      <p>
-        AIBIoT is an innovative, cloud-based platform that seamlessly integrates data from multiple sources—ranging from IoT devices and SQL databases to CSV files and external APIs—to deliver advanced, AI-powered business insights.
-      </p>
-      <p>
-        Designed for both small-to-medium businesses and enterprise clients, AIBIoT unifies real-time analytics with historical data analysis, enabling organizations to make data-driven decisions with unparalleled accuracy.
-      </p>
+    <!-- About Section -->
+    <section id="features" class="features py-5">
+      <div class="container">
+        <h2 class="text-center heroTitleSm mb-4">
+          About AIBIoT by Maverick Software
+        </h2>
+        <div class="row g-4">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="feature-card h-100 p-4">
+              <h3 class="headerText">AI Powered Dashboard</h3>
+              <p class="featureContent">
+                At its core, AIBIoT offers a user-friendly customizable
+                dashboard that displays live IoT sensor readings as well as
+                critical business metrics, such as revenue, user engagement, and
+                website traffic.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="feature-card h-100 p-4">
+              <h3 class="headerText">IoT Automation</h3>
+              <p class="featureContent">
+                AIBIoT’s automation capabilities enable real-time IoT data
+                processing, triggering intelligent actions based on AI-driven
+                insights. Businesses can create custom automation rules to
+                optimize operations, such as predictive maintenance, anomaly
+                detection, and energy management. With seamless API-based
+                integration, AIBIoT ensures devices, cloud platforms, and
+                enterprise systems work together for fully automated,
+                data-driven decision-making.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="feature-card h-100 p-4">
+              <h3 class="headerText">
+                Predictive Analysis & Anomaly Detection
+              </h3>
+              <p class="featureContent">
+                Using advanced machine learning algorithms, including Linear
+                Regression and ARIMA forecasting models, the platform predicts
+                future trends with confidence intervals, giving businesses a
+                clear picture of what lies ahead.
+              </p>
+              <p class="featureContent">
+                The system also employs anomaly detection techniques to identify
+                irregular patterns, ensuring that any unexpected issues are
+                promptly flagged through real-time alerts sent via SMS and
+                email.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="feature-card h-100 p-4">
+              <h3 class="headerText">Actionable AI-Driven Recommendations</h3>
+              <p class="featureContent">
+                Beyond mere data aggregation, AIBIoT goes a step further by
+                generating actionable recommendations tailored to your unique
+                business landscape.
+              </p>
+              <p class="featureContent">
+                Whether it’s optimizing marketing strategies, refining inventory
+                management, or scaling operations, the platform’s AI-driven
+                suggestions empower decision-makers to proactively address
+                challenges and seize new opportunities.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="feature-card h-100 p-4">
+              <h3 class="headerText">Scalability & Customization</h3>
+              <p class="featureContent">
+                With its high level of customization and white-label
+                capabilities, AIBIoT provides a scalable solution that adapts to
+                the evolving needs of modern businesses—truly a next-generation
+                tool for unlocking the power of smart data.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="feature-card h-100 p-4">
+              <h3 class="headerText">Digital Twins Technology</h3>
+              <p class="featureContent">
+                AIBIoT’s digital twins create real-time virtual models of
+                physical assets, enabling businesses to monitor, analyze, and
+                optimize device performance. By integrating AI and IoT data,
+                AIBIoT provides predictive insights, detects anomalies, and
+                automates responses to improve efficiency and reduce downtime.
+                With seamless scalability, businesses can manage millions of
+                devices through interactive 3D visualizations and AI-driven
+                simulations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <hr />
-
-      <h2 class="section-heading">Advanced Question Answering</h2>
-      <p>
-        AIBIoT has advanced business question answering capabilities. Simply type in or speak any business question you may have and the platform will give an accurate and insightful answer based off of your data and our powerful AI. 
-      </p>
-
-      <hr />
-      
-      <h2>AI-Powered Dashboard</h2>
-      <p>
-        At its core, AIBIoT offers a user-friendly customizable dashboard that displays live IoT sensor readings as well as critical business metrics, such as revenue, user engagement, and website traffic.
-      </p>
-
-      <hr />
-
-      <h2 class="section-heading">IoT Automation</h2>
-      <p>
-        AIBIoT’s automation capabilities enable real-time IoT data processing, triggering intelligent actions based on AI-driven insights. Businesses can create custom automation rules to optimize operations, such as predictive maintenance, anomaly detection, and energy management. With seamless API-based integration, AIBIoT ensures devices, cloud platforms, and enterprise systems work together for fully automated, data-driven decision-making.
-      </p>
-
-      <hr />
-
-      <h2 class="section-heading">Digital Twins Technology</h2>
-      <p>
-        AIBIoT’s digital twins create real-time virtual models of physical assets, enabling businesses to monitor, analyze, and optimize device performance. By integrating AI and IoT data, AIBIoT provides predictive insights, detects anomalies, and automates responses to improve efficiency and reduce downtime. With seamless scalability, businesses can manage millions of devices through interactive 3D visualizations and AI-driven simulations.
-      </p>
-
-      <hr />
-      
-      <h2>Predictive Analytics & Anomaly Detection</h2>
-      <p>
-        Using advanced machine learning algorithms, including Linear Regression and ARIMA forecasting models, the platform predicts future trends with confidence intervals, giving businesses a clear picture of what lies ahead.
-      </p>
-      <p>
-        The system also employs anomaly detection techniques to identify irregular patterns, ensuring that any unexpected issues are promptly flagged through real-time alerts sent via SMS and email.
-      </p>
-
-      <hr />
-
-      <h2>Actionable AI-Driven Recommendations</h2>
-      <p>
-        Beyond mere data aggregation, AIBIoT goes a step further by generating actionable recommendations tailored to your unique business landscape.
-      </p>
-      <p>
-        Whether it’s optimizing marketing strategies, refining inventory management, or scaling operations, the platform’s AI-driven suggestions empower decision-makers to proactively address challenges and seize new opportunities.
-      </p>
-
-      <hr />
-
-      <h2>Scalability & Customization</h2>
-      <p>
-        With its high level of customization and white-label capabilities, AIBIoT provides a scalable solution that adapts to the evolving needs of modern businesses—truly a next-generation tool for unlocking the power of smart data.
-      </p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Maverick Software. All rights reserved.</p>
-  </footer>
-</body>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">
+              &copy; 2025 Maveric Software. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <span>Powered by </span>
+            <a
+              href="https://www.gunadhyasoft.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-decoration-none text-white"
+            >
+              Gunadhya Software Solutions Pvt. Ltd.
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
