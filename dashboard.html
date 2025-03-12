@@ -58,6 +58,19 @@
       </div>
     </nav>
     <div class="container-fluid py-4 px-4">
+            <!-- Anomalies Section -->
+      <section class="py-4">
+        <h3 class="heroTitleSm">Real-Time Anomaly Detection</h3>
+        <div id="anomaly-alerts" class="alert alert-danger hidden" role="alert">
+          <strong>🚨 IoT Anomaly Detected!</strong>
+          <p id="anomaly-message" class="mb-0"></p>
+        </div>
+
+        <h4 class="headerText mt-4">Anomaly History</h4>
+        <div id="anomaly-history" class="bg-dark p-3 rounded text-white">
+          <p class="text-muted">Fetching anomaly history...</p>
+        </div>
+      </section>
       <!-- AI Model Selection -->
       <div class="row justify-content-center mb-4">
         <div class="col-12 col-md-6 col-lg-4 text-center">
