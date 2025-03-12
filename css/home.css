@@ -232,16 +232,7 @@ body {
   color: transparent !important;
   box-shadow: none !important;
 }
-.gradient-button {
-  padding: 12px 30px !important;
-  font-size: 18px;
-  color: #0a0f14 !important;
-  border: none !important;
-  border-radius: 60px !important;
-  cursor: pointer;
-  background: linear-gradient(45deg, #08bc99, #84e6db, #ccfeff);
-  transition: all 0.6s ease;
-}
+
 /* input */
 .inputfield {
   background-color: transparent !important;
@@ -271,6 +262,7 @@ body {
   .bubble2 {
     display: none;
   }
+
   .cta {
     padding: 10px 20px !important;
     border: 2px solid #fff !important;
@@ -280,4 +272,12 @@ body {
     color: #4b4f53 !important;
     box-shadow: 2px 2px 5px #ffffff;
   }
+  .paraTextSm {
+    width: 100%;
+  }
+  .mbSm-4 {
+    margin-bottom: 1.5rem !important;
+  }
 }
+
+
