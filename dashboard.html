@@ -58,19 +58,41 @@
       </div>
     </nav>
     <div class="container-fluid py-4 px-4">
-            <!-- Anomalies Section -->
-      <section class="py-4">
-        <h3 class="heroTitleSm">Real-Time Anomaly Detection</h3>
-        <div id="anomaly-alerts" class="alert alert-danger hidden" role="alert">
-          <strong>🚨 IoT Anomaly Detected!</strong>
-          <p id="anomaly-message" class="mb-0"></p>
+            <section id="anomalies-section" class="py-4">
+    <div class="container">
+        <div class="row">
+            <!-- ✅ IoT Anomaly Detection Title (Centered on Desktop) -->
+            <div class="col-12">
+                <h3 class="anomaly-title">IoT Anomaly Detected!</h3>
+            </div>
         </div>
 
-        <h4 class="headerText mt-4">Anomaly History</h4>
-        <div id="anomaly-history" class="bg-dark p-3 rounded text-white">
-          <p class="text-muted">Fetching anomaly history...</p>
+        <!-- Anomaly Alert Box -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <div id="anomaly-alerts" class="alert alert-danger text-center hidden">
+                    <!-- Alert messages will be dynamically inserted here -->
+                </div>
+            </div>
         </div>
-      </section>
+
+        <!-- ✅ Anomaly History Title (Centered on Desktop) -->
+        <div class="row">
+            <div class="col-12">
+                <h3 class="anomaly-title">Anomaly History</h3>
+            </div>
+        </div>
+
+        <!-- Anomaly History List -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <ul id="anomaly-history" class="list-group">
+                    <!-- Anomaly history will be dynamically inserted here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
       <!-- AI Model Selection -->
       <div class="row justify-content-center mb-4">
         <div class="col-12 col-md-6 col-lg-4 text-center">
