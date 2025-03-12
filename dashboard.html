@@ -201,7 +201,30 @@
           </div>
         </div>
       </section>
+     <!-- 🤖 AI Business Recommendations -->
+<section class="py-4 text-center">
+  <h3 class="heroTitleSm my-4">AI-Powered Business Recommendations</h3>
+  <form id="recommendations-form" class="mb-4">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <label for="recommend-metric" class="form-label">Select Metric</label>
+        <select id="recommend-metric" class="form-select">
+          <option value="revenue">Revenue</option>
+          <option value="new_users">New Users</option>
+          <option value="traffic">Website Traffic</option>
+        </select>
+      </div>
+      <div class="col-md-3 align-self-end">
+        <button type="submit" class="ctaSm w-100">Get Recommendations</button>
+      </div>
+    </div>
+  </form>
 
+  <div id="recommendations-section" class="bg-dark text-white p-3 rounded">
+    <h4 class="headerText">Recommendations</h4>
+    <ul id="recommendations-list" class="text-muted"></ul>
+  </div>
+</section>
       <!-- Export Buttons -->
       <section class="py-4 text-center">
         <h3 class="heroTitleSm my-4">Export AI Insights</h3>
