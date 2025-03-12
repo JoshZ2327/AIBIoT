@@ -279,5 +279,10 @@ body {
     margin-bottom: 1.5rem !important;
   }
 }
-
+@media (min-width: 768px) { /* Only apply to desktop screens */
+    .anomaly-title {
+        text-align: center;
+        display: block;
+    }
+}
 
