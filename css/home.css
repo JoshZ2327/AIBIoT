@@ -285,4 +285,39 @@ body {
         display: block;
     }
 }
+.text-muted {
+    color: #b0b0b0 !important; /* Ensures muted text is visible */
+}
 
+.text-white {
+    color: white !important; /* Forces text to be fully visible */
+}
+
+.ctaSm {
+    background-image: linear-gradient(to left, #8acccd, #49c2b4);
+    border: none !important;
+    color: #0a0f14; /* Dark text for contrast */
+    font-weight: 600 !important;
+    font-family: "Montserrat";
+    padding: 12px 20px !important;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.ctaSm:hover {
+    transform: scale(1.05);
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) { 
+    .text-center .col-md-6 {
+        text-align: center;
+    }
+}
